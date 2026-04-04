@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project status
 
-**Phase 1 (content migration) is done.** `content/` holds 35 YAML files + 1 Markdown pitch + 8 images — see the "Content conventions" section of `portfolio-plan.md` for the schema decisions (especially `summary` vs `highlights`, `archived:` / `archived_highlights:`, `parent:` on projects, and the flat skills list with `group` field). The repo is now ready for **Phase 2 (CV pipeline)**: forking a Typst Universe template into `cv/template.typ` and writing `scripts/resolve-profile.js`. The Astro site under `site/` and the Makefile still don't exist — follow the plan's structure rather than inventing a new one, and keep the plan updated if the approach shifts.
+**Phase 1 (content migration) is done.** **Phase 2 (CV pipeline) is implemented** — `Makefile`, `package.json`, `scripts/resolve-profile.js`, `scripts/copy-default-cv.js`, and `cv/template.typ` all exist. Run `npm install && make cv` to produce `outputs/default.pdf`. The Astro site under `site/` does not exist yet (Phase 3).
+
+`content/` holds 35 YAML files + 1 Markdown pitch + 8 images — see the "Content conventions" section of `portfolio-plan.md` for the schema decisions (especially `summary` vs `highlights`, `archived:` / `archived_highlights:`, `parent:` on projects, and the flat skills list with `group` field).
 
 Despite the repo name, this project is **not** related to the Prisma ORM. It's a personal portfolio + CV generator for Giovanni Claudio. Don't suggest a rename on that basis (see "deliberately not doing" in the plan).
 
@@ -19,7 +21,7 @@ The bridge between the two is `scripts/resolve-profile.js`: it reads a profile Y
 
 ## Commands
 
-All driven by `make` (see plan for the Makefile). Once implemented:
+All driven by `make`:
 
 ```bash
 make dev                                                    # Astro dev server
@@ -30,6 +32,12 @@ make clean                                                  # rm -rf .build/ out
 ```
 
 `.build/` and `outputs/` are gitignored build artefacts; never commit them.
+
+## CV pipeline internals
+
+`scripts/resolve-profile.js` → `.build/resolved.json` → `typst compile --root $(CURDIR) --input data=<abs-path>` → PDF.
+
+The Typst template (`cv/template.typ`) uses the **brilliant-CV** package (`@preview/brilliant-cv:3.3.0`). It builds the `metadata` dict inline from `data.contact` / `data.bio` (no `metadata.toml` needed). Sections are rendered by iterating over the JSON arrays with Typst's `for` loops and `cv-entry()` / `cv-skill()` / `cv-honor()` calls. The `--root $(CURDIR)` flag is required so Typst can access image paths under `content/assets/` and the JSON at `.build/resolved.json`.
 
 ## Reference material in `inputs/`
 

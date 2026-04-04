@@ -1,0 +1,194 @@
+// cv/template.typ
+// Giovanni Claudio — CV
+//
+// Rendered by:  typst compile --input data=<abs-path-to-resolved.json> cv/template.typ
+// Data source:  .build/resolved.json  (written by scripts/resolve-profile.js)
+// Template:     brilliant-CV v3.3.0 (https://typst.app/universe/package/brilliant-cv)
+
+#import "@preview/brilliant-cv:3.3.0": cv, cv-section, cv-entry, cv-entry-start, cv-entry-continued, cv-skill, cv-honor, h-bar
+
+// ── Load resolved data ────────────────────────────────────────────────────
+
+#let data    = json(sys.inputs.at("data"))
+#let contact = data.contact
+#let bio     = data.bio
+
+// ── Build metadata dict (replaces metadata.toml) ─────────────────────────
+
+#let name-parts = contact.name.split(" ")
+
+#let metadata = (
+  personal: (
+    first_name: name-parts.first(),
+    last_name:  name-parts.slice(1).join(" "),
+    info: (
+      email:     contact.email,
+      phone:     contact.phone,
+      github:    "https://github.com/" + contact.github,
+      linkedin:  "https://linkedin.com/in/" + contact.linkedin,
+      homepage:  contact.website,
+      location:  contact.location,
+      extraInfo: "",
+    ),
+  ),
+  layout: (
+    awesome_color:              "skyblue",
+    paper_size:                 "a4",
+    font_size:                  "9.5pt",
+    display_profile_photo:      true,
+    display_entry_society_first: false,
+    display_page_counter:       true,
+    display_footer:             true,
+    before_section_skip:        "5pt",
+    before_entry_skip:          "3pt",
+  ),
+  lang: (
+    language: "en",
+    en: (
+      header_quote: data.pitch,
+      cv_footer:    contact.name + " — Curriculum Vitae",
+      letter_footer: "",
+    ),
+  ),
+)
+
+// ── Document setup ────────────────────────────────────────────────────────
+
+#show: cv.with(
+  metadata,
+  profile-photo: image(bio.photo.src),
+)
+
+// ── Helpers ───────────────────────────────────────────────────────────────
+
+// Return the first logo image for an entry, or "" if none.
+#let entry-logo(entry) = {
+  let images = entry.at("images", default: ())
+  if images.len() > 0 { image(images.at(0).src) } else { "" }
+}
+
+// Format start–end date range.
+#let entry-date(entry) = {
+  entry.start_formatted + " – " + entry.end_formatted
+}
+
+// Render highlights as a list, or "" if empty.
+#let entry-description(entry) = {
+  let hl = entry.at("highlights", default: ())
+  if hl.len() > 0 { list(..hl.map(h => [#h])) } else { "" }
+}
+
+#let entry-tags(entry) = entry.at("tags", default: ())
+
+// ── Experience ────────────────────────────────────────────────────────────
+
+#cv-section("Experience")
+
+// Detect consecutive same-company entries and use start/continued pattern.
+#let experience = data.experience
+#let exp-len    = experience.len()
+#let i          = 0
+
+#while i < exp-len {
+  let entry = experience.at(i)
+  // Look ahead: collect all entries sharing the same company name.
+  let j = i + 1
+  while j < exp-len and experience.at(j).company == entry.company {
+    j += 1
+  }
+  let group = experience.slice(i, j)  // one or more roles at this company
+
+  if group.len() == 1 {
+    // Single entry — plain cv-entry.
+    cv-entry(
+      title:       entry.role,
+      society:     entry.company,
+      date:        entry-date(entry),
+      location:    entry.location,
+      description: entry-description(entry),
+      logo:        entry-logo(entry),
+      tags:        entry-tags(entry),
+    )
+  } else {
+    // Multiple roles at same company — use start/continued pattern.
+    cv-entry-start(
+      society:  entry.company,
+      location: entry.location,
+      logo:     entry-logo(entry),
+    )
+    for role in group {
+      cv-entry-continued(
+        title:       role.role,
+        date:        entry-date(role),
+        description: entry-description(role),
+        tags:        entry-tags(role),
+      )
+    }
+  }
+
+  i = j
+}
+
+// ── Education ─────────────────────────────────────────────────────────────
+
+#cv-section("Education")
+
+#for entry in data.education {
+  cv-entry(
+    title:       entry.degree,
+    society:     entry.institution,
+    date:        entry-date(entry),
+    location:    entry.location,
+    description: entry-description(entry),
+    logo:        entry-logo(entry),
+  )
+}
+
+// ── Projects ──────────────────────────────────────────────────────────────
+
+#if data.projects.len() > 0 {
+  cv-section("Projects")
+
+  for entry in data.projects {
+    cv-entry(
+      title:       entry.name,
+      society:     entry.at("organisation", default: ""),
+      date:        entry-date(entry),
+      location:    "",
+      description: entry-description(entry),
+      tags:        entry.at("stack", default: ()),
+    )
+  }
+}
+
+// ── Publications ──────────────────────────────────────────────────────────
+
+#if data.publications.len() > 0 {
+  cv-section("Publications")
+
+  for pub in data.publications {
+    cv-honor(
+      date:   str(pub.year),
+      title:  pub.title,
+      issuer: pub.venue,
+      url:    pub.at("url", default: ""),
+    )
+  }
+}
+
+// ── Skills ────────────────────────────────────────────────────────────────
+
+#cv-section("Skills")
+
+// Build ordered list of unique groups, then render one cv-skill per group.
+#let seen-groups = data.skills.fold((), (acc, s) => {
+  if acc.contains(s.group) { acc } else { acc + (s.group,) }
+})
+
+#for g in seen-groups {
+  let labels = data.skills.filter(s => s.group == g).map(s => s.label)
+  cv-skill(
+    type: g,
+    info: labels.join([#h-bar()]),
+  )
+}

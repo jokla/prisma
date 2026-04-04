@@ -12,9 +12,7 @@ summary: >
   the sprint roadmap, mentored junior engineers and drove the software
   architecture from design through adoption. A new IPC-based approach I
   proposed and prototyped became the foundation for the product, meeting
-  latency and software-segregation requirements. I also helped enable the
-  first IONA lab two months ahead of schedule and initiated a Git/CI
-  modernisation proof of concept.
+  latency and software-segregation requirements.
 highlights:
   - Designed the software architecture for the surgical-guidance AI/video
     pipeline, meeting latency and software-segregation requirements.
@@ -22,11 +20,7 @@ highlights:
     foundation for the product.
   - Led the technical direction of AI and video software; team delivered
     feature completeness ahead of schedule.
-  - Identified hardware options and adjusted the plan to deliver the first
-    IONA lab two months earlier than originally expected.
   - Mentored junior engineers, fostering skill development within the team.
-  - Developed a proof of concept demonstrating feasibility of migrating
-    from Bitbucket to GitHub, improving future CI/CD workflows.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery
