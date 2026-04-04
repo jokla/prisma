@@ -1,0 +1,25 @@
+id: italdesign
+company: Italdesign Giugiaro (Volkswagen Group)
+role: Autonomous Driving Engineer
+location: Turin, Italy
+start: 2017-09
+end: 2019-09
+website: https://www.italdesign.it/
+tags: [autonomous-driving, perception, deep-learning, slam, cpp, ros]
+summary: >
+  Joined Italdesign's new Autonomous Driving team as robotics expert.
+  Responsible for sensor set and software architecture on the Pop.Up
+  flying-car project, and technical lead for machine-learning and
+  computer-vision work on InTo, Wheem-i and Roborace.
+highlights:
+  - Machine Learning and Computer Vision technical lead of InTo — a service that improves travel on the metro.
+  - Responsible for the perception and software architecture of Pop.Up — an electric, modular and autonomous flying car developed with Airbus and Audi.
+  - Developed perception systems for obstacle and free-navigable-space detection on Wheem-i and Roborace.
+  - Research, implementation and deployment of perception, mapping/localisation and control algorithms.
+  - Training and deployment of deep neural networks for object detection and semantic image segmentation.
+archived_highlights:
+  # Previously commented out in the LaTeX source
+  - Sensor scouting and evaluation (mainly cameras, lidars and depth cameras).
+images:
+  - src: giovanni.claudio.pop.up.jpg
+    alt: Pop.Up flying car prototype

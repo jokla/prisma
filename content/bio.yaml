@@ -1,0 +1,37 @@
+# Short bio — adapted from the old Jekyll about page. First-person, rendered
+# on the website About / Home pages.
+short: >
+  Hi! My name is Giovanni Claudio. I'm originally from Genoa, Italy, and now
+  based in London. From 2013 to 2017 I worked as a Robotics Engineer in the
+  Lagadic group at INRIA in Rennes. In 2017 I joined the Autonomous Driving
+  team at Italdesign Giugiaro, where I led projects in machine learning and
+  computer vision for autonomous vehicles and mobility solutions. Since 2019
+  I've been in London — first building autonomous mobile robots at Arrival,
+  and now as a Senior Principal Software Engineer at Medtronic, developing
+  AI-powered video systems for surgical robotics.
+
+# Long bio — adapted from a 2018 DeepMind cover letter, updated for the
+# current career arc. Useful source material for tailored profile pitches.
+long: >
+  I'm a robotics engineer with over a decade of experience in perception,
+  sensor-based control, computer vision and deep learning across research
+  and industry. My work spans humanoid manipulation at INRIA, autonomous
+  vehicles and smart mobility at Italdesign Giugiaro, autonomous mobile
+  robots at Arrival, and now real-time AI/video pipelines for robotic and
+  laparoscopic surgery at Medtronic. I especially enjoy the problem of
+  turning research-grade perception models into reliable deployable systems
+  on embedded hardware, and working across the machine-learning, embedded
+  and product-design disciplines it takes to get there.
+
+origin: Genoa, Italy
+
+# Headshot — used by the CV header and the website About/Home hero.
+photo:
+  src: bio-photo22.jpg
+  alt: Giovanni Claudio
+
+languages:
+  - { name: English,  level: Fluent }
+  - { name: Italian,  level: Native }
+  - { name: French,   level: Intermediate }
+  - { name: Spanish,  level: Basic }

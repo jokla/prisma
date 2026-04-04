@@ -1,0 +1,14 @@
+id: spack
+company: Spack Srl
+role: IT Assistant
+location: Genoa, Italy
+start: 2008-07
+end: 2008-09
+tags: [archive, it-support]
+archived: true   # Pre-career summer IT work. Not rendered on website or default CV.
+summary: >
+  Short summer IT consulting role, installing software on Banca Carige
+  workstations and testing new hardware in branch offices.
+highlights:
+  - In charge of software installation on Banca Carige's workstations.
+  - Set up and tested new hardware in the bank's branch offices.

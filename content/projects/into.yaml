@@ -1,0 +1,22 @@
+id: into
+name: InTo
+subtitle: AI-Powered Coach Crowding Prediction Service
+organisation: Italdesign
+parent: italdesign
+start: 2018
+end: 2019
+stack: [Python, Deep Learning, Computer Vision]
+tags: [machine-learning, computer-vision, smart-city]
+url: https://www.italdesign.it/project/into/
+summary: >
+  A service that improves travel on the metro by analysing on-board and
+  station camera feeds to predict coach crowding and passenger flow.
+highlights:
+  - Convolutional Neural Networks for crowd estimation and people counting.
+  - Machine-learning model to predict the passengers exiting each train.
+  - Deployed successfully at the Re Umberto station in Turin from May 2019.
+youtube:
+  - id: or9G7CKPJd0
+    label: InTo demo
+  - id: 51_0t4Hjbzc
+  - id: 0tZe150tFyY

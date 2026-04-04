@@ -1,0 +1,56 @@
+heading: Music and singing
+tagline: Pop/rock singer and music-event organiser
+summary: >
+  Outside of robotics I've sung in choirs and bands across Italy, France and
+  the UK, trained in classical and pop-rock technique, and occasionally
+  organise music events. A short inventory of the highlights below.
+
+highlights:
+  - title: Singing with Mika's choir
+    date: 2012-12-13
+    location: Roundhouse, Chalk Farm, London, UK
+    description: >
+      Won an audition to join Mika's choir for a concert at the Roundhouse.
+      Shared the stage with guitarist Tim Van Der Kuil (who also plays for
+      Adele).
+
+  - title: 1st place — "Solo per una voce" singing competition
+    date: 2012-05
+    location: Genoa, Italy
+    description: >
+      Won the Arti's Scuola d'Arte e Spettacolo competition with a jury
+      headed by Tiziana "TOSCA" Donati. Performed "La voce del silenzio".
+      Prize: a scholarship to the AIMS Summer School.
+
+  - title: AIMS Summer School
+    date: 2012
+    location: Eastbourne, UK
+    url: https://aims-international.herokuapp.com/
+    description: >
+      Studied Cabaret, Vocal Technique and Musical. Performed "I wanna
+      be bad" at Eastbourne College, playing Fabrizio and singing
+      "Say It Somehow" from The Light in the Piazza.
+
+  - title: Band and event organising
+    date: 2008-present
+    description: >
+      Organised and led bands and musical events in Italy, France and the
+      UK, including performances at Fête de la Musique in France.
+
+  - title: Meeting Yann Tiersen
+    location: Blind Spot Records, Rennes, France
+    description: >
+      Met Yann Tiersen during his Midsummer Cycling Tour.
+
+archive:
+  # Older musical background, preserved for reference but off by default.
+  - Pop/Rock singing lessons (2008–2012) and piano lessons (1998–2002), Genoa.
+  - Baritone in the polyphonic choirs "I Polifonici di Genova" (2003–2008) and "JanuaVox" (2001–2003), Genoa.
+
+youtube:
+  - id: 7JkyOa-fpbs
+    label: La voce del silenzio
+  - id: PBw9HMJi928
+    label: Hallelujah
+  - id: Q-M6W1ljM8w
+playlist: https://www.youtube.com/playlist?list=PLNdUC0r3CaG-3S0JMcQrkEdAqhdjWKiq_

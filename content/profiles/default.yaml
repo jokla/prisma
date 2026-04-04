@@ -1,0 +1,47 @@
+# Default profile — used for the CV PDF bundled on the website.
+# Mirrors the 2025 Awesome-CV render: full career arc + active projects,
+# no archive-only entries, no interests/extracurricular/presentations.
+
+pitch: pitches/generic.md
+
+# Experience — explicit whitelist controls order (most-recent first).
+experience:
+  - medtronic
+  - arrival-senior
+  - arrival-autonav
+  - italdesign
+  - inria
+  - irccyn
+  # spack.yaml is archived: true and stays off the default CV.
+
+# Education — explicit order.
+education:
+  - ecn-unige-aria
+  - unige-bachelor
+  - udacity-sdcn
+
+# Projects — whitelist, since most content/projects/*.yaml are archived
+# (website-only). Keep only the five currently-rendered CV projects.
+projects:
+  - into
+  - italdesign-autonomous-car
+  - pop-up-next
+  - wheem-i
+  - romeo-comanoid
+
+# Publications — include both known papers.
+publications:
+  - visual-servoing-ral-2017
+  - romeo-manipulation-humanoids-2016
+
+# Skills — omitted = include all from content/skills.yaml.
+# Add a `skills:` whitelist in tailored profiles to narrow this down.
+
+# Sections that exist as content but are off by default in the CV:
+# (uncomment in a tailored profile to surface them)
+# interests: true
+# extracurricular: true
+# presentations: all
+
+# Visually emphasised entries in the PDF.
+highlight: [medtronic]

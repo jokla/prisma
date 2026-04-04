@@ -1,0 +1,21 @@
+id: wheem-i
+name: Wheem-i
+subtitle: Sharing service to make travelling easier for wheelchair users
+organisation: Italdesign
+parent: italdesign
+start: 2018
+end: 2019
+stack: [C++, ROS, Computer Vision]
+tags: [mobility, perception, shared-control, autonomous-navigation]
+url: https://www.italdesign.it/italdesigns-moby-is-a-finalist-of-the-toyota-4-million-mobility-unlimited-challenge/
+summary: >
+  "Wheel-on" semi-autonomous electric devices located in urban hubs to
+  assist wheelchair users. Finalist of the $4M Mobility Unlimited
+  Challenge from the Toyota Mobility Foundation.
+highlights:
+  - Perception system for obstacle and free-navigable-space detection.
+  - Human-machine shared control with driver-assistance for obstacle avoidance.
+youtube:
+  - id: u-5thoU2ewc
+  - id: wc4VCrXxauE
+  - id: e5dphsaTSYE

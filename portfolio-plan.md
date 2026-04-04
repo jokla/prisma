@@ -30,16 +30,11 @@ This is a personal project, not a framework. If it ever makes sense to extract a
 ```
 /
 ├── content/                     ← All personal data
-│   ├── experience/
-│   │   ├── medtronic.yaml
-│   │   ├── arrival.yaml
-│   │   └── ...
+│   ├── experience/              ← One file per role (Arrival is split at 2021-03)
 │   ├── education/
-│   │   └── ecn_unige.yaml
-│   ├── projects/
-│   │   └── popup.yaml
+│   ├── projects/                ← Work projects + archived academic/OSS work
 │   ├── publications/
-│   │   └── popup-icra.yaml
+│   ├── presentations/           ← Conference/workshop talks
 │   ├── pitches/
 │   │   ├── generic.md           ← Default pitch for website & general CV
 │   │   └── surgical-robotics-lead.md
@@ -47,14 +42,12 @@ This is a personal project, not a framework. If it ever makes sense to extract a
 │   │   ├── default.yaml         ← Used for the website CV download
 │   │   └── surgical-robotics-lead.yaml
 │   ├── assets/                  ← Images referenced by YAML entries
-│   │   ├── medtronic-logo.png
-│   │   └── medtronic-surgery.jpg
-│   ├── blog/                    ← Markdown blog posts
-│   │   └── my-first-post.md
+│   ├── blog/                    ← Markdown posts (Phase 3 migration target)
+│   ├── bio.yaml
 │   ├── contact.yaml
 │   ├── skills.yaml
-│   ├── awards.yaml
-│   └── bio.yaml
+│   ├── interests.yaml           ← Music/hobbies (optional site section)
+│   └── extracurricular.yaml     ← Student clubs etc.
 │
 ├── site/                        ← Astro site
 │   ├── src/
@@ -173,6 +166,57 @@ publications:
   - popup-icra
 highlight: [medtronic]   # Extra visual weight in the PDF (list — supports multiple)
 ```
+
+---
+
+## Content conventions
+
+Decisions made during Phase 1. These shape how the resolver and both renderers (Astro and Typst) consume `content/`.
+
+### `summary` vs `highlights`
+
+Experience and project entries carry both:
+
+- **`summary`** — first-person prose, 2–6 sentences. What the website renders in the expanded card.
+- **`highlights`** — a flat list of terse CV-style bullets. What the Typst CV renders.
+
+Both live in the same YAML file. Each consumer picks the one it needs; the other is ignored. No per-field stripping in the resolver.
+
+### `archived: true`
+
+A soft-delete flag on any entry (experience, project, presentation, or an individual item inside `interests.yaml`). Meaning: "preserved in `content/` for historical reference, but off by default in both outputs." The default profile omits archived entries; the website renders them only in an explicit "archive" section (if the page chooses to opt them in).
+
+Currently used on: the 2008 Spack IT role, 6 old academic/student projects, 2 INRIA-era OSS bridges, and one 2014 workshop talk.
+
+### `archived_highlights`
+
+Sibling list to `highlights` that holds bullets which were previously in the CV but commented out later (e.g. the MPC bullet on the Italdesign autonomous car, the Pepper demos at INRIA). Preserved as data, not rendered by default. If a future profile wants one of them back, copy the line into `highlights`.
+
+### `parent:` on projects
+
+Projects link to a parent career period via a single `parent: <id>` field that resolves against **either** `content/experience/` or `content/education/`. The 9 work-era projects point to an experience id (`italdesign`, `inria`, etc.); the 4 academic projects point to an education id (`unige-bachelor`, `udacity-sdcn`). The Astro site uses this to group projects under the relevant timeline period.
+
+### Skills: flat list, grouped by `group`
+
+`content/skills.yaml` is a single flat list of `{id, label, group}` objects. Profiles reference skills by `id`. The CV template groups them for rendering using the `group` field (matching Awesome-CV's section conventions: Programming, Libraries, Tools, OS, Robots, Sensors). Human languages live in `bio.yaml`, not in skills.
+
+### Bio photo
+
+`bio.yaml` carries a `photo: { src, alt }` field pointing into `content/assets/`. Both the Typst CV header and the website hero component read it. The headshot file is `bio-photo22.jpg`, carried over from the 2025 LaTeX CV render.
+
+### Contact field visibility
+
+`content/contact.yaml` has `phone` as a CV-only field — Astro components must skip it. All other fields render on both surfaces. See the field-visibility table in the CV Pipeline section below for the full list.
+
+### Extra collections beyond the original plan
+
+Phase 1 added three collections that weren't in the original tree:
+
+- **`content/presentations/`** — conference/workshop talks (3 active + 1 archived). Enables a small "Talks" section on the website.
+- **`content/interests.yaml`** — music/singing/hobbies. Single file with nested `highlights` + `archive` lists, since the content is too unstructured to fan out into separate files.
+- **`content/extracurricular.yaml`** — student clubs (currently just OpenLab).
+
+No `awards.yaml` — the only notable award (a singing competition) lives in `interests.yaml` as a music highlight, and there are no professional honours to track separately yet.
 
 ---
 
@@ -337,10 +381,17 @@ jobs:
 
 ## Build Phases
 
-### Phase 1 — Content migration
-Populate `content/` by migrating data from the existing LaTeX CV into YAML files. Write `contact.yaml`, `bio.yaml`, `skills.yaml`, experience files, education files, project files, publication files. Create `content/profiles/default.yaml` with a generic pitch.
+### Phase 1 — Content migration ✅ DONE
 
-**Milestone:** all career data lives in `content/` as structured YAML.
+Populated `content/` by migrating data from the existing Awesome-CV LaTeX sources and the old Jekyll site. Final inventory:
+
+- **35 YAML files + 1 Markdown pitch** (~740 lines) — 7 experience, 3 education, 13 projects, 2 publications, 4 presentations, plus `bio`, `contact`, `skills`, `interests`, `extracurricular` and the `default` profile.
+- **8 images** under `content/assets/` — all referenced, no orphans.
+- **Audit passed**: every profile ref, every `parent:` ref, every image src, and every id/filename pair resolves cleanly.
+
+**Milestone reached:** all career data lives in `content/` as structured YAML.
+
+See the "Content conventions" section above for the schema decisions made during this phase.
 
 ### Phase 2 — CV pipeline
 Write `resolve-profile.js` and the Typst template `cv/template.typ`. **Fork an existing Typst CV template** from Typst Universe (`basic-resume`, `modernpro`, `imprecv`, `vantage-typst` are all reasonable starting points) rather than building the layout from scratch — the goal here is content plumbing, not a layout engine. Get `make cv` producing a clean PDF from real content.

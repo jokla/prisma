@@ -1,0 +1,22 @@
+id: medtronic
+company: Medtronic — Digital Surgery
+role: Senior Principal Software Engineer — AI-Video Technical Lead
+location: London, UK
+start: 2023-06
+end: present
+website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
+tags: [computer-vision, deep-learning, medical-robotics, edge-deployment, cpp, python, cuda]
+summary: >
+  I lead the development of real-time AI and video processing pipelines for
+  both robotic-assisted and conventional laparoscopic surgery. My work
+  focuses on optimising and deploying deep learning models on edge devices
+  with NVIDIA GPUs to ensure reliable performance in the operating room.
+  I work closely with a multidisciplinary team of machine-learning
+  researchers, embedded engineers and designers to deliver high-performance,
+  secure and reliable software for next-generation medical devices.
+highlights:
+  - Designing and implementing a high-performance video pipeline to provide surgical guidance during robotic-assisted procedures.
+  - Optimising and deploying object detection and image segmentation networks on edge devices with NVIDIA GPUs.
+images:
+  - src: medtronic.png
+    alt: Medtronic Digital Surgery

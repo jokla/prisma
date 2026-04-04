@@ -1,0 +1,20 @@
+id: arrival-autonav
+company: Arrival — Mobile Robotics
+role: Robotics Engineer — Autonomous Navigation
+location: London, UK
+start: 2019-09
+end: 2021-03
+website: https://arrival.com/uk/en
+tags: [autonomous-navigation, simulation, cpp, ros, mobile-robots]
+summary: >
+  First role at Arrival, on the Autonomous Navigation team, building
+  software for the autonomous mobile robots (AMRs) that assemble vehicles
+  in Arrival's microfactories.
+highlights:
+  - Developed software for autonomous navigation and simulation of AMRs deployed in the Arrival Microfactory.
+images:
+  - src: ARRIVAL_logo.png
+    alt: Arrival logo
+youtube:
+  - id: DXZEHJeoqSo
+    label: Arrival Microfactory

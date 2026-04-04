@@ -1,0 +1,25 @@
+id: arrival-senior
+company: Arrival — Mobile Robotics
+role: Senior Robotics Software Engineer
+location: London, UK
+start: 2021-03
+end: 2023-06
+website: https://arrival.com/uk/en
+tags: [autonomous-navigation, computer-vision, calibration, cpp, ros, mobile-robots]
+summary: >
+  Senior role at Arrival after promotion from the Autonomous Navigation
+  team. Responsible for the vision system of the Autonomous Mobile Robot
+  (WeMo) fleet used in Arrival's microfactories — hardware, software,
+  calibration and end-of-line validation — plus vision-based positioning
+  research.
+highlights:
+  - Responsible for the vision system of the Autonomous Mobile Robot WeMo (hardware and software).
+  - Designed and implemented a vision-based positioning method achieving millimetre and sub-degree accuracy.
+  - Designed and deployed an automated intrinsic and extrinsic parameter calibration process for the WeMo fleet.
+  - Implemented automated tools for camera sub-assembly, calibration and end-of-line robot validation.
+images:
+  - src: ARRIVAL_logo.png
+    alt: Arrival logo
+youtube:
+  - id: DXZEHJeoqSo
+    label: Arrival Microfactory

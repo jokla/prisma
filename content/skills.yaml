@@ -1,0 +1,41 @@
+# Flat list. `group` mirrors the Awesome-CV section groupings.
+# Profiles reference skills by id.
+skills:
+  # Programming
+  - { id: cpp,             label: C++,                group: Programming }
+  - { id: python,          label: Python,             group: Programming }
+
+  # Libraries
+  - { id: opencv,          label: OpenCV,             group: Libraries }
+  - { id: pcl,             label: PCL,                group: Libraries }
+
+  # Tools and Software
+  - { id: git,             label: Git,                group: Tools }
+  - { id: cmake,           label: CMake,              group: Tools }
+  - { id: doxygen,         label: Doxygen,            group: Tools }
+  - { id: docker,          label: Docker,             group: Tools }
+  - { id: kubernetes,      label: Kubernetes,         group: Tools }
+  - { id: aws-s3,          label: AWS S3,             group: Tools }
+  - { id: ros,             label: ROS,                group: Tools }
+  - { id: simulink,        label: Simulink,           group: Tools }
+  - { id: tensorrt,        label: TensorRT,           group: Tools }
+
+  # Operating systems
+  - { id: linux,           label: GNU/Linux,          group: OS }
+  - { id: windows,         label: Microsoft Windows,  group: OS }
+
+  # Robots
+  - { id: humanoid-robots, label: Humanoid robots,    group: Robots }
+  - { id: manipulators,    label: Manipulators,       group: Robots }
+  - { id: self-driving,    label: Self-driving vehicles, group: Robots }
+  - { id: mobile-robots,   label: Mobile robots,      group: Robots }
+  - { id: drones,          label: Drones,             group: Robots }
+
+  # Sensors
+  - { id: camera,          label: Camera,             group: Sensors }
+  - { id: depth-camera,    label: Depth camera,       group: Sensors }
+  - { id: lidar,           label: Lidar,              group: Sensors }
+  - { id: radar,           label: Radar,              group: Sensors }
+  - { id: ultrasonic,      label: Ultrasonic,         group: Sensors }
+  - { id: imu,             label: IMU,                group: Sensors }
+  - { id: gnss,            label: GNSS,               group: Sensors }

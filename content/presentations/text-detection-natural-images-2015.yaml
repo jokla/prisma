@@ -1,0 +1,10 @@
+id: text-detection-natural-images-2015
+title: Text detection in natural images
+event: Robotex Tech Days (organised by Heudiasyc)
+location: Compiègne, France
+date: 2015-07
+tags: [computer-vision, humanoid-robots, ocr]
+summary: >
+  Algorithm that allows the humanoid robot Romeo to read text from
+  natural images, using the Stroke Width Transform (SWT) and the
+  Tesseract OCR engine.

@@ -1,0 +1,18 @@
+id: unige-bachelor
+institution: University of Genoa (UNIGE)
+degree: B.Sc. in Computer Science Engineering
+location: Genoa, Italy
+start: 2008
+end: 2011
+courses:
+  - Computer Science
+  - Software Engineering
+  - Automatic Control Systems
+  - Signal Processing
+  - Web Technologies
+  - Mathematics
+  - Physics
+thesis:
+  title: Design and Development of a Modular CMS for a Student Club
+  summary: A complete Content Management System framework easily customisable by end users.
+  stack: [PHP, SQL, HTML, CSS]

@@ -1,0 +1,33 @@
+id: inria
+company: INRIA — Lagadic Team (led by François Chaumette)
+role: R&D Robotics Engineer
+location: Rennes, France
+start: 2013-11
+end: 2017-08
+website: https://www.inria.fr/en/
+team_website: http://www.irisa.fr/lagadic/lagadic-eng.html
+tags: [visual-servoing, humanoid-robots, manipulation, computer-vision, ros, cpp, matlab]
+summary: >
+  Joined the Lagadic team at INRIA Rennes as an R&D engineer under François
+  Chaumette. My goal was to make robots smarter — helping them perceive and
+  understand the world and act autonomously. Worked on real-time detection,
+  pose estimation, tracking and visual servoing for mobile, humanoid,
+  industrial and aerial robots; contributed to a prototyping framework
+  based on ROS, MATLAB/Simulink and V-REP for rapid iteration on
+  sensor-based control algorithms; supervised several student internships;
+  and co-authored publications at RA-L / ICRA'17 and Humanoids'16.
+highlights:
+  - Implemented sensor-based algorithms for navigation and manipulation on drones, mobile, serial and humanoid robots.
+  - Built a framework for rapid prototyping of perception and control algorithms using ROS, MATLAB/Simulink and V-REP.
+  - Developed detection, real-time tracking and pose estimation algorithms using 2D and RGB-D cameras.
+  - Implemented visual servoing control to improve accuracy in grasping and dual-arm manipulation.
+  - Supervised student internships and published scientific articles at RA-L / ICRA'17 and Humanoids'16.
+archived_highlights:
+  # Previously commented out in the LaTeX source
+  - Created vision-based navigation demonstrations with the humanoid robot Pepper.
+  - Organised demonstrations to show the robotic platforms to the general public.
+images:
+  - src: giovanni.claudio.romeo.jpg
+    alt: Romeo humanoid robot
+  - src: lagadic_2016.jpg
+    alt: Lagadic team, INRIA Rennes (2016)
