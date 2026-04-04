@@ -6,7 +6,8 @@ pitch: pitches/generic.md
 
 # Experience — explicit whitelist controls order (most-recent first).
 experience:
-  - medtronic
+  - medtronic-sr-principal
+  - medtronic-principal
   - arrival-senior
   - arrival-autonav
   - italdesign
@@ -44,4 +45,4 @@ publications:
 # presentations: all
 
 # Visually emphasised entries in the PDF.
-highlight: [medtronic]
+highlight: [medtronic-sr-principal]

@@ -1,0 +1,31 @@
+id: medtronic-principal
+company: Medtronic — Digital Surgery
+role: Principal Software Engineer
+location: London, UK
+start: 2023-06
+end: 2025-01
+website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
+tags: [computer-vision, deep-learning, medical-robotics, edge-deployment, cpp, python]
+summary: >
+  Joined Medtronic Digital Surgery as Principal Software Engineer,
+  transitioning into the medical-robotics industry and quickly delivering
+  on all business objectives. Key contributions in the first year included
+  AI model optimisation and deployment on constrained edge hardware,
+  building a validation framework for speed and accuracy of AI models
+  on embedded systems, and introducing best-in-class software engineering
+  practices and tooling to the team.
+highlights:
+  - Reduced hardware compute costs by enabling AI models to run in real
+    time on lower-spec GPUs; boosted inference speed of a key surgical AI
+    model by 6.5× while maintaining accuracy (in collaboration with the ML
+    team, Q4 2024).
+  - Developed a robust process and framework to validate and benchmark the
+    speed and accuracy of AI models on the embedded system.
+  - Introduced state-of-the-art software practices to the team through
+    code reviews and collaborative coding sessions.
+  - Developed a mono-repository with a modular build system, integrating
+    tooling for scalable codebase extension and module isolation — improving
+    consistency, efficiency and quality across the software development cycle.
+images:
+  - src: medtronic.png
+    alt: Medtronic Digital Surgery
