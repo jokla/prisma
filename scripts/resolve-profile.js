@@ -13,7 +13,7 @@ import yaml from 'js-yaml';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const CONTENT = join(ROOT, 'content');
-const ASSETS = join(CONTENT, 'assets');
+const TYPST_BASE = '..';
 
 // ── CLI args ──────────────────────────────────────────────────────────────
 
@@ -45,7 +45,7 @@ function loadYaml(path) {
 
 // Format a YYYY-MM (or YYYY) date string to "Mon YYYY" / "YYYY".
 // "present" / null / undefined → "Present".
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function formatDate(d) {
   if (!d || d === 'present') return 'Present';
@@ -54,10 +54,13 @@ function formatDate(d) {
   return month ? `${MONTHS[parseInt(month, 10) - 1]} ${year}` : year;
 }
 
-// Rewrite image src fields to absolute filesystem paths for Typst.
+// Rewrite image src fields to paths relative to cv/template.typ for Typst.
 function resolveImages(images) {
   if (!images) return images;
-  return images.map(img => ({ ...img, src: join(ASSETS, basename(img.src)) }));
+  return images.map(img => ({
+    ...img,
+    src: join(TYPST_BASE, 'content', 'assets', basename(img.src)),
+  }));
 }
 
 // Enrich an entry: add formatted dates + rewrite image paths.
@@ -94,9 +97,12 @@ const profile = loadYaml(profilePath);
 const contact = loadYaml(join(CONTENT, 'contact.yaml'));
 const bio = loadYaml(join(CONTENT, 'bio.yaml'));
 
-// Resolve photo to absolute path.
+// Resolve photo to a path relative to cv/template.typ.
 if (bio.photo?.src) {
-  bio.photo = { ...bio.photo, src: join(ASSETS, bio.photo.src) };
+  bio.photo = {
+    ...bio.photo,
+    src: join(TYPST_BASE, 'content', 'assets', bio.photo.src),
+  };
 }
 
 // Load pitch text (plain paragraphs, no Markdown formatting).
@@ -108,7 +114,7 @@ if (profile.pitch) {
 // ── Resolve collections ───────────────────────────────────────────────────
 
 const experience = loadList('experience', profile.experience);
-const education  = loadList('education',  profile.education);
+const education = loadList('education', profile.education);
 const publications = loadList('publications', profile.publications);
 
 let projects;

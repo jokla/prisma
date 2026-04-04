@@ -77,6 +77,13 @@ This is a personal project, not a framework. If it ever makes sense to extract a
 │   └── copy-default-cv.js       ← Copies default CV PDF into site/public/
 │
 ├── Makefile
+├── package.json
+├── package-lock.json
+│
+├── inputs/                      ← Read-only reference sources
+│   ├── Awesome-CV/
+│   ├── brilliant-CV/
+│   └── jokla.github.io/
 │
 └── .github/
     └── workflows/
@@ -234,11 +241,33 @@ profile YAML + content/ → resolve-profile.js → .build/resolved.json → typs
 3. Filters `skills.yaml` by profile's skill list.
 4. Handles `*_exclude` logic (load all, remove excluded).
 5. Inlines the pitch text (see "Pitch format" below).
-6. Rewrites `images[].src` to absolute filesystem paths so Typst can load them (see "Asset paths").
+6. Rewrites `images[].src` to paths relative to `cv/template.typ` so Typst can load them reliably (see "Asset paths").
 7. Reads contact info from `content/contact.yaml`.
 8. Writes `.build/resolved.json` for Typst.
 
-The resolver lives at the repo root and has its own `package.json` (deps: `js-yaml`, a CLI arg parser). The Astro site under `site/` has a separate `package.json`. Two lockfiles, two `npm ci` steps — acceptable because the resolver and the site have no shared dependencies.
+The resolver lives at the repo root and has its own `package.json` / `package-lock.json` (currently `js-yaml` only). The Astro site under `site/` will have a separate `package.json` once Phase 3 exists. Two lockfiles and two `npm ci` steps are acceptable because the resolver and the site have no shared dependencies.
+
+### Typst / brilliant-CV integration
+
+The CV template is built on top of `@preview/brilliant-cv:3.3.0`, but it does **not** use a checked-in `metadata.toml`. Instead, `cv/template.typ` builds the upstream metadata structure inline from the resolved JSON.
+
+That inline metadata must match the upstream package shape:
+
+- top-level `language`
+- top-level `inject`
+- `layout.fonts`
+- `layout.header`
+- `layout.entry`
+- `layout.footer`
+
+The current font choice is:
+
+- body: `Source Sans Pro`
+- header: `Roboto`
+
+Upstream `brilliant-CV` recommends `Source Sans 3`; `Source Sans Pro` is an acceptable fallback and is the current house choice for this repo after side-by-side comparison.
+
+The Font Awesome icons used by the package need the **desktop** Font Awesome 7 OTF fonts installed locally. The npm webfonts are not sufficient for Typst in this setup.
 
 ### Pitch format
 
@@ -262,8 +291,10 @@ If a new field is added, decide its visibility and extend this table.
 
 Images live in `content/assets/` and are referenced by bare filename in YAML (e.g. `src: medtronic-logo.png`). The two consumers resolve that filename differently:
 
-- **Typst** needs a filesystem path relative to the `.typ` file, or an absolute path. The resolver rewrites each `src` to an absolute path when writing `.build/resolved.json`.
+- **Typst** resolves these assets relative to `cv/template.typ`. The resolver rewrites each `src` to a path like `../content/assets/<file>` when writing `.build/resolved.json`.
 - **Astro** uses a small helper that maps the bare filename onto an ESM import from `content/assets/`, so Astro's image pipeline can hash and optimise the asset at build time. Do not put these images under `site/public/` — they'd skip the pipeline.
+
+Typst input handling follows the same rule: the `data` input passed via `sys.inputs.at("data")` is resolved from the `.typ` file location, so the compile command must pass `--input data=../.build/resolved.json` together with `--root $(CURDIR)`.
 
 ### Generating a CV
 
@@ -311,7 +342,7 @@ dev:                             ## Start Astro dev server
 cv:                              ## Generate CV PDF from a profile
 	mkdir -p .build outputs
 	node scripts/resolve-profile.js --profile $(PROFILE) --out .build/resolved.json
-	typst compile --input data=.build/resolved.json cv/template.typ \
+    typst compile --root $(CURDIR) --input data=../.build/resolved.json cv/template.typ \
 	  outputs/$(notdir $(basename $(PROFILE))).pdf
 
 build: cv                        ## Full production build (CV + site)
@@ -393,10 +424,10 @@ Populated `content/` by migrating data from the existing Awesome-CV LaTeX source
 
 See the "Content conventions" section above for the schema decisions made during this phase.
 
-### Phase 2 — CV pipeline
-Write `resolve-profile.js` and the Typst template `cv/template.typ`. **Fork an existing Typst CV template** from Typst Universe (`basic-resume`, `modernpro`, `imprecv`, `vantage-typst` are all reasonable starting points) rather than building the layout from scratch — the goal here is content plumbing, not a layout engine. Get `make cv` producing a clean PDF from real content.
+### Phase 2 — CV pipeline ✅ DONE
+`resolve-profile.js` and `cv/template.typ` are implemented. The CV uses the `brilliant-CV` Typst package with inline metadata derived from resolved YAML content rather than a standalone `metadata.toml`. `make cv` produces a working PDF from real content, and tailored CVs work via `make cv PROFILE=...`.
 
-**Milestone:** `make cv` outputs a professional PDF. Tailored CVs work via `make cv PROFILE=...`.
+**Milestone reached:** `make cv` outputs a professional PDF. Tailored CVs work via `make cv PROFILE=...`.
 
 ### Phase 3 — Astro website
 Scaffold the Astro project. Build pages: Home, Work (timeline), Projects, Publications, About. Configure content collections for blog. Add SEO basics (meta tags, sitemap). Implement dark mode. Migrate blog posts from Jekyll.

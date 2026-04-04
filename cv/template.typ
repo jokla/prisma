@@ -18,6 +18,8 @@
 #let name-parts = contact.name.split(" ")
 
 #let metadata = (
+  language: "en",
+  inject: (:),
   personal: (
     first_name: name-parts.first(),
     last_name:  name-parts.slice(1).join(" "),
@@ -35,15 +37,27 @@
     awesome_color:              "skyblue",
     paper_size:                 "a4",
     font_size:                  "9.5pt",
-    display_profile_photo:      true,
-    display_entry_society_first: false,
-    display_page_counter:       true,
-    display_footer:             true,
+    fonts: (
+      regular_fonts: ("Source Sans Pro",),
+      header_font: "Roboto",
+    ),
     before_section_skip:        "5pt",
     before_entry_skip:          "3pt",
+    before_entry_description_skip: "1pt",
+    header: (
+      display_profile_photo: true,
+      header_align: "left",
+    ),
+    entry: (
+      display_entry_society_first: true,
+      display_logo: true,
+    ),
+    footer: (
+      display_page_counter: true,
+      display_footer: true,
+    ),
   ),
   lang: (
-    language: "en",
     en: (
       header_quote: data.pitch,
       cv_footer:    contact.name + " — Curriculum Vitae",

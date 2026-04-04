@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project status
 
-**Phase 1 (content migration) is done.** **Phase 2 (CV pipeline) is implemented** — `Makefile`, `package.json`, `scripts/resolve-profile.js`, `scripts/copy-default-cv.js`, and `cv/template.typ` all exist. Run `npm install && make cv` to produce `outputs/default.pdf`. The Astro site under `site/` does not exist yet (Phase 3).
+**Phase 1 (content migration) is done.** **Phase 2 (CV pipeline) is implemented** — `Makefile`, `package.json`, `package-lock.json`, `scripts/resolve-profile.js`, `scripts/copy-default-cv.js`, and `cv/template.typ` all exist. Run `npm install && make cv` to produce `outputs/default.pdf`. The Astro site under `site/` does not exist yet (Phase 3).
 
 `content/` holds 35 YAML files + 1 Markdown pitch + 8 images — see the "Content conventions" section of `portfolio-plan.md` for the schema decisions (especially `summary` vs `highlights`, `archived:` / `archived_highlights:`, `parent:` on projects, and the flat skills list with `group` field).
 
@@ -33,16 +33,23 @@ make clean                                                  # rm -rf .build/ out
 
 `.build/` and `outputs/` are gitignored build artefacts; never commit them.
 
+Local typography matters for this repo. The current template is tuned for `Roboto` headings, `Source Sans Pro` body text, and Font Awesome 7 desktop OTFs for icons. Upstream `brilliant-CV` recommends `Source Sans 3`; that is an acceptable alternative, but the checked-in template currently uses `Source Sans Pro` by choice.
+
 ## CV pipeline internals
 
-`scripts/resolve-profile.js` → `.build/resolved.json` → `typst compile --root $(CURDIR) --input data=<abs-path>` → PDF.
+`scripts/resolve-profile.js` → `.build/resolved.json` → `typst compile --root $(CURDIR) --input data=../.build/resolved.json` → PDF.
 
-The Typst template (`cv/template.typ`) uses the **brilliant-CV** package (`@preview/brilliant-cv:3.3.0`). It builds the `metadata` dict inline from `data.contact` / `data.bio` (no `metadata.toml` needed). Sections are rendered by iterating over the JSON arrays with Typst's `for` loops and `cv-entry()` / `cv-skill()` / `cv-honor()` calls. The `--root $(CURDIR)` flag is required so Typst can access image paths under `content/assets/` and the JSON at `.build/resolved.json`.
+The Typst template (`cv/template.typ`) uses the **brilliant-CV** package (`@preview/brilliant-cv:3.3.0`). It builds the `metadata` dict inline from `data.contact` / `data.bio` (no `metadata.toml` needed), and that metadata must follow the upstream structure: top-level `language` / `inject`, plus nested `layout.fonts`, `layout.header`, `layout.entry`, and `layout.footer`.
+
+`scripts/resolve-profile.js` rewrites image paths and the bio photo to paths relative to `cv/template.typ`, not absolute filesystem paths. Keep that behavior aligned with the Makefile compile command.
+
+Sections are rendered by iterating over the JSON arrays with Typst's `for` loops and `cv-entry()` / `cv-skill()` / `cv-honor()` calls. The `--root $(CURDIR)` flag is required so Typst can access `content/assets/` and `.build/resolved.json`.
 
 ## Reference material in `inputs/`
 
 - `inputs/jokla.github.io/` — the **existing Jekyll site** being replaced. Source of truth for bio text, project write-ups, and blog posts to migrate into `content/` (see plan's "Blog Migration" section for the `_posts/` → `content/blog/` conversion rules).
 - `inputs/Awesome-CV/` — the **existing LaTeX CV** (Awesome-CV template). Source of truth for career data to migrate into `content/experience/`, `content/education/`, etc., and a visual reference for the Typst CV design.
+- `inputs/brilliant-CV/` — the **upstream Typst package repo** cloned locally as reference material for `metadata.toml`, font expectations, and package behavior. Use it as a reference, not as a second source of truth for personal content.
 
 These are read-only inputs — migrate data out of them, don't modify them.
 
