@@ -178,6 +178,23 @@
   if hl.len() > 0 { list(..hl.map(h => [#render-highlight(h, entry)])) } else { "" }
 }
 
+#let project-description(entry) = {
+  let subtitle = entry.at("subtitle", default: "")
+  let details = entry-description(entry)
+
+  if subtitle != "" and details != "" {
+    [
+      #text(style: "italic", subtitle)
+      #v(1pt)
+      #details
+    ]
+  } else if subtitle != "" {
+    text(style: "italic", subtitle)
+  } else {
+    details
+  }
+}
+
 #let entry-tags(entry) = entry.at("tags", default: ())
 
 // ── Experience ────────────────────────────────────────────────────────────
@@ -222,7 +239,7 @@
       society:     entry.at("organisation", default: ""),
       date:        entry-date(entry),
       location:    entry.at("location", default: ""),
-      description: entry-description(entry),
+      description: project-description(entry),
       tags:        entry.at("stack", default: ()),
     )
   }
