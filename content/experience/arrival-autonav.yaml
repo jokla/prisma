@@ -5,14 +5,14 @@ location: London, UK
 start: 2019-09
 end: 2021-03
 website: https://arrival.com/uk/en
-tags: [autonomous-navigation, simulation, cpp, ros, mobile-robots]
+tags: [autonomous-navigation, simulation, cpp, DDS, ros, mobile-robots]
 summary: >
   First role at Arrival, on the Autonomous Navigation team, building
   navigation and simulation software for the autonomous mobile robots
   (AMRs) that assemble vehicles in Arrival's microfactories. Promoted
   into the senior vision lead role after 18 months.
 highlights:
-  - Developed navigation and simulation software for the AMR fleet deployed in Arrival's microfactories; promoted into the senior vision lead role after 18 months.
+  - Developed navigation and simulation software for the AMR fleet deployed in Arrival's microfactories.
 images:
   - src: ARRIVAL_logo.png
     alt: Arrival logo

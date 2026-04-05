@@ -1,9 +1,20 @@
 heading: Music and singing
-tagline: Pop/rock singer and music-event organiser
+tagline: Pop/rock singer and music event organizer
 summary: >
-  Outside of robotics I've sung in choirs and bands across Italy, France and
-  the UK, trained in classical and pop-rock technique, and occasionally
-  organise music events. A short inventory of the highlights below.
+  Choirs, bands and music-event organising across Italy, France and the UK.
+
+cv_honors:
+  - title: Groups
+    issuer: Organised and led bands and musical events in France, Italy and UK
+  - title: Member of Mika's choir
+    issuer: Concert at Roundhouse in Chalk Farm, 13 Dec 2012
+    location: London, UK
+  - title: AIMS Summer School
+    issuer: "Courses attended: Cabaret class, Vocal Technique, Musical class"
+    location: Eastbourne, UK
+    url: https://aims-international.herokuapp.com/
+  - title: 1st Place
+    issuer: "Singing competition \"Solo per una voce\". Jury headed by TOSCA. Prize: AIMS Summer School (2012)"
 
 highlights:
   - title: Singing with Mika's choir
@@ -33,11 +44,13 @@ highlights:
 
   - title: Band and event organising
     date: 2008-present
+    location: France, Italy and UK
     description: >
       Organised and led bands and musical events in Italy, France and the
       UK, including performances at Fête de la Musique in France.
 
   - title: Meeting Yann Tiersen
+    archived: true
     location: Blind Spot Records, Rennes, France
     description: >
       Met Yann Tiersen during his Midsummer Cycling Tour.

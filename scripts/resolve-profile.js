@@ -5,9 +5,9 @@
 // Usage:
 //   node scripts/resolve-profile.js --profile <path> --out <path>
 
-import { readFileSync, writeFileSync, readdirSync } from 'fs';
-import { resolve, join, dirname, basename } from 'path';
-import { fileURLToPath } from 'url';
+import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { resolve, join, dirname, basename } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -50,7 +50,7 @@ function formatDate(d) {
   if (!d || d === 'present') return 'Present';
   const s = String(d);
   const [year, month] = s.split('-');
-  return month ? `${MONTHS[parseInt(month, 10) - 1]} ${year}` : year;
+  return month ? `${MONTHS[Number.parseInt(month, 10) - 1]} ${year}` : year;
 }
 
 // Rewrite image src fields to paths relative to cv/template.typ for Typst.
@@ -88,6 +88,21 @@ function loadList(dir, ids) {
 function loadExcluding(dir, excludeIds) {
   const excludeSet = new Set(excludeIds || []);
   return loadAll(dir).filter(e => !e.archived && !excludeSet.has(e.id));
+}
+
+function loadInterests(enabled) {
+  if (!enabled) return null;
+
+  const interests = loadYaml(join(CONTENT, 'interests.yaml'));
+  return {
+    ...interests,
+    highlights: (interests.highlights || [])
+      .filter(item => !item.archived)
+      .map(item => ({
+        ...item,
+        date_formatted: item.date ? formatDate(item.date) : '',
+      })),
+  };
 }
 
 // ── Load core data ────────────────────────────────────────────────────────
@@ -136,6 +151,8 @@ if (profile.skills) {
   skills = allSkills;
 }
 
+const interests = loadInterests(profile.interests);
+
 // ── Write output ──────────────────────────────────────────────────────────
 
 const resolved = {
@@ -147,6 +164,7 @@ const resolved = {
   projects,
   publications,
   skills,
+  interests,
   highlight: profile.highlight || [],
 };
 

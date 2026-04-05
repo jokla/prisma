@@ -39,9 +39,9 @@ publications:
 # Skills , omitted = include all from content/skills.yaml.
 # Add a `skills:` whitelist in tailored profiles to narrow this down.
 
-# Sections that exist as content but are off by default in the CV:
-# (uncomment in a tailored profile to surface them)
-# interests: true
+# Sections that exist as content but are profile-controlled in the CV:
+interests: true
+# Uncomment in a tailored profile to surface them:
 # extracurricular: true
 # presentations: all
 

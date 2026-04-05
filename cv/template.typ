@@ -214,6 +214,35 @@
   )
 }
 
+#let interest-row(item) = {
+  let title = item.at("title", default: "")
+  let issuer = item.at("issuer", default: "")
+  let url = item.at("url", default: "")
+  let location = item.at("location", default: "")
+  let details = if issuer != "" and location != "" {
+    issuer + " (" + location + ")"
+  } else if issuer != "" {
+    issuer
+  } else {
+    location
+  }
+
+  table(
+    columns: (20%, 1fr),
+    inset: 0pt,
+    column-gutter: 4pt,
+    align: horizon,
+    stroke: none,
+    if url != "" {
+      text(size: 9pt, weight: "bold", link(url)[#title])
+    } else {
+      text(size: 9pt, weight: "bold", title)
+    },
+    text(size: 9pt, details),
+  )
+  v(-6pt)
+}
+
 #let join-with-h-bar(items) = {
   [
     #for (index, item) in items.enumerate() {
@@ -342,3 +371,28 @@
     info: join-with-h-bar(spoken-languages.map(lang => language-skill-entry(lang))),
   )
 }
+
+// ── Other Interests ──────────────────────────────────────────────────────
+
+#if data.interests != none [
+  #let interests-tagline = data.interests.at("tagline", default: "")
+  #let interests-summary = data.interests.at("summary", default: "")
+  #let interests-cv-honors = data.interests.at("cv_honors", default: ())
+
+  #if interests-tagline != "" or interests-summary != "" or interests-cv-honors.len() > 0 [
+    #cv-section("Other interests")
+
+    #if interests-tagline != "" [
+      #text(weight: "bold", interests-tagline)
+      #v(2pt)
+    ]
+
+    #if interests-cv-honors.len() > 0 [
+      #for item in interests-cv-honors [
+        #interest-row(item)
+      ]
+    ] else if interests-summary != "" [
+      #interests-summary
+    ]
+  ]
+]
