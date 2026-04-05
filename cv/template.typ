@@ -12,6 +12,7 @@
 #let data    = json(sys.inputs.at("data"))
 #let contact = data.contact
 #let bio     = data.bio
+#let homepage = contact.website.replace("https://", "").replace("http://", "")
 
 // ── Build metadata dict (replaces metadata.toml) ─────────────────────────
 
@@ -26,9 +27,9 @@
     info: (
       email:     contact.email,
       phone:     contact.phone,
-      github:    "https://github.com/" + contact.github,
-      linkedin:  "https://linkedin.com/in/" + contact.linkedin,
-      homepage:  contact.website,
+      github:    contact.github,
+      linkedin:  contact.linkedin,
+      homepage:  homepage,
       location:  contact.location,
       extraInfo: "",
     ),
@@ -98,49 +99,16 @@
 
 #cv-section("Experience")
 
-// Detect consecutive same-company entries and use start/continued pattern.
-#let experience = data.experience
-#let exp-len    = experience.len()
-#let i          = 0
-
-#while i < exp-len {
-  let entry = experience.at(i)
-  // Look ahead: collect all entries sharing the same company name.
-  let j = i + 1
-  while j < exp-len and experience.at(j).company == entry.company {
-    j += 1
-  }
-  let group = experience.slice(i, j)  // one or more roles at this company
-
-  if group.len() == 1 {
-    // Single entry — plain cv-entry.
-    cv-entry(
-      title:       entry.role,
-      society:     entry.company,
-      date:        entry-date(entry),
-      location:    entry.location,
-      description: entry-description(entry),
-      logo:        entry-logo(entry),
-      tags:        entry-tags(entry),
-    )
-  } else {
-    // Multiple roles at same company — use start/continued pattern.
-    cv-entry-start(
-      society:  entry.company,
-      location: entry.location,
-      logo:     entry-logo(entry),
-    )
-    for role in group {
-      cv-entry-continued(
-        title:       role.role,
-        date:        entry-date(role),
-        description: entry-description(role),
-        tags:        entry-tags(role),
-      )
-    }
-  }
-
-  i = j
+#for entry in data.experience {
+  cv-entry(
+    title:       entry.company,
+    society:     entry.role,
+    date:        entry.location,
+    location:    entry-date(entry),
+    description: entry-description(entry),
+    logo:        entry-logo(entry),
+    tags:        entry-tags(entry),
+  )
 }
 
 // ── Education ─────────────────────────────────────────────────────────────
