@@ -1,0 +1,67 @@
+# Flat list. `group` controls how skills are rendered in CV and on the
+# website. Grouping reflects the positioning as a Principal AI-Video
+# Architect: programming → AI/ML → computer vision → platforms/infra →
+# robotics → sensors → methods & strategy → med-device.
+skills:
+  # Programming
+  - { id: cpp,             label: C++23,               group: Programming }
+  - { id: python,          label: Python,              group: Programming }
+  - { id: cmake,           label: CMake,               group: Programming }
+  - { id: bash,            label: Bash,                group: Programming }
+
+  # AI / ML
+  - { id: tensorrt,        label: TensorRT,            group: "AI / ML" }
+  - { id: onnx,            label: ONNX,                group: "AI / ML" }
+  - { id: cuda,            label: CUDA,                group: "AI / ML" }
+  - { id: edge-inference,  label: "Edge inference",    group: "AI / ML" }
+  - { id: model-opt,       label: "Model optimisation", group: "AI / ML" }
+  - { id: agentic-ai,      label: "Agentic AI",        group: "AI / ML" }
+
+  # Computer Vision
+  - { id: opencv,          label: OpenCV,              group: "Computer Vision" }
+  - { id: visual-servoing, label: "Visual servoing",   group: "Computer Vision" }
+  - { id: multi-cam-calib, label: "Camera calibration", group: "Computer Vision" }
+  - { id: detection,       label: "Object detection",  group: "Computer Vision" }
+  - { id: segmentation,    label: "Semantic segmentation", group: "Computer Vision" }
+
+  # Platforms & Infra
+  - { id: linux,           label: Linux,               group: "Platforms & Infra" }
+  - { id: embedded-gpu,    label: "Embedded GPU",      group: "Platforms & Infra" }
+  - { id: docker,          label: Docker,              group: "Platforms & Infra" }
+  - { id: kubernetes,      label: Kubernetes,          group: "Platforms & Infra" }
+  - { id: aws-s3,          label: AWS,                 group: "Platforms & Infra" }
+  - { id: git,             label: Git,                 group: "Platforms & Infra" }
+  - { id: monorepo,        label: "Mono-repo builds",  group: "Platforms & Infra" }
+
+  # Robotics
+  - { id: ros,             label: ROS,                 group: Robotics }
+  - { id: humanoid-robots, label: "Humanoid robots",   group: Robotics }
+  - { id: manipulators,    label: Manipulators,        group: Robotics }
+  - { id: mobile-robots,   label: "Mobile robots",     group: Robotics }
+  - { id: drones,          label: Drones,              group: Robotics }
+  - { id: self-driving,    label: "Self-driving vehicles", group: Robotics }
+
+  # Sensors
+  - { id: camera,          label: "Cameras",           group: Sensors }
+  - { id: depth-camera,    label: "Depth cameras",     group: Sensors }
+  - { id: lidar,           label: Lidar,               group: Sensors }
+  - { id: radar,           label: Radar,               group: Sensors }
+  - { id: ultrasonic,      label: Ultrasonics,         group: Sensors }
+  - { id: imu,             label: IMU,                 group: Sensors }
+  - { id: gnss,            label: GNSS,                group: Sensors }
+
+  # Methods & Strategy
+  - { id: software-arch,   label: "Software architecture",     group: "Methods & Strategy" }
+  - { id: tech-roadmap,    label: "Technical roadmapping",     group: "Methods & Strategy" }
+  - { id: ci-for-ml,       label: "CI/CD for ML",              group: "Methods & Strategy" }
+  - { id: cross-team,      label: "Cross-team alignment",      group: "Methods & Strategy" }
+  - { id: mentoring,       label: "Mentoring",                 group: "Methods & Strategy" }
+
+  # Med-Device
+  - { id: iec-62304,       label: "IEC 62304",                 group: "Med-Device" }
+  - { id: design-controls, label: "Design controls",          group: "Med-Device" }
+  - { id: traceability,    label: Traceability,                 group: "Med-Device" }
+  - { id: v-and-v,         label: "V&V",                       group: "Med-Device" }
+  - { id: risk-mgmt,       label: "Risk management",          group: "Med-Device" }
+  - { id: ai-med-function, label: "AI medical function",      group: "Med-Device" }
+  - { id: dfma,            label: DFMA,                         group: "Med-Device" }

@@ -1,0 +1,18 @@
+id: vrep-ros-bridge
+name: V-REP ROS Bridge
+subtitle: Plugin for controlling V-REP simulations via ROS
+organisation: INRIA
+parent: inria
+location: Rennes, France
+start: 2014
+end: 2015
+stack: [C++, ROS]
+tags: [robotics, simulation, open-source]
+archived: true
+license: BSD
+authors: [R. Spica, G. Claudio]
+url: https://www.youtube.com/watch?v=SZxp6BJgBUg
+summary: >
+  A plugin providing a communication interface between V-REP and ROS, so
+  simulations can be driven with standard ROS messages and services.
+  Tested on Romeo, Pioneer P3-DX, Adept Viper s650 and MikroKopter.

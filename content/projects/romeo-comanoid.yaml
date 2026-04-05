@@ -1,0 +1,35 @@
+id: romeo-comanoid
+name: Romeo & Comanoid
+subtitle: Perception, navigation, sensor-based control and human-robot interaction
+organisation: INRIA
+parent: inria
+location: Rennes, France
+start: 2013
+end: 2017
+stack: [C++, Python, ROS, ViSP]
+tags: [humanoid-robots, visual-servoing, manipulation, perception]
+url: https://giovanniclaudio.com/work/
+partners:
+  - Softbank Robotics (Romeo)
+  - Airbus — http://comanoid.cnrs.fr/ (Comanoid)
+summary: >
+  Work across two projects — Romeo (Softbank Robotics) and Comanoid
+  (Airbus) — on perception, navigation, sensor-based control and
+  human–robot interaction for humanoid robots.
+highlights:
+  - Delivered demonstrations covering object localisation and grasping, dual-arm manipulation, door-handle detection and opening, camera- and audio-based navigation, people following and obstacle avoidance.
+  - Object detection, model-based tracking, template tracking, 3D point-cloud segmentation, augmented reality, text detection in natural images, face detection/recognition, sound localisation and speech recognition.
+  - Visual servoing in an optimisation framework for whole-body control of humanoid robots (published at RA-L / ICRA'17).
+youtube:
+  - id: TgpLfgFSca8
+  - id: -wIzJ2Ckifg
+  - id: ajZpUOC5ERM
+  - id: 1--VjdDlFg4
+  - id: qotsmwXmTUY
+  - id: bf2GvyEKQQo
+  - id: o22hN7YmVd4
+  - id: 4B_aEEaosyw
+  - id: QDmDY5koKIE
+images:
+  - src: giovanni.claudio.romeo.jpg
+    alt: Romeo humanoid robot

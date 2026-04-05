@@ -1,0 +1,18 @@
+id: visual-servoing-ral-2017
+title: Visual Servoing in an Optimization Framework for the Whole-Body Control of Humanoid Robots
+authors:
+  - Don Joven Agravante
+  - Giovanni Claudio
+  - Fabien Spindler
+  - François Chaumette
+venue: IEEE Robotics and Automation Letters
+venue_short: RA-L
+type: journal
+year: 2017
+volume: 2
+issue: 2
+pages: 608-615
+doi: 10.1109/LRA.2016.2645512
+url: https://inria.hal.science/hal-01421734
+note: Also presented at ICRA 2017.
+tags: [visual-servoing, humanoid-robots, optimization, whole-body-control]

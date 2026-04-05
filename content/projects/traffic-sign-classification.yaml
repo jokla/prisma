@@ -1,0 +1,18 @@
+id: traffic-sign-classification
+name: Traffic Sign Classification
+subtitle: Convolutional Neural Networks for the German Traffic Sign Recognition Benchmark
+organisation: Udacity SDCN
+parent: udacity-sdcn
+location: Online
+start: 2017
+end: 2017
+stack: [Python, TensorFlow, Keras]
+tags: [deep-learning, computer-vision, cnn]
+archived: true   # Student project — website only by default, not on default CV.
+summary: >
+  Train a neural network to classify 43 classes of German traffic signs
+  (GTSRB benchmark) as part of the Udacity Self-Driving Car Nanodegree.
+highlights:
+  - LeNet-inspired CNN with L2 regularisation, data augmentation, image preprocessing and dropout.
+  - 98.5% validation accuracy with fast convergence, trained on CPU only.
+  - Also reached 97.2% test accuracy per the companion blog post.

@@ -1,0 +1,18 @@
+id: stay-alert-ford
+name: Stay Alert! (Ford Kaggle competition)
+subtitle: Driver-alertness classifier
+organisation: UNIGE
+parent: unige-bachelor
+location: Genoa, Italy
+start: 2011
+end: 2011
+stack: [R, MATLAB]
+tags: [machine-learning, svm]
+archived: true
+url: https://www.kaggle.com/c/stayalert
+summary: >
+  Kaggle competition classifier to detect whether a driver is alert, using
+  sensor data acquired while driving.
+highlights:
+  - Support Vector Machine with a Gaussian kernel, with training-set reordering and sampling.
+  - Score 0.80 on a 0.43 (worst) to 0.86 (best) range.

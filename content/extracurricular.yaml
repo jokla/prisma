@@ -1,0 +1,13 @@
+entries:
+  - id: openlab
+    role: Officer
+    organisation: OpenLab
+    url: http://openlab.dibris.unige.it/index.php
+    location: Genoa, Italy
+    start: 2009
+    end: 2014
+    description: >
+      OpenLab is a student club recognised by the University of Genoa. We
+      spread IT culture and Free Software both inside and outside the
+      university by organising talks, projects, thematic events, workshops
+      and open courses.

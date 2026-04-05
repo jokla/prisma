@@ -1,0 +1,9 @@
+id: matlab-vrep-ros-2014
+title: Interfacing MATLAB/Simulink with V-REP via ROS
+event: Robotex Tech Days (organised by Gipsa-Lab)
+location: Grenoble, France
+date: 2014-07
+tags: [ros, matlab, simulation]
+archived: true   # Was commented out in the LaTeX source.
+summary: >
+  Presented the MATLAB ROS Bridge — see the project of the same name.

@@ -1,0 +1,16 @@
+id: visp-naoqi
+name: VispNaoqi
+subtitle: Bridge between ViSP and the Aldebaran NaoQi C++ SDK
+organisation: INRIA
+parent: inria
+location: Rennes, France
+start: 2014
+end: 2017
+stack: [C++, ViSP, NaoQi]
+tags: [humanoid-robots, open-source, computer-vision]
+archived: true
+license: BSD
+authors: [G. Claudio, F. Spindler]
+summary: >
+  A bridge between ViSP and Aldebaran's C++ SDK enabling image grabbing,
+  camera calibration and velocity control of Romeo, Pepper and Nao.

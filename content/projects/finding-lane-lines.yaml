@@ -1,0 +1,17 @@
+id: finding-lane-lines
+name: Finding Lane Lines on the Road
+subtitle: Classical computer-vision pipeline for lane detection
+organisation: Udacity SDCN
+parent: udacity-sdcn
+location: Online
+start: 2017
+end: 2017
+stack: [Python, OpenCV]
+tags: [computer-vision, autonomous-driving]
+archived: true
+url: http://jokla.me/robotics/lane-detection/
+summary: >
+  Udacity SDCND Project 1: detect highway lane lines from a video stream
+  using image-analysis techniques.
+highlights:
+  - Pipeline using colour selection, Canny edge detection, Hough transform and RANSAC.

@@ -1,0 +1,49 @@
+# Default profile , used for the CV PDF bundled on the website.
+# Positions Giovanni as a Principal AI-Video Architect: full career arc,
+# Italdesign & INRIA projects folded into their parent roles, Udacity
+# hidden (superseded by industry AV work).
+
+pitch: pitches/generic.md
+
+# Experience , explicit whitelist controls order (most-recent first).
+experience:
+  - medtronic-sr-principal
+  - medtronic-principal
+  - arrival-senior
+  - arrival-autonav
+  - italdesign
+  - inria
+  # irccyn (master-thesis intern, 2013) dropped from default CV for space.
+  # spack.yaml is archived: true and stays off the default CV.
+
+# Education , explicit order.
+# Udacity SDCN removed from default CV (2017 MOOC, superseded by 8+ years
+# of industry autonomous-driving and AI work at Principal level). It
+# still renders on the website as a project/education entry.
+education:
+  - ecn-unige-aria
+  - unige-bachelor
+
+# Projects , whitelist. Italdesign projects (into, italdesign-autonomous-
+# car, pop-up-next, wheem-i) and INRIA projects (romeo-comanoid, etc.)
+# are folded into their parent role highlights and therefore NOT listed
+# here. They remain visible on the website. Leave this list empty for
+# now , if you want a dedicated CV projects section later, add ids here.
+projects: []
+
+# Publications , include both peer-reviewed papers.
+publications:
+  - visual-servoing-ral-2017
+  - romeo-manipulation-humanoids-2016
+
+# Skills , omitted = include all from content/skills.yaml.
+# Add a `skills:` whitelist in tailored profiles to narrow this down.
+
+# Sections that exist as content but are profile-controlled in the CV:
+interests: true
+# Uncomment in a tailored profile to surface them:
+# extracurricular: true
+# presentations: all
+
+# Visually emphasised entries in the PDF.
+highlight: [medtronic-sr-principal]

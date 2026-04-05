@@ -1,0 +1,36 @@
+id: italdesign
+company: Italdesign Giugiaro (Volkswagen Group)
+role: Autonomous Driving Engineer
+location: Turin, Italy
+start: 2017-09
+end: 2019-09
+website: https://www.italdesign.it/
+tags: [autonomous-driving, perception, deep-learning, slam, cpp, ros]
+summary: >
+  Joined Italdesign's new Autonomous Driving team as robotics expert.
+  Technical lead for machine-learning and computer-vision work across
+  InTo, Pop.Up Next, Wheem-i and Roborace, and responsible for the
+  sensor set and full autonomous-driving stack (perception, mapping,
+  localisation, planning, control) on the Italdesign prototype
+  vehicle.
+highlights:
+  - Technical lead for ML and computer vision on InTo, an AI coach-crowding prediction service deployed in production at Turin Re Umberto metro station (May 2019).
+  - Owned the sensor set and software architecture of Pop.Up Next, the Airbus and Audi modular flying-car concept, including vision-based drone detection and autonomous latching, demonstrated at Amsterdam Drone Week 2018.
+  - Built the full autonomous-driving stack (perception, SLAM, planning, control) on the Italdesign prototype vehicle equipped with cameras, lidars, radars, GNSS, IMU and ultrasonics.
+  - Trained and deployed CNNs for object detection and semantic segmentation on Wheem-i (Toyota Mobility Unlimited Challenge finalist) and Roborace.
+highlight_links:
+  - label: InTo
+    url: https://www.italdesign.it/project/into/
+  - label: Pop.Up
+    url: https://www.italdesign.it/project/pop-up-next/
+  - label: Wheem-i
+    url: https://www.italdesign.it/italdesigns-moby-is-a-finalist-of-the-toyota-4-million-mobility-unlimited-challenge/
+  - label: Roborace
+    url: https://www.italdesign.it/roborace-italdesign-and-datalab-munich-to-accelerate-machine-learning-together/
+archived_highlights:
+  - Sensor scouting and evaluation (mainly cameras, lidars and depth cameras).
+images:
+  - src: Italdesign_logo.png
+    alt: Italdesign logo
+  - src: giovanni.claudio.pop.up.jpg
+    alt: Pop.Up flying car prototype

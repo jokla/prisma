@@ -1,0 +1,14 @@
+id: romeo-manipulation-humanoids-2016
+title: Vision-based Manipulation with the Humanoid Robot Romeo
+authors:
+  - Giovanni Claudio
+  - Fabien Spindler
+  - François Chaumette
+venue: IEEE-RAS International Conference on Humanoid Robots
+venue_short: Humanoids
+type: conference
+year: 2016
+pages: 286-293
+doi: 10.1109/HUMANOIDS.2016.7803290
+url: http://rainbow-doc.irisa.fr/pdf/2016_humanoids_claudio.pdf
+tags: [humanoid-robots, manipulation, visual-servoing, romeo]

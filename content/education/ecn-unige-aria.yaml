@@ -1,0 +1,22 @@
+id: ecn-unige-aria
+institution: École Centrale de Nantes (ECN) & University of Genoa (UNIGE)
+degree: "M.Sc. ARIA, Advanced Robotics (double degree)"
+field: Control Engineering, Robotics and Applied Informatics
+location: Nantes, France / Genoa, Italy
+start: 2011
+end: 2013
+courses:
+  - Vision-Based Control
+  - Computer Vision
+  - Neural Networks
+  - Machine Learning
+  - Real-Time Systems
+  - Embedded Systems
+  - Robot Programming
+  - Optimization Techniques
+  - Optimal kinematic design of robots
+  - Advanced modelling of robots
+  - Identification and control of robots
+images:
+  - src: ecn_logo_cv.svg
+    alt: École Centrale de Nantes

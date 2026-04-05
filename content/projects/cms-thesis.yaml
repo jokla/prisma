@@ -1,0 +1,14 @@
+id: cms-thesis
+name: Modular CMS for a Student Club
+subtitle: Bachelor thesis (University of Genoa)
+organisation: UNIGE
+parent: unige-bachelor
+location: Genoa, Italy
+start: 2010
+end: 2011
+stack: [PHP, SQL, HTML, CSS]
+tags: [web, student-project]
+archived: true
+summary: >
+  A complete Content Management System framework designed to be easily
+  customisable by end users — the bachelor thesis project.

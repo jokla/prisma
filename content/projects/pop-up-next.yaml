@@ -1,0 +1,28 @@
+id: pop-up-next
+name: Pop.Up Next
+subtitle: Modular flying taxi in collaboration with Airbus and Audi
+organisation: Italdesign
+parent: italdesign
+location: Turin, Italy
+start: 2017
+end: 2019
+stack: [C++, ROS, Computer Vision]
+tags: [autonomous-driving, drones, perception, visual-servoing]
+url: https://www.italdesign.it/project/pop-up-next/
+summary: >
+  An electric, modular and autonomous concept that couples a ground
+  module, a cabin and an aerial drone module. Demonstrated at Amsterdam
+  Drone Week 2018 with a 1:4 scale flying prototype.
+highlights:
+  - Vision-based drone detection and pose estimation from the car module.
+  - Autonomous navigation for centring and latching with the drone module.
+youtube:
+  - id: zO114BNxmvc
+    label: Amsterdam Drone Week 2018
+  - id: 8GocntHW1rY
+    label: 1:4 scale flying demonstration
+  - id: 2LggHhR2kFk
+  - id: dKY31fvUjf0
+images:
+  - src: giovanni.claudio.pop.up.jpg
+    alt: Pop.Up Next prototype

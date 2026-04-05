@@ -1,0 +1,9 @@
+id: whole-body-visual-servoing-2016
+title: Whole-body control with visual servoing
+event: Journées Nationales de la Robotique Humanoïde
+location: Toulouse, France
+date: 2016-06
+tags: [humanoid-robots, visual-servoing, whole-body-control]
+summary: >
+  Presentation of a whole-body control framework with visual servoing
+  tasks for object manipulation and gaze control on humanoid robots.

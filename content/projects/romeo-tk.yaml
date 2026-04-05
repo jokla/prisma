@@ -1,0 +1,17 @@
+id: romeo-tk
+name: RomeoTk
+subtitle: Demos, classes, tools and data for the Romeo humanoid robot
+organisation: INRIA
+parent: inria
+location: Rennes, France
+start: 2014
+end: 2017
+stack: [C++, ViSP, NaoQi]
+tags: [humanoid-robots, open-source, visual-servoing]
+archived: true
+license: BSD
+authors: [G. Claudio, F. Spindler]
+summary: >
+  A toolkit accompanying the Romeo research programme — face detection,
+  object grasping, visual servoing demos and supporting classes/utilities
+  for the humanoid robot.
