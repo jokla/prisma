@@ -205,7 +205,7 @@ Projects link to a parent career period via a single `parent: <id>` field that r
 
 ### Skills: flat list, grouped by `group`
 
-`content/skills.yaml` is a single flat list of `{id, label, group}` objects. Profiles reference skills by `id`. The CV template groups them for rendering using the `group` field (matching Awesome-CV's section conventions: Programming, Libraries, Tools, OS, Robots, Sensors). Human languages live in `bio.yaml`, not in skills.
+`content/skills.yaml` is a single flat list of `{id, label, group}` objects. Profiles reference skills by `id`. The CV template groups them for rendering using the `group` field (matching Awesome-CV's section conventions: Programming, Libraries, Tools, OS, Robots, Sensors). Human languages still live in `bio.yaml`, but the CV renders them as a separate `Languages` row alongside the grouped technical skills so the `Programming` label stays unambiguous.
 
 ### Bio photo
 

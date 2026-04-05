@@ -198,6 +198,8 @@
 #let entry-tags(entry) = entry.at("tags", default: ())
 
 #let publication-accent = rgb("#0395DE")
+#let skill-level-fill = rgb("#6ea7c5")
+#let skill-level-empty = rgb("#b9c9d4")
 
 #let publication-entry(pub) = {
   v(1pt)
@@ -210,6 +212,51 @@
     text(size: 10pt, weight: "bold", linked-label(pub.title, pub.at("url", default: ""))),
     text(size: 8pt, weight: "medium", fill: publication-accent, smallcaps(pub.venue + " | " + str(pub.year))),
   )
+}
+
+#let join-with-h-bar(items) = {
+  [
+    #for (index, item) in items.enumerate() {
+      item
+      if index < items.len() - 1 {
+        [ #h-bar() ]
+      }
+    }
+  ]
+}
+
+#let language-level-value(level-name) = {
+  if level-name == "Native" {
+    4
+  } else if level-name == "Fluent" {
+    4
+  } else if level-name == "Intermediate" {
+    2
+  } else if level-name == "Basic" {
+    1
+  } else {
+    2
+  }
+}
+
+#let language-level-icons(level) = {
+  [
+    #for index in range(4) [
+      #text(
+        fill: if index < level { skill-level-fill } else { skill-level-empty },
+        "●",
+      )
+      #if index < 3 [#h(0.1em)]
+    ]
+  ]
+}
+
+#let language-skill-entry(lang) = {
+  [
+    #lang.name
+    #h(0.45em)
+    #language-level-icons(language-level-value(lang.at("level", default: "")))
+  ]
 }
 
 // ── Experience ────────────────────────────────────────────────────────────
@@ -284,5 +331,14 @@
   cv-skill(
     type: g,
     info: labels.join(", "),
+  )
+}
+
+#let spoken-languages = bio.at("languages", default: ())
+
+#if spoken-languages.len() > 0 {
+  cv-skill(
+    type: "Languages",
+    info: join-with-h-bar(spoken-languages.map(lang => language-skill-entry(lang))),
   )
 }

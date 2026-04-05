@@ -1,13 +1,13 @@
 # Flat list. `group` controls how skills are rendered in CV and on the
 # website. Grouping reflects the positioning as a Principal AI-Video
-# Architect: languages → AI/ML → computer vision → platforms/infra →
+# Architect: programming → AI/ML → computer vision → platforms/infra →
 # robotics → sensors → methods & strategy → med-device.
 skills:
-  # Languages
-  - { id: cpp,             label: C++23,               group: Languages }
-  - { id: python,          label: Python,              group: Languages }
-  - { id: cmake,           label: CMake,               group: Languages }
-  - { id: bash,            label: Bash,                group: Languages }
+  # Programming
+  - { id: cpp,             label: C++23,               group: Programming }
+  - { id: python,          label: Python,              group: Programming }
+  - { id: cmake,           label: CMake,               group: Programming }
+  - { id: bash,            label: Bash,                group: Programming }
 
   # AI / ML
   - { id: tensorrt,        label: TensorRT,            group: "AI / ML" }
