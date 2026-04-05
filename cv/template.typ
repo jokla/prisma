@@ -82,15 +82,100 @@
   if images.len() > 0 { image(images.at(0).src) } else { "" }
 }
 
+// Resolve the most relevant primary URL for an entry.
+#let primary-entry-url(entry) = {
+  let direct-url = entry.at("url", default: "")
+  let website = entry.at("website", default: "")
+  let videos = entry.at("youtube", default: ())
+
+  if direct-url != "" {
+    direct-url
+  } else if website != "" {
+    website
+  } else if videos.len() > 0 {
+    "https://www.youtube.com/watch?v=" + videos.first().id
+  } else {
+    ""
+  }
+}
+
+// Render a clickable label.
+#let linked-label(label, url) = {
+  if url == "" {
+    label
+  } else {
+    link(url)[#label]
+  }
+}
+
 // Format start–end date range.
 #let entry-date(entry) = {
   entry.start_formatted + " – " + entry.end_formatted
 }
 
 // Render highlights as a list, or "" if empty.
+#let highlight-links(entry, highlight) = {
+  let explicit-links = entry.at("highlight_links", default: ())
+  let video-links = entry.at("youtube", default: ())
+    .filter(video => video.at("label", default: "") != "")
+    .map(video => (
+      label: video.label,
+      url: "https://www.youtube.com/watch?v=" + video.id,
+    ))
+
+  (explicit-links + video-links).filter(item =>
+    item.at("label", default: "") != "" and
+    item.at("url", default: "") != "" and
+    highlight.contains(item.label)
+  )
+}
+
+#let inline-link-label(label) = {
+  underline(
+    stroke: (
+      paint: rgb("#6ea7c5"),
+      thickness: 0.5pt,
+      dash: "dotted",
+      cap: "round",
+    ),
+    offset: 2.2pt,
+    label,
+  )
+}
+
+#let linkify-text(value, links) = {
+  if links.len() == 0 {
+    value
+  } else {
+    let item = links.first()
+    let rest = links.slice(1)
+    let label = item.at("label", default: "")
+    let url = item.at("url", default: "")
+
+    if label == "" or url == "" or not value.contains(label) {
+      linkify-text(value, rest)
+    } else {
+      let parts = value.split(label)
+
+      [
+        #for (index, part) in parts.enumerate() {
+          linkify-text(part, rest)
+          if index < parts.len() - 1 {
+            link(url)[#inline-link-label(label)]
+          }
+        }
+      ]
+    }
+  }
+}
+
+#let render-highlight(highlight, entry) = {
+  linkify-text(highlight, highlight-links(entry, highlight))
+}
+
 #let entry-description(entry) = {
   let hl = entry.at("highlights", default: ())
-  if hl.len() > 0 { list(..hl.map(h => [#h])) } else { "" }
+  if hl.len() > 0 { list(..hl.map(h => [#render-highlight(h, entry)])) } else { "" }
 }
 
 #let entry-tags(entry) = entry.at("tags", default: ())
@@ -102,7 +187,7 @@
 #for entry in data.experience {
   cv-entry(
     title:       entry.role,
-    society:     entry.company,
+    society:     linked-label(entry.company, primary-entry-url(entry)),
     date:        entry-date(entry),
     location:    entry.location,
     description: entry-description(entry),
@@ -117,7 +202,7 @@
 
 #for entry in data.education {
   cv-entry(
-    title:       entry.degree,
+    title:       linked-label(entry.degree, primary-entry-url(entry)),
     society:     entry.institution,
     date:        entry-date(entry),
     location:    entry.location,
@@ -133,7 +218,7 @@
 
   for entry in data.projects {
     cv-entry(
-      title:       entry.name,
+      title:       linked-label(entry.name, primary-entry-url(entry)),
       society:     entry.at("organisation", default: ""),
       date:        entry-date(entry),
       location:    entry.at("location", default: ""),

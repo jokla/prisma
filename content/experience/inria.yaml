@@ -22,6 +22,11 @@ highlights:
   - Developed detection, real-time tracking and pose estimation algorithms using 2D and RGB-D cameras.
   - Implemented visual servoing control to improve accuracy in grasping and dual-arm manipulation.
   - Supervised student internships and published scientific articles at RA-L / ICRA'17 and Humanoids'16.
+highlight_links:
+  - label: ICRA'17
+    url: https://inria.hal.science/hal-01421734
+  - label: Humanoids'16
+    url: http://rainbow-doc.irisa.fr/pdf/2016_humanoids_claudio.pdf
 archived_highlights:
   # Previously commented out in the LaTeX source
   - Created vision-based navigation demonstrations with the humanoid robot Pepper.

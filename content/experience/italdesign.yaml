@@ -17,6 +17,15 @@ highlights:
   - Developed perception systems for obstacle and free-navigable-space detection on Wheem-i and Roborace.
   - Research, implementation and deployment of perception, mapping/localisation and control algorithms.
   - Training and deployment of deep neural networks for object detection and semantic image segmentation.
+highlight_links:
+  - label: InTo
+    url: https://www.italdesign.it/project/into/
+  - label: Pop.Up
+    url: https://www.italdesign.it/project/pop-up-next/
+  - label: Wheem-i
+    url: https://www.italdesign.it/italdesigns-moby-is-a-finalist-of-the-toyota-4-million-mobility-unlimited-challenge/
+  - label: Roborace
+    url: https://www.italdesign.it/roborace-italdesign-and-datalab-munich-to-accelerate-machine-learning-together/
 archived_highlights:
   # Previously commented out in the LaTeX source
   - Sensor scouting and evaluation (mainly cameras, lidars and depth cameras).
