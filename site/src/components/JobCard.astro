@@ -101,7 +101,7 @@ const showcaseCount = relatedProjects.length + roleVideos.length;
 
       {relatedProjects.length > 0 && (
         <div class="grid gap-4 xl:grid-cols-2">
-          {relatedProjects.map((project) => <WorkProjectCard entry={project} />)}
+          {relatedProjects.map((project) => <WorkProjectCard entry={project} accordionGroup="work-projects" />)}
         </div>
       )}
     </section>

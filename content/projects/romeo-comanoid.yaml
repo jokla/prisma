@@ -22,14 +22,23 @@ highlights:
   - Visual servoing in an optimisation framework for whole-body control of humanoid robots (published at RA-L / ICRA'17).
 youtube:
   - id: TgpLfgFSca8
+    label: Romeo humanoid robot grasping demonstration v2
   - id: -wIzJ2Ckifg
+    label: "Romeo dual arm manipulation: ball-in-maze game"
   - id: ajZpUOC5ERM
+    label: Romeo face servoing
   - id: 1--VjdDlFg4
+    label: "Whole-body control with Romeo: Grasping by visual servoing"
   - id: qotsmwXmTUY
+    label: A door opening task using a RGB-D camera with the humanoid robot Romeo
   - id: bf2GvyEKQQo
+    label: "Whole-body control with Romeo: Gaze by visual servoing"
   - id: o22hN7YmVd4
+    label: Pepper grasping a box
   - id: 4B_aEEaosyw
+    label: Pepper Image-Based Visual Servoing using ROS OpenTLD
   - id: QDmDY5koKIE
+    label: The robot Pepper follows a person using vision
 images:
   - src: giovanni.claudio.romeo.jpg
     alt: Romeo humanoid robot
