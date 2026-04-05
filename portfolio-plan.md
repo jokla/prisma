@@ -9,6 +9,8 @@ A personal repo that produces two things from one folder of YAML data:
 
 This is a personal project, not a framework. If it ever makes sense to extract a reusable template, that's a future decision — not a design constraint now.
 
+Current branch state: Phase 1 content migration and Phase 2 CV generation are complete. The Astro site under `site/` and the deploy workflow are still future Phase 3 and Phase 4 work, so sections below that mention them describe the target state rather than the current checked-in tree.
+
 ---
 
 ## Stack
@@ -19,13 +21,15 @@ This is a personal project, not a framework. If it ever makes sense to extract a
 | CV | [Typst](https://typst.app) | Modern LaTeX alternative, millisecond compiles, clean output |
 | Data | YAML | Human-readable, native Astro support, easy Git diffs |
 | Styling | Tailwind CSS | Utility-first, mobile-first, pairs well with Astro |
-| CI/CD | GitHub Actions | Free, builds site + CV on push to `main` |
+| CI/CD | GitHub Actions | Free, planned for site + CV builds on push to `master` |
 | Hosting | GitHub Pages | Free, custom domain, already in use |
 | Task runner | Make | Simple, no dependencies |
 
 ---
 
-## Repository Structure
+## Target Repository Structure
+
+The current repo already contains `content/`, `cv/`, `scripts/`, `Makefile`, and the root `package.json` for the resolver. `site/` and `.github/workflows/deploy.yml` shown below are planned additions for Phases 3 and 4.
 
 ```
 /
@@ -37,10 +41,10 @@ This is a personal project, not a framework. If it ever makes sense to extract a
 │   ├── presentations/           ← Conference/workshop talks
 │   ├── pitches/
 │   │   ├── generic.md           ← Default pitch for website & general CV
-│   │   └── surgical-robotics-lead.md
+│   │   └── <application>.md     ← Example future tailored pitch
 │   ├── profiles/
 │   │   ├── default.yaml         ← Used for the website CV download
-│   │   └── surgical-robotics-lead.yaml
+│   │   └── <application>.yaml   ← Example future tailored profile
 │   ├── assets/                  ← Images referenced by YAML entries
 │   ├── blog/                    ← Markdown posts (Phase 3 migration target)
 │   ├── bio.yaml
@@ -147,31 +151,32 @@ phone: "+44 ..."            # CV-only — never rendered on the website
 location: London, UK
 ```
 
-### Profile (`content/profiles/surgical-robotics-lead.yaml`)
+### Profile (`content/profiles/<application>.yaml`)
 
-Profiles select and order content for a specific CV. Supports inclusive (list what to include) and exclusive (include all except) selection.
+Profiles select and order content for a specific CV. Supports inclusive (list what to include) and exclusive (include all except) selection. The current repo only commits `content/profiles/default.yaml`; additional tailored profiles follow the same format.
 
 ```yaml
-pitch: pitches/surgical-robotics-lead.md
+pitch: pitches/generic.md
 
 # Inclusive — list exactly what to include:
 experience:
-  - medtronic
-  - arrival
+  - medtronic-sr-principal
+  - medtronic-principal
+  - arrival-senior
   - italdesign
 skills:
-  - computer-vision
-  - deep-learning
-  - c++
+  - cpp
+  - python
+  - detection
   - ros
 
 # Exclusive — include all except these:
 projects_exclude:
-  - romeo
+  - romeo-comanoid
 
 publications:
-  - popup-icra
-highlight: [medtronic]   # Extra visual weight in the PDF (list — supports multiple)
+  - visual-servoing-ral-2017
+highlight: [medtronic-sr-principal]   # Extra visual weight in the PDF (list — supports multiple)
 ```
 
 ---
@@ -302,16 +307,16 @@ Typst input handling follows the same rule: the `data` input passed via `sys.inp
 # Default CV (used on website)
 make cv
 
-# Tailored CV for a specific application
-make cv PROFILE=content/profiles/surgical-robotics-lead.yaml
-# → outputs/surgical-robotics-lead.pdf
+# Tailored CV for a specific application, after adding a profile file
+make cv PROFILE=content/profiles/<application>.yaml
+# → outputs/<application>.pdf
 ```
 
 ---
 
-## Website
+## Website (Phase 3)
 
-Built by Astro from the full `content/` folder — no filtering, everything renders.
+Planned Astro site built from the full `content/` folder — no filtering, everything renders.
 
 **Pages:**
 - **Home** — bio, current role, links
@@ -330,6 +335,8 @@ Built by Astro from the full `content/` folder — no filtering, everything rend
 ---
 
 ## Makefile
+
+The `cv` and `clean` targets work today. `dev` and `build` are forward-looking targets that will only work once the Astro site is scaffolded under `site/`.
 
 ```makefile
 PROFILE ?= content/profiles/default.yaml
@@ -357,7 +364,7 @@ clean:
 
 ## GitHub Actions
 
-The workflow delegates to `make build` so CI and local builds run the exact same steps. Any change to the build sequence goes into the Makefile, not the workflow.
+Planned Phase 4 workflow. The repo currently contains only Claude helper workflows; the Pages deploy workflow below is the target shape once the Astro site exists. It delegates to `make build` so CI and local builds run the exact same steps. Any change to the build sequence goes into the Makefile, not the workflow.
 
 ```yaml
 # .github/workflows/deploy.yml
@@ -365,7 +372,7 @@ name: Build and deploy
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 permissions:
   pages: write
@@ -416,8 +423,8 @@ jobs:
 
 Populated `content/` by migrating data from the existing Awesome-CV LaTeX sources and the old Jekyll site. Final inventory:
 
-- **35 YAML files + 1 Markdown pitch** (~740 lines) — 7 experience, 3 education, 13 projects, 2 publications, 4 presentations, plus `bio`, `contact`, `skills`, `interests`, `extracurricular` and the `default` profile.
-- **8 images** under `content/assets/` — all referenced, no orphans.
+- Structured collections for experience, education, projects, publications, presentations, bio/contact/skills, interests, extracurricular activity, the default profile, and the default pitch.
+- Related assets under `content/assets/`, all referenced with no known orphans.
 - **Audit passed**: every profile ref, every `parent:` ref, every image src, and every id/filename pair resolves cleanly.
 
 **Milestone reached:** all career data lives in `content/` as structured YAML.
@@ -425,7 +432,7 @@ Populated `content/` by migrating data from the existing Awesome-CV LaTeX source
 See the "Content conventions" section above for the schema decisions made during this phase.
 
 ### Phase 2 — CV pipeline ✅ DONE
-`resolve-profile.js` and `cv/template.typ` are implemented. The CV uses the `brilliant-CV` Typst package with inline metadata derived from resolved YAML content rather than a standalone `metadata.toml`. `make cv` produces a working PDF from real content, and tailored CVs work via `make cv PROFILE=...`.
+`resolve-profile.js` and `cv/template.typ` are implemented. The CV uses the `brilliant-CV` Typst package with inline metadata derived from resolved YAML content rather than a standalone `metadata.toml`. `make cv` produces a working PDF from real content, and the resolver supports additional tailored CVs via more files under `content/profiles/`.
 
 **Milestone reached:** `make cv` outputs a professional PDF. Tailored CVs work via `make cv PROFILE=...`.
 
@@ -435,7 +442,7 @@ Scaffold the Astro project. Build pages: Home, Work (timeline), Projects, Public
 **Milestone:** `make dev` shows a complete portfolio site.
 
 ### Phase 4 — Deploy
-Wire up the GitHub Actions workflow. Copy `CNAME` from `inputs/jokla.github.io/CNAME` to `site/public/CNAME` so the custom domain survives the first deploy. Push to `main` → CV compiled → site built → deployed to `giovanniclaudio.com`.
+Wire up the GitHub Actions workflow. Copy `CNAME` from `inputs/jokla.github.io/CNAME` to `site/public/CNAME` so the custom domain survives the first deploy. Push to `master` → CV compiled → site built → deployed to `giovanniclaudio.com`.
 
 **Milestone:** live at `giovanniclaudio.com`.
 

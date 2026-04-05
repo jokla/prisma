@@ -4,17 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project status
 
-**Phase 1 (content migration) is done.** **Phase 2 (CV pipeline) is implemented** — `Makefile`, `package.json`, `package-lock.json`, `scripts/resolve-profile.js`, `scripts/copy-default-cv.js`, and `cv/template.typ` all exist. Run `npm install && make cv` to produce `outputs/default.pdf`. The Astro site under `site/` does not exist yet (Phase 3).
+**Phase 1 (content migration) is done.** **Phase 2 (CV pipeline) is implemented** — `Makefile`, `package.json`, `package-lock.json`, `scripts/resolve-profile.js`, `scripts/copy-default-cv.js`, and `cv/template.typ` all exist. Run `npm install && make cv` to produce `outputs/default.pdf`. The Astro site under `site/` does not exist yet (Phase 3), so `make dev` and `make build` are not usable yet.
 
-`content/` holds 35 YAML files + 1 Markdown pitch + 8 images — see the "Content conventions" section of `portfolio-plan.md` for the schema decisions (especially `summary` vs `highlights`, `archived:` / `archived_highlights:`, `parent:` on projects, and the flat skills list with `group` field).
+`content/` holds the migrated YAML collections, the default pitch, and related assets — see the "Content conventions" section of `portfolio-plan.md` for the schema decisions (especially `summary` vs `highlights`, `archived:` / `archived_highlights:`, `parent:` on projects, and the flat skills list with `group` field).
 
 Despite the repo name, this project is **not** related to the Prisma ORM. It's a personal portfolio + CV generator for Giovanni Claudio. Don't suggest a rename on that basis (see "deliberately not doing" in the plan).
 
 ## What this repo builds
 
-One source of truth (`content/` as YAML) → two outputs:
+One source of truth (`content/` as YAML) is intended to drive two outputs. In the current branch state, only the CV pipeline is implemented:
 
-1. **Portfolio website** (Astro + Tailwind, SSG) deployed to GitHub Pages at `giovanniclaudio.com`. Renders the full `content/` folder unfiltered.
+1. **Portfolio website** (Astro + Tailwind, SSG), planned for Phase 3 and eventual deployment to GitHub Pages at `giovanniclaudio.com`. It will render the full `content/` folder unfiltered.
 2. **Tailored CV PDFs** (Typst). A "profile" YAML selects and orders which experience / projects / publications / skills appear, and which pitch Markdown gets inlined. The same machinery produces the default CV that the website offers for download.
 
 The bridge between the two is `scripts/resolve-profile.js`: it reads a profile YAML, pulls referenced files from `content/`, applies inclusive (`experience:`) or exclusive (`projects_exclude:`) selection, inlines the pitch, and writes `.build/resolved.json`. Typst then compiles `cv/template.typ` with that JSON as input. Keep this resolver as the single choke point — don't push profile-resolution logic into Typst or into Astro.
@@ -24,14 +24,16 @@ The bridge between the two is `scripts/resolve-profile.js`: it reads a profile Y
 All driven by `make`:
 
 ```bash
-make dev                                                    # Astro dev server
+make dev                                                    # Planned Phase 3 target; requires site/
 make cv                                                     # Default CV → outputs/default.pdf
-make cv PROFILE=content/profiles/surgical-robotics-lead.yaml  # Tailored CV
-make build                                                  # CV + copy PDF into site/public + Astro build
+make cv PROFILE=content/profiles/<your-profile>.yaml        # Tailored CV after adding another profile
+make build                                                  # Planned full build; currently depends on future site/
 make clean                                                  # rm -rf .build/ outputs/ site/dist/
 ```
 
 `.build/` and `outputs/` are gitignored build artefacts; never commit them.
+
+The only committed profile on this branch is `content/profiles/default.yaml`.
 
 Local typography matters for this repo. The current template is tuned for `Roboto` headings, `Source Sans Pro` body text, and Font Awesome 7 desktop OTFs for icons. Upstream `brilliant-CV` recommends `Source Sans 3`; that is an acceptable alternative, but the checked-in template currently uses `Source Sans Pro` by choice.
 

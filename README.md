@@ -13,6 +13,7 @@ Phase 1 content migration is done. Phase 2 CV generation is working. The Astro s
 - `scripts/resolve-profile.js` resolves a profile YAML into `.build/resolved.json`.
 - `cv/template.typ` renders that JSON using `@preview/brilliant-cv:3.3.0`.
 - `make cv` builds `outputs/default.pdf`.
+- `make build` and `make dev` are forward-looking Phase 3 targets; they are not usable yet because the Astro site is not scaffolded under `site/`.
 
 ## Requirements
 
@@ -38,10 +39,10 @@ Result:
 outputs/default.pdf
 ```
 
-To build a tailored CV:
+To build a tailored CV, add another profile file under `content/profiles/` and run:
 
 ```bash
-make cv PROFILE=content/profiles/surgical-robotics-lead.yaml
+make cv PROFILE=content/profiles/<your-profile>.yaml
 ```
 
 ## How It Works
@@ -83,11 +84,12 @@ These folders are reference inputs only. Do not edit them as part of normal proj
 
 ## Commands
 
+Current working commands:
+
 ```bash
 make cv
 make cv PROFILE=content/profiles/default.yaml
-make build
 make clean
 ```
 
-`make build` is intended for the future Astro site build as well. Right now, only the CV pipeline is fully implemented.
+`make build` and `make dev` are reserved for Phase 3, once the Astro site exists under `site/`.
