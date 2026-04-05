@@ -1,28 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import JobCard from '../components/JobCard.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { dateKey } from '../lib/dates';
 
 const all = await getCollection('experience');
+const projects = await getCollection('projects', ({ data }) => !data.archived);
 const active = all
   .filter((e) => !e.data.archived)
   .sort((a, b) => dateKey(b.data.start) - dateKey(a.data.start));
 const archived = all
   .filter((e) => e.data.archived)
   .sort((a, b) => dateKey(b.data.start) - dateKey(a.data.start));
+
+const projectsByParent = new Map<string, CollectionEntry<'projects'>[]>();
+for (const project of projects) {
+  if (!project.data.parent) continue;
+  if (!projectsByParent.has(project.data.parent)) projectsByParent.set(project.data.parent, []);
+  projectsByParent.get(project.data.parent)!.push(project);
+}
+
+for (const list of projectsByParent.values()) {
+  list.sort((a, b) => dateKey(b.data.start) - dateKey(a.data.start));
+}
 ---
 <BaseLayout title="Work — Giovanni Claudio" description="12+ years across medical robotics, autonomous vehicles and humanoid platforms.">
-  <section class="max-w-5xl mx-auto px-6 py-16">
+  <section class="mx-auto max-w-6xl px-6 py-16">
     <header class="mb-10">
       <h1 class="text-4xl font-bold mb-3">Work</h1>
-      <p class="text-lg muted max-w-2xl">
-        Twelve-plus years architecting real-time perception, computer vision and AI/video systems — from humanoid research at INRIA to surgical robotics at Medtronic.
+      <p class="text-lg muted max-w-3xl">
+        A visual timeline of roles, systems and shipped work. Each chapter keeps the CV facts, but pulls in the projects, demos and footage that make the work legible at a glance.
       </p>
     </header>
 
     <div class="space-y-6">
-      {active.map((entry) => <JobCard entry={entry} />)}
+      {active.map((entry) => <JobCard entry={entry} relatedProjects={projectsByParent.get(entry.data.id) ?? []} />)}
     </div>
 
     {archived.length > 0 && (
@@ -31,7 +43,7 @@ const archived = all
           Show earlier roles ({archived.length}) ▸
         </summary>
         <div class="mt-6 space-y-6">
-          {archived.map((entry) => <JobCard entry={entry} />)}
+          {archived.map((entry) => <JobCard entry={entry} relatedProjects={projectsByParent.get(entry.data.id) ?? []} />)}
         </div>
       </details>
     )}

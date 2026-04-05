@@ -1,0 +1,100 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { formatRange } from '../lib/dates';
+import { getAsset } from '../lib/assets';
+import { getLocationFlag } from '../lib/location';
+import YouTubeEmbed from './YouTubeEmbed.astro';
+
+interface Props {
+  entry: CollectionEntry<'projects'>;
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const hero = d.images?.[0] ? getAsset(d.images[0].src) : undefined;
+const featuredVideo = d.youtube?.[0];
+const range = formatRange(d.start, d.end);
+const locationFlag = d.location ? getLocationFlag(d.location) : undefined;
+const stack = d.stack?.slice(0, 3) ?? [];
+const meta = [d.organisation, range].filter(Boolean).join(' · ');
+---
+<article class="surface overflow-hidden rounded-[1.25rem]">
+  <div class="relative aspect-[16/10] overflow-hidden" style="background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 16%, var(--color-bg-elev)), var(--color-bg-elev))">
+    {featuredVideo ? (
+      <YouTubeEmbed id={featuredVideo.id} label={featuredVideo.label ?? d.name} kicker="Project Demo" roundedClass="rounded-none" />
+    ) : hero ? (
+      <Image src={hero} alt={d.images?.[0].alt ?? ''} width={720} height={450} class="h-full w-full object-cover" />
+    ) : (
+      <div class="flex h-full items-end p-5">
+        <div>
+          <p class="subtitle text-xs uppercase tracking-[0.24em]">Project Snapshot</p>
+          <p class="mt-2 max-w-xs text-xl font-bold leading-tight">{d.name}</p>
+        </div>
+      </div>
+    )}
+
+    {!featuredVideo && (
+      <div class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-black/65 to-transparent p-4 text-white">
+        <div>
+          <p class="text-sm font-semibold">{d.name}</p>
+          {d.subtitle && <p class="mt-1 text-xs text-white/80">{d.subtitle}</p>}
+        </div>
+        <div class="flex shrink-0 flex-wrap justify-end gap-2 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-white/90">
+          {d.images && d.images.length > 1 && (
+            <span class="rounded-full border px-2.5 py-1" style="border-color: rgba(255, 255, 255, 0.35)">
+              {d.images.length} photos
+            </span>
+          )}
+        </div>
+      </div>
+    )}
+  </div>
+
+  <div class="p-5">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+      <div class="min-w-0">
+        <h4 class="text-lg font-bold leading-tight">
+          {d.url ? <a href={d.url} target="_blank" rel="noopener">{d.name}</a> : d.name}
+        </h4>
+        {meta && <p class="mt-1 text-xs muted">{meta}</p>}
+      </div>
+
+      {d.location && (
+        <span
+          class="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs"
+          style="border-color: var(--color-border); background: var(--color-bg)"
+        >
+          {locationFlag && <span aria-hidden="true">{locationFlag}</span>}
+          <span>{d.location}</span>
+        </span>
+      )}
+    </div>
+
+    {stack.length > 0 && (
+      <div class="mt-4 flex flex-wrap gap-1.5">
+        {stack.map((item) => (
+          <span class="rounded-full px-2.5 py-1 text-xs" style="background: var(--color-bg); color: var(--color-fg-muted); border: 1px solid var(--color-border)">
+            {item}
+          </span>
+        ))}
+      </div>
+    )}
+
+    {d.url && (
+      <div class="mt-4 flex flex-wrap gap-2 text-sm">
+        {d.url && (
+          <a
+            href={d.url}
+            target="_blank"
+            rel="noopener"
+            class="rounded-full border px-3 py-1.5 no-underline"
+            style="border-color: var(--color-border); color: var(--color-fg)"
+          >
+            Open project
+          </a>
+        )}
+      </div>
+    )}
+  </div>
+</article>
