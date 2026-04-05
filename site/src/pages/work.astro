@@ -25,7 +25,25 @@ for (const list of projectsByParent.values()) {
 }
 ---
 <BaseLayout title="Work — Giovanni Claudio" description="12+ years across medical robotics, autonomous vehicles and humanoid platforms.">
-  <section class="mx-auto max-w-6xl px-6 py-16">
+  <section class="relative mx-auto max-w-6xl px-6 py-16">
+    <aside class="absolute inset-y-0 left-0 hidden 2xl:block w-56" style="transform: translateX(calc(-100% - 2rem));">
+      <div class="work-toc sticky top-28 rounded-[1.25rem] border p-4" style="border-color: var(--color-border); background: color-mix(in srgb, var(--color-bg) 88%, var(--color-bg-elev))">
+        <p class="subtitle text-xs uppercase tracking-[0.24em]">On This Page</p>
+        <nav class="mt-4 flex flex-col gap-2" aria-label="Work section navigation">
+          {active.map((entry) => (
+            <a
+              href={`#work-${entry.data.id}`}
+              class="work-toc-link rounded-[1rem] px-3 py-2 no-underline transition-colors"
+              data-work-nav={entry.data.id}
+            >
+              <span class="block text-sm font-semibold" style="color: var(--color-fg)">{entry.data.role}</span>
+              <span class="mt-0.5 block text-xs muted">{entry.data.company}</span>
+            </a>
+          ))}
+        </nav>
+      </div>
+    </aside>
+
     <header class="mb-10">
       <h1 class="text-4xl font-bold mb-3">Work</h1>
       <p class="text-lg muted max-w-3xl">
@@ -34,7 +52,11 @@ for (const list of projectsByParent.values()) {
     </header>
 
     <div class="space-y-6">
-      {active.map((entry) => <JobCard entry={entry} relatedProjects={projectsByParent.get(entry.data.id) ?? []} />)}
+      {active.map((entry) => (
+        <section id={`work-${entry.data.id}`} data-work-anchor={entry.data.id} class="scroll-mt-28">
+          <JobCard entry={entry} relatedProjects={projectsByParent.get(entry.data.id) ?? []} />
+        </section>
+      ))}
     </div>
 
     {archived.length > 0 && (
@@ -49,3 +71,58 @@ for (const list of projectsByParent.values()) {
     )}
   </section>
 </BaseLayout>
+
+<script is:inline>
+  (() => {
+    const sections = [...document.querySelectorAll('[data-work-anchor]')];
+    const links = [...document.querySelectorAll('[data-work-nav]')];
+    if (sections.length === 0 || links.length === 0) return;
+
+    const setActive = (id) => {
+      for (const link of links) {
+        if (!(link instanceof HTMLElement)) continue;
+        const active = link.dataset.workNav === id;
+        link.dataset.active = active ? 'true' : 'false';
+        if (active) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!(visible?.target instanceof HTMLElement)) return;
+        setActive(visible.target.dataset.workAnchor);
+      },
+      {
+        rootMargin: '-18% 0px -55% 0px',
+        threshold: [0.15, 0.35, 0.6],
+      },
+    );
+
+    for (const section of sections) {
+      observer.observe(section);
+    }
+
+    const first = sections[0];
+    if (first instanceof HTMLElement) {
+      setActive(first.dataset.workAnchor);
+    }
+  })();
+</script>
+
+<style>
+  .work-toc-link[data-active='true'] {
+    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-bg));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 28%, var(--color-border));
+  }
+
+  .work-toc-link:hover {
+    background: color-mix(in srgb, var(--color-accent) 8%, var(--color-bg));
+  }
+</style>
