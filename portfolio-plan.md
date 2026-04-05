@@ -209,7 +209,7 @@ Projects link to a parent career period via a single `parent: <id>` field that r
 
 ### Bio photo
 
-`bio.yaml` carries a `photo: { src, alt }` field pointing into `content/assets/`. Both the Typst CV header and the website hero component read it. The headshot file is `bio-photo22.jpg`, carried over from the 2025 LaTeX CV render.
+`bio.yaml` carries a `photo: { src, alt }` field pointing into `content/assets/`. Both the Typst CV header and the website hero component read it. The headshot file is `bio-photo.jpg`, carried over from the 2025 LaTeX CV render.
 
 ### Contact field visibility
 

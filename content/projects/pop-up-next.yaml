@@ -3,6 +3,7 @@ name: Pop.Up Next
 subtitle: Modular flying taxi, in collaboration with Airbus and Audi
 organisation: Italdesign
 parent: italdesign
+location: Turin, Italy
 start: 2017
 end: 2019
 stack: [C++, ROS, Computer Vision]

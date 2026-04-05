@@ -16,3 +16,6 @@ thesis:
   title: Design and Development of a Modular CMS for a Student Club
   summary: A complete Content Management System framework easily customisable by end users.
   stack: [PHP, SQL, HTML, CSS]
+images:
+  - src: unige_logo_cv.svg
+    alt: University of Genoa logo

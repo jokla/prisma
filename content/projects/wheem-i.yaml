@@ -3,6 +3,7 @@ name: Wheem-i
 subtitle: Sharing service to make travelling easier for wheelchair users
 organisation: Italdesign
 parent: italdesign
+location: Turin, Italy
 start: 2018
 end: 2019
 stack: [C++, ROS, Computer Vision]

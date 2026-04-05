@@ -3,6 +3,7 @@ name: RomeoTk
 subtitle: Demos, classes, tools and data for the Romeo humanoid robot
 organisation: INRIA
 parent: inria
+location: Rennes, France
 start: 2014
 end: 2017
 stack: [C++, ViSP, NaoQi]

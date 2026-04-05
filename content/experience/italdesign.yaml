@@ -21,5 +21,7 @@ archived_highlights:
   # Previously commented out in the LaTeX source
   - Sensor scouting and evaluation (mainly cameras, lidars and depth cameras).
 images:
+  - src: Italdesign_logo.png
+    alt: Italdesign logo
   - src: giovanni.claudio.pop.up.jpg
     alt: Pop.Up flying car prototype

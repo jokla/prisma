@@ -3,6 +3,7 @@ name: Autonomous electric car
 subtitle: Prototype vehicle equipped with cameras, lidars, radars, GNSS, IMU and ultrasonic sensors
 organisation: Italdesign
 parent: italdesign
+location: Turin, Italy
 start: 2017
 end: 2019
 stack: [C++, ROS, Deep Learning]

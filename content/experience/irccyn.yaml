@@ -16,5 +16,5 @@ highlights:
   - Developed a C++ algorithm for pose and velocity estimation of a high-speed parallel robot using vision.
   - Designed a visual system with high-performance CoaXPress cameras (acquisition frame rate of 2 kHz).
 images:
-  - src: ircynn.jpg
-    alt: IRCCyN laboratory, Nantes
+  - src: IRCCyN_logo.jpg
+    alt: IRCCyN logo

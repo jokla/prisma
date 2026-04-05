@@ -1,5 +1,5 @@
 id: inria
-company: INRIA — Lagadic Team (led by François Chaumette)
+company: INRIA — Lagadic Team
 role: R&D Robotics Engineer
 location: Rennes, France
 start: 2013-11
@@ -27,6 +27,8 @@ archived_highlights:
   - Created vision-based navigation demonstrations with the humanoid robot Pepper.
   - Organised demonstrations to show the robotic platforms to the general public.
 images:
+  - src: inria_logo.svg
+    alt: INRIA logo
   - src: giovanni.claudio.romeo.jpg
     alt: Romeo humanoid robot
   - src: lagadic_2016.jpg

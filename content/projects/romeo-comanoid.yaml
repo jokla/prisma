@@ -3,6 +3,7 @@ name: Romeo & Comanoid
 subtitle: Perception, navigation, sensor-based control and human–robot interaction on humanoid robots
 organisation: INRIA
 parent: inria
+location: Rennes, France
 start: 2013
 end: 2017
 stack: [C++, Python, ROS, ViSP]

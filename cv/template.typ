@@ -5,7 +5,7 @@
 // Data source:  .build/resolved.json  (written by scripts/resolve-profile.js)
 // Template:     brilliant-CV v3.3.0 (https://typst.app/universe/package/brilliant-cv)
 
-#import "@preview/brilliant-cv:3.3.0": cv, cv-section, cv-entry, cv-entry-start, cv-entry-continued, cv-skill, cv-honor, h-bar
+#import "@preview/brilliant-cv:3.3.0": cv, cv-section, cv-entry, cv-skill, cv-honor, h-bar
 
 // ── Load resolved data ────────────────────────────────────────────────────
 
@@ -50,7 +50,7 @@
       header_align: "left",
     ),
     entry: (
-      display_entry_society_first: true,
+      display_entry_society_first: false,
       display_logo: true,
     ),
     footer: (
@@ -101,10 +101,10 @@
 
 #for entry in data.experience {
   cv-entry(
-    title:       entry.company,
-    society:     entry.role,
-    date:        entry.location,
-    location:    entry-date(entry),
+    title:       entry.role,
+    society:     entry.company,
+    date:        entry-date(entry),
+    location:    entry.location,
     description: entry-description(entry),
     logo:        entry-logo(entry),
     tags:        entry-tags(entry),
@@ -136,7 +136,7 @@
       title:       entry.name,
       society:     entry.at("organisation", default: ""),
       date:        entry-date(entry),
-      location:    "",
+      location:    entry.at("location", default: ""),
       description: entry-description(entry),
       tags:        entry.at("stack", default: ()),
     )

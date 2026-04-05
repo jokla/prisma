@@ -10,3 +10,6 @@ summary: >
   Theory and hands-on projects in deep learning, computer vision, sensor
   fusion, localisation, controllers, vehicle kinematics and automotive
   hardware.
+images:
+  - src: udacity_logo.png
+    alt: Udacity logo

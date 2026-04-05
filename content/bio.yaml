@@ -27,7 +27,7 @@ origin: Genoa, Italy
 
 # Headshot — used by the CV header and the website About/Home hero.
 photo:
-  src: bio-photo22.jpg
+  src: bio-photo.jpg
   alt: Giovanni Claudio
 
 languages:

@@ -3,6 +3,7 @@ name: Stay Alert! (Ford Kaggle competition)
 subtitle: Driver-alertness classifier
 organisation: UNIGE
 parent: unige-bachelor
+location: Genoa, Italy
 start: 2011
 end: 2011
 stack: [R, MATLAB]

@@ -3,6 +3,7 @@ name: Finding Lane Lines on the Road
 subtitle: Classical computer-vision pipeline for lane detection
 organisation: Udacity SDCN
 parent: udacity-sdcn
+location: Online
 start: 2017
 end: 2017
 stack: [Python, OpenCV]

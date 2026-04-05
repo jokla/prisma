@@ -3,6 +3,7 @@ name: InTo
 subtitle: AI-Powered Coach Crowding Prediction Service
 organisation: Italdesign
 parent: italdesign
+location: Turin, Italy
 start: 2018
 end: 2019
 stack: [Python, Deep Learning, Computer Vision]

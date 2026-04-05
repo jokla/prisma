@@ -3,6 +3,7 @@ name: V-REP ROS Bridge
 subtitle: Plugin for controlling V-REP simulations via ROS
 organisation: INRIA
 parent: inria
+location: Rennes, France
 start: 2014
 end: 2015
 stack: [C++, ROS]

@@ -3,6 +3,7 @@ name: Modular CMS for a Student Club
 subtitle: Bachelor thesis (University of Genoa)
 organisation: UNIGE
 parent: unige-bachelor
+location: Genoa, Italy
 start: 2010
 end: 2011
 stack: [PHP, SQL, HTML, CSS]

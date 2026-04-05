@@ -3,6 +3,7 @@ name: MATLAB ROS Bridge
 subtitle: Simulink library for creating ROS nodes in MATLAB/Simulink
 organisation: INRIA
 parent: inria
+location: Rennes, France
 start: 2014
 end: 2015
 stack: [MATLAB, C++, ROS]
