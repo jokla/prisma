@@ -14,20 +14,27 @@ summary: >
   apps sharing one embedded GPU without interference), segregation
   (clean medical and non-medical boundaries for IEC 62304 safety and
   regulatory compliance), and performance (sub-10 ms end-to-end
-  overlay latency for responsive intra-operative guidance). I designed
-  the CI system for automated AI-model conversion and verification,
-  drove four platform enablers that accelerate AI delivery across the
-  org (unified dev containers, modular build system, shared libraries,
-  and Hardware-in-the-Loop integration testing), and am leading an
-  agentic-AI initiative to streamline AI-model submission in a
-  regulated environment. I lead a team of 5 engineers plus cross-team
-  influence across AI, video, platform and quality.
+  overlay latency for responsive intra-operative guidance). I act as
+  the technical decision-maker for trade-offs across these constraints
+  and serve as the cross-functional bridge between ML, Systems
+  Engineering, Quality, Regulatory, and UI teams — translating
+  algorithm requirements into platform contracts and ensuring each
+  team's assumptions are reconciled before hardware integration. I
+  designed the CI system for automated AI-model conversion and
+  verification, drove four platform enablers that accelerate AI
+  delivery across the org (unified dev containers, modular build
+  system, shared libraries, and Hardware-in-the-Loop integration
+  testing), and am leading an agentic-AI initiative to streamline
+  AI-model submission in a regulated environment. I lead a team of 5
+  engineers plus cross-team influence across AI, video, platform and
+  quality.
 highlights:
-  - "Architected the AI-video software platform for the surgical-guidance product around three hard constraints: isolation (multiple AI apps sharing one embedded GPU), segregation (medical vs. non-medical boundaries for IEC 62304), and performance (sub-10 ms overlay latency for real-time surgical guidance)."
-  - Proposed and prototyped a new IPC protocol adopted as the product-wide foundation, unblocking parallel AI, video, logging and platform workstreams.
-  - Designed the CI system for automated AI-model conversion and verification, preventing regressions and making it feasible to scale to multiple AI teams submitting concurrently; leading a complementary agentic-AI initiative to further reduce engineering effort per model release in a regulated environment.
-  - "Drove four platform enablers that accelerated AI delivery across the org: unified dev containers (x86 and ARM), a modular feature-gated build system, shared libraries for IPC, logging, benchmarking, monitoring, scheduling and video/AI data recording, and an automated Hardware-in-the-Loop rig for full video, AI and overlay pipeline regression."
-  - Technical lead for a team of 5 engineers plus cross-team influence across AI, video, platform and quality; mentor through design reviews, pairing and architectural guidance.
+  - Architected an IEC 62304 Class C-ready AI-video platform for multi-AI GPU isolation/sharing with sub-10 ms latency, owning the roadmap for new AI capabilities.
+  - "Delivered core runtime capabilities hands-on: AI scheduling/orchestration, inference hardening, time synchronisation, plus logging and benchmarking strategy."
+  - "Defined scalable maintainability practices: multi-features management, and release/branching/tagging strategy."
+  - "Bridged ML, Systems, Quality, Regulatory, and UI to translate requirements into platform contracts and unblock delivery."
+  - "Technical lead for a team of 5 engineers; mentor through architecture guidance, reviews, and pairing."
+  - "Initiated an agentic-AI initiative to cut per-model release overhead in a regulated environment."
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery
