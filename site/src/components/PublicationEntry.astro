@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'publications'>;
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const authors = d.authors.map((a) => (a === 'Giovanni Claudio' ? `**${a}**` : a)).join(', ');
+---
+<article class="py-5 border-b" style="border-color: var(--color-border)">
+  <h3 class="text-base font-semibold leading-snug">
+    {d.url ? <a href={d.url} target="_blank" rel="noopener">{d.title}</a> : d.title}
+  </h3>
+  <p class="mt-1 text-sm" set:html={authors.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}></p>
+  <p class="mt-1 text-sm muted">
+    <em>{d.venue}</em>{d.venue_short && d.venue_short !== d.venue ? ` (${d.venue_short})` : ''}, {d.year}
+    {d.volume && <>, vol. {d.volume}</>}
+    {d.issue && <>, no. {d.issue}</>}
+    {d.pages && <>, pp. {d.pages}</>}
+  </p>
+  {(d.doi || d.note) && (
+    <p class="mt-1 text-xs muted">
+      {d.doi && <>DOI: <a href={`https://doi.org/${d.doi}`} target="_blank" rel="noopener">{d.doi}</a></>}
+      {d.doi && d.note && <> · </>}
+      {d.note}
+    </p>
+  )}
+</article>

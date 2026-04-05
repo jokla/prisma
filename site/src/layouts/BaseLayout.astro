@@ -1,0 +1,121 @@
+---
+import '../styles/global.css';
+import DarkModeToggle from '../components/DarkModeToggle.astro';
+import { getContact } from '../lib/content';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = 'Giovanni Claudio — Senior Principal Software Engineer, AI-Video Technical Lead at Medtronic Digital Surgery.', image = '/og-default.png' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const contact = getContact();
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/work/', label: 'Work' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/publications/', label: 'Publications' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/about/', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site).toString()} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site).toString()} />
+
+    <link rel="alternate" type="application/rss+xml" title="Giovanni Claudio — Blog" href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Fonts: DM Sans body, Kanit headings, KoHo accent (Stellar palette) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Kanit:wght@500;600&family=KoHo:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Dark mode: set class before paint to prevent flash. -->
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const dark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (dark) document.documentElement.classList.add('dark');
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-20 backdrop-blur border-b" style="background: color-mix(in srgb, var(--color-bg) 85%, transparent); border-color: var(--color-border);">
+      <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+        <a href="/" class="font-display font-bold text-lg tracking-tight no-underline" style="color: var(--color-fg)">
+          Giovanni Claudio
+        </a>
+        <nav class="hidden md:flex items-center gap-5 text-sm">
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              class:list={['no-underline transition-colors', isActive(item.href) ? 'font-semibold' : '']}
+              style={isActive(item.href) ? 'color: var(--color-accent)' : 'color: var(--color-fg-muted)'}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <DarkModeToggle />
+      </div>
+      <nav class="md:hidden border-t" style="border-color: var(--color-border)">
+        <div class="max-w-5xl mx-auto px-6 py-2 flex gap-4 overflow-x-auto text-sm">
+          {nav.map((item) => (
+            <a href={item.href} class="no-underline whitespace-nowrap" style={isActive(item.href) ? 'color: var(--color-accent); font-weight: 600' : 'color: var(--color-fg-muted)'}>
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="mt-24 border-t" style="border-color: var(--color-border)">
+      <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between text-sm muted">
+        <p>&copy; {new Date().getFullYear()} {contact.name}. Built with Astro + Typst.</p>
+        <div class="flex gap-4">
+          {contact.github && <a href={`https://github.com/${contact.github}`} rel="me">GitHub</a>}
+          {contact.linkedin && <a href={`https://linkedin.com/in/${contact.linkedin}`} rel="me">LinkedIn</a>}
+          {contact.youtube && <a href={`https://youtube.com/@${contact.youtube}`} rel="me">YouTube</a>}
+          <a href="/rss.xml">RSS</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { formatRange } from '../lib/dates';
+import { getAsset } from '../lib/assets';
+
+interface Props {
+  entry: CollectionEntry<'experience'>;
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const range = formatRange(d.start, d.end);
+const logo = d.images?.[0] ? getAsset(d.images[0].src) : undefined;
+---
+<article class="surface rounded-lg p-6 md:p-8">
+  <header class="flex items-start gap-5">
+    {logo && (
+      <div class="shrink-0 w-14 h-14 rounded-md bg-white flex items-center justify-center p-2 border" style="border-color: var(--color-border)">
+        <Image src={logo} alt={d.images?.[0].alt ?? ''} width={56} height={56} class="object-contain max-h-full max-w-full" />
+      </div>
+    )}
+    <div class="flex-1 min-w-0">
+      <h3 class="text-xl font-bold mb-1">{d.role}</h3>
+      <p class="subtitle">
+        {d.website ? <a href={d.website} target="_blank" rel="noopener">{d.company}</a> : d.company}
+      </p>
+      <p class="text-sm muted mt-1">
+        <span>{range}</span>
+        <span class="mx-2">·</span>
+        <span>{d.location}</span>
+      </p>
+    </div>
+  </header>
+
+  <p class="mt-5 leading-relaxed">{d.summary}</p>
+
+  {d.highlights.length > 0 && (
+    <details class="mt-5 group">
+      <summary class="subtitle cursor-pointer text-sm select-none">
+        More highlights ({d.highlights.length}) ▸
+      </summary>
+      <ul class="mt-4 space-y-2 list-disc list-outside pl-5 text-[0.95rem]">
+        {d.highlights.map((h) => <li>{h}</li>)}
+      </ul>
+      {d.youtube && d.youtube.length > 0 && (
+        <div class="mt-5 grid gap-3 sm:grid-cols-2">
+          {d.youtube.map((v) => (
+            <a href={`https://youtu.be/${v.id}`} target="_blank" rel="noopener" class="block no-underline text-sm">
+              <div class="aspect-video rounded-md border overflow-hidden" style="border-color: var(--color-border)">
+                <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt={v.label ?? ''} class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              {v.label && <p class="mt-1.5 muted">{v.label}</p>}
+            </a>
+          ))}
+        </div>
+      )}
+    </details>
+  )}
+
+  {d.tags.length > 0 && (
+    <div class="mt-5 flex flex-wrap gap-1.5">
+      {d.tags.map((t) => (
+        <span class="text-xs px-2 py-0.5 rounded" style="background: var(--color-bg); color: var(--color-fg-muted); border: 1px solid var(--color-border)">{t}</span>
+      ))}
+    </div>
+  )}
+</article>

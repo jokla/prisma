@@ -2,4 +2,6 @@
 .build/
 outputs/
 site/dist/
+site/.astro/
+site/public/cv.pdf
 node_modules/

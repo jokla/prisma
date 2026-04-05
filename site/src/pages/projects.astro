@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+import { dateKey } from '../lib/dates';
+
+const experience = await getCollection('experience');
+const education = await getCollection('education');
+const allProjects = await getCollection('projects');
+
+// Build a parent lookup: experience/education id → display label.
+const parents = new Map<string, string>();
+for (const e of experience) parents.set(e.data.id, e.data.company);
+for (const e of education) parents.set(e.data.id, e.data.institution);
+
+// Establish a canonical parent order (newest-first by experience start date,
+// then education). Projects without a known parent end up under "Other".
+const parentOrder: string[] = [];
+const expByDate = [...experience].sort((a, b) => dateKey(b.data.start) - dateKey(a.data.start));
+for (const e of expByDate) parentOrder.push(e.data.id);
+for (const e of education) parentOrder.push(e.data.id);
+parentOrder.push('__other__');
+
+interface Group {
+  key: string;
+  label: string;
+  projects: typeof allProjects;
+}
+
+const active = allProjects.filter((p) => !p.data.archived);
+const archived = allProjects.filter((p) => p.data.archived);
+
+function groupBy(list: typeof allProjects): Group[] {
+  const bucket = new Map<string, typeof allProjects>();
+  for (const proj of list) {
+    const parentId = proj.data.parent && parents.has(proj.data.parent) ? proj.data.parent : '__other__';
+    if (!bucket.has(parentId)) bucket.set(parentId, []);
+    bucket.get(parentId)!.push(proj);
+  }
+  return parentOrder
+    .filter((id) => bucket.has(id))
+    .map((id) => ({
+      key: id,
+      label: id === '__other__' ? 'Other' : parents.get(id) ?? id,
+      projects: bucket.get(id)!.sort((a, b) => dateKey(b.data.start) - dateKey(a.data.start)),
+    }));
+}
+
+const activeGroups = groupBy(active);
+const archivedGroups = groupBy(archived);
+---
+<BaseLayout title="Projects — Giovanni Claudio">
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <header class="mb-10">
+      <h1 class="text-4xl font-bold mb-3">Projects</h1>
+      <p class="text-lg muted max-w-2xl">
+        Selected projects grouped by the role or programme they're from.
+      </p>
+    </header>
+
+    {activeGroups.map((group) => (
+      <section class="mb-14">
+        <h2 class="text-xl font-bold mb-5" style="color: var(--color-fg)">{group.label}</h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {group.projects.map((entry) => <ProjectCard entry={entry} />)}
+        </div>
+      </section>
+    ))}
+
+    {archivedGroups.length > 0 && (
+      <details class="mt-4">
+        <summary class="subtitle cursor-pointer text-sm select-none">
+          Show academic & archived projects ▸
+        </summary>
+        <div class="mt-6 space-y-10">
+          {archivedGroups.map((group) => (
+            <section>
+              <h3 class="text-lg font-bold mb-4">{group.label}</h3>
+              <div class="grid gap-6 md:grid-cols-2">
+                {group.projects.map((entry) => <ProjectCard entry={entry} />)}
+              </div>
+            </section>
+          ))}
+        </div>
+      </details>
+    )}
+  </section>
+</BaseLayout>

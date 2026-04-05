@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import { getCollection } from 'astro:content';
+import { dateKey } from '../lib/dates';
+
+const publications = (await getCollection('publications'))
+  .sort((a, b) => b.data.year - a.data.year);
+
+const presentations = (await getCollection('presentations', ({ data }) => !data.archived))
+  .sort((a, b) => dateKey(b.data.date) - dateKey(a.data.date));
+---
+<BaseLayout title="Publications — Giovanni Claudio">
+  <section class="max-w-3xl mx-auto px-6 py-16">
+    <header class="mb-10">
+      <h1 class="text-4xl font-bold mb-3">Publications & talks</h1>
+      <p class="text-lg muted">Peer-reviewed work and invited presentations.</p>
+    </header>
+
+    {publications.length > 0 && (
+      <section class="mb-14">
+        <h2 class="text-xl font-bold mb-4">Papers</h2>
+        <div class="border-t" style="border-color: var(--color-border)">
+          {publications.map((entry) => <PublicationEntry entry={entry} />)}
+        </div>
+      </section>
+    )}
+
+    {presentations.length > 0 && (
+      <section>
+        <h2 class="text-xl font-bold mb-4">Talks</h2>
+        <div class="border-t" style="border-color: var(--color-border)">
+          {presentations.map((p) => (
+            <article class="py-5 border-b" style="border-color: var(--color-border)">
+              <h3 class="text-base font-semibold leading-snug">{p.data.title}</h3>
+              <p class="mt-1 text-sm muted">
+                <em>{p.data.event}</em>{p.data.location && <>, {p.data.location}</>} · {String(p.data.date)}
+              </p>
+              {p.data.summary && <p class="mt-2 text-sm">{p.data.summary}</p>}
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+  </section>
+</BaseLayout>
