@@ -1,35 +1,33 @@
 id: medtronic-sr-principal
-company: Medtronic — Digital Surgery
-role: Sr. Principal Software Engineer — AI-Video Technical Lead
+company: Medtronic, Digital Surgery
+role: Sr. Principal Software Engineer, AI-Video Technical Lead
 location: London, UK
 start: 2025-01
 end: present
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
-tags: [computer-vision, deep-learning, medical-robotics, edge-deployment, cpp, python, software-architecture]
+tags: [ai-video, computer-vision, deep-learning, medical-robotics, edge-deployment, software-architecture, cpp, python, regulated]
 summary: >
-  Promoted to Sr. Principal Software Engineer and AI-Video Technical Lead.
-  Scope expanded from implementation into architecture definition, roadmap
-  ownership, stakeholder alignment and team execution for the surgical
-  guidance AI/video pipeline and new AI capabilities in the product.
-  Drove the software architecture from design through adoption, defined the
-  technical direction for parallel workstreams, and proposed an IPC-based
-  approach that became the foundation for the product while meeting latency
-  and software-segregation requirements.
+  Promoted to Sr. Principal Software Engineer and AI-Video Technical
+  Lead. I own the software architecture and technical roadmap for the
+  surgical-guidance AI/video pipeline and new AI capabilities in the
+  product, balancing three hard constraints: isolation (multiple AI
+  apps sharing one embedded GPU without interference), segregation
+  (clean medical and non-medical boundaries for IEC 62304 safety and
+  regulatory compliance), and performance (sub-10 ms end-to-end
+  overlay latency for responsive intra-operative guidance). I designed
+  the CI system for automated AI-model conversion and verification,
+  drove four platform enablers that accelerate AI delivery across the
+  org (unified dev containers, modular build system, shared libraries,
+  and Hardware-in-the-Loop integration testing), and am leading an
+  agentic-AI initiative to streamline AI-model submission in a
+  regulated environment. I lead a team of 5 engineers plus cross-team
+  influence across AI, video, platform and quality.
 highlights:
-  - Designed the software architecture for the surgical-guidance AI/video
-    pipeline and new AI capabilities, meeting latency and software-
-    segregation requirements.
-  - Owned the technical roadmap and major design decisions across AI,
-    video, logging and platform interfaces, aligning engineering direction
-    with product and quality needs.
-  - Proposed and prototyped new IPC protocols that were adopted as the
-    foundation for the product.
-  - Improved project execution by shaping branching strategy, parallel
-    workstreams and engineering workflows, helping the team deliver feature
-    completeness ahead of schedule.
-  - Mentored junior engineers and helped raise team capability through
-    design reviews, collaborative implementation and day-to-day technical
-    guidance.
+  - "Architected the AI-video software platform for the surgical-guidance product around three hard constraints: isolation (multiple AI apps sharing one embedded GPU), segregation (medical vs. non-medical boundaries for IEC 62304), and performance (sub-10 ms overlay latency for real-time surgical guidance)."
+  - Proposed and prototyped a new IPC protocol adopted as the product-wide foundation, unblocking parallel AI, video, logging and platform workstreams.
+  - Designed the CI system for automated AI-model conversion and verification, preventing regressions and making it feasible to scale to multiple AI teams submitting concurrently; leading a complementary agentic-AI initiative to further reduce engineering effort per model release in a regulated environment.
+  - "Drove four platform enablers that accelerated AI delivery across the org: unified dev containers (x86 and ARM), a modular feature-gated build system, shared libraries for IPC, logging, benchmarking, monitoring, scheduling and video/AI data recording, and an automated Hardware-in-the-Loop rig for full video, AI and overlay pipeline regression."
+  - Technical lead for a team of 5 engineers plus cross-team influence across AI, video, platform and quality; mentor through design reviews, pairing and architectural guidance.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery

@@ -1,33 +1,43 @@
-# Short bio — adapted from the old Jekyll about page. First-person, rendered
-# on the website About / Home pages.
+# Short bio, used on the website About / Home pages and as the CV header
+# tagline. First-person, general across the full career arc.
 short: >
-  Hi! My name is Giovanni Claudio. I'm originally from Genoa, Italy, and now
-  based in London. From 2013 to 2017 I worked as a Robotics Engineer in the
-  Lagadic group at INRIA in Rennes. In 2017 I joined the Autonomous Driving
-  team at Italdesign Giugiaro, where I led projects in machine learning and
-  computer vision for autonomous vehicles and mobility solutions. Since 2019
-  I've been in London — first building autonomous mobile robots at Arrival,
-  and now as a Senior Principal Software Engineer at Medtronic, leading the
-  architecture and delivery of AI-powered video systems for surgical
-  robotics.
+  Hi! I'm Giovanni Claudio, a Senior Principal Software Engineer based
+  in London. I have 12+ years of experience architecting real-time
+  perception, computer vision and AI/video systems across humanoid
+  robotics research at INRIA, autonomous vehicles and smart mobility
+  at Italdesign Giugiaro, autonomous mobile robots at Arrival, and now
+  surgical robotics at Medtronic. I enjoy turning research-grade models
+  into reliable, certified products on embedded hardware, and leading
+  the cross-team work it takes to get there. Originally from Genoa,
+  Italy.
 
-# Long bio — adapted from a 2018 DeepMind cover letter, updated for the
-# current career arc. Useful source material for tailored profile pitches.
+# Long bio, used on the website About page.
 long: >
-  I'm a robotics engineer with over a decade of experience in perception,
-  sensor-based control, computer vision and deep learning across research
-  and industry. My work spans humanoid manipulation at INRIA, autonomous
-  vehicles and smart mobility at Italdesign Giugiaro, autonomous mobile
-  robots at Arrival, and now real-time AI/video pipelines for robotic and
-  laparoscopic surgery at Medtronic, increasingly across architecture,
-  technical direction and cross-functional delivery. I especially enjoy the
-  problem of turning research-grade perception models into reliable
-  deployable systems on embedded hardware, and working across the machine-
-  learning, embedded and product-design disciplines it takes to get there.
+  I'm a Senior Principal Software Engineer with 12+ years of experience
+  architecting perception, computer-vision and AI/video systems across
+  medical robotics, autonomous vehicles and humanoid platforms. My work
+  spans humanoid manipulation and visual servoing at INRIA, autonomous
+  driving and smart mobility at Italdesign Giugiaro, autonomous mobile
+  robots at Arrival, and now real-time AI/video pipelines for robotic
+  and laparoscopic surgery at Medtronic. I especially enjoy the problem
+  of turning research-grade perception models into reliable, deployable
+  systems on constrained embedded hardware, and working across the
+  machine-learning, embedded, platform and product-design disciplines
+  it takes to get there. In my current role as AI-Video Technical Lead
+  at Medtronic, I own the software architecture and technical roadmap
+  for the surgical-guidance AI pipeline, balancing three hard
+  constraints: isolation of AI apps sharing the same embedded GPU,
+  segregation of medical and non-medical software for safety and
+  regulatory compliance, and sub-10 ms overlay latency for responsive
+  intra-operative guidance. I also drive the CI system for automated
+  AI-model verification, a platform of shared libraries and tooling,
+  and a growing agentic-AI initiative to streamline AI-model submission
+  in a regulated environment. I lead a team of 5 engineers and
+  influence work across AI, video, platform and quality functions.
 
 origin: Genoa, Italy
 
-# Headshot — used by the CV header and the website About/Home hero.
+# Headshot, used by the CV header and the website About/Home hero.
 photo:
   src: bio-photo.jpg
   alt: Giovanni Claudio

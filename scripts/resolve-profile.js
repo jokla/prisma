@@ -36,7 +36,6 @@ if (!args.profile || !args.out) {
 
 const profilePath = resolve(args.profile);
 const outPath = resolve(args.out);
-
 // ── Helpers ───────────────────────────────────────────────────────────────
 
 function loadYaml(path) {

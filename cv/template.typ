@@ -5,7 +5,7 @@
 // Data source:  .build/resolved.json  (written by scripts/resolve-profile.js)
 // Template:     brilliant-CV v3.3.0 (https://typst.app/universe/package/brilliant-cv)
 
-#import "@preview/brilliant-cv:3.3.0": cv, cv-section, cv-entry, cv-skill, cv-honor, h-bar
+#import "@preview/brilliant-cv:3.3.0": cv, cv-section, cv-entry, cv-skill, h-bar
 
 // ── Load resolved data ────────────────────────────────────────────────────
 
@@ -197,6 +197,21 @@
 
 #let entry-tags(entry) = entry.at("tags", default: ())
 
+#let publication-accent = rgb("#0395DE")
+
+#let publication-entry(pub) = {
+  v(1pt)
+  table(
+    columns: (1fr),
+    inset: 0pt,
+    stroke: 0pt,
+    row-gutter: 2pt,
+    align: auto,
+    text(size: 10pt, weight: "bold", linked-label(pub.title, pub.at("url", default: ""))),
+    text(size: 8pt, weight: "medium", fill: publication-accent, smallcaps(pub.venue + " | " + str(pub.year))),
+  )
+}
+
 // ── Experience ────────────────────────────────────────────────────────────
 
 #cv-section("Experience")
@@ -251,12 +266,7 @@
   cv-section("Publications")
 
   for pub in data.publications {
-    cv-honor(
-      date:   str(pub.year),
-      title:  pub.title,
-      issuer: pub.venue,
-      url:    pub.at("url", default: ""),
-    )
+    publication-entry(pub)
   }
 }
 
@@ -273,6 +283,6 @@
   let labels = data.skills.filter(s => s.group == g).map(s => s.label)
   cv-skill(
     type: g,
-    info: labels.join([#h-bar()]),
+    info: labels.join(", "),
   )
 }

@@ -1,5 +1,5 @@
 id: medtronic-principal
-company: Medtronic — Digital Surgery
+company: Medtronic, Digital Surgery
 role: Principal Software Engineer
 location: London, UK
 start: 2023-06
@@ -10,26 +10,20 @@ summary: >
   Joined Medtronic Digital Surgery as Principal Software Engineer,
   transitioning into the medical-robotics industry and quickly expanding
   from high-impact individual delivery into broader technical ownership.
-  In the first phase, key contributions included AI model optimisation and
-  deployment on constrained edge hardware, building a validation framework
-  for speed and accuracy of AI models on embedded systems, and raising the
-  engineering bar through stronger tooling, architecture choices and code
-  review practices. This period established the platform foundations and
-  technical trust that led to promotion into AI/video technical leadership.
+  In this phase I led the transition of AI models from PyTorch, as
+  delivered by the ML team, into production-optimised embedded
+  inference inside a regulated medical-device environment, built a
+  validation framework for speed and accuracy of AI models on the
+  embedded target, developed a modular mono-repository with a scalable
+  build system, and raised the engineering bar through stronger
+  tooling, architecture choices and code-review practices. This period
+  established the platform foundations and technical trust that led to
+  promotion into AI-video technical leadership.
 highlights:
-  - Reduced hardware compute costs by enabling AI models to run in real
-    time on lower-spec GPUs; boosted inference speed of a key surgical AI
-    model by 6.5× while maintaining accuracy (in collaboration with the ML
-    team, Q4 2024).
-  - Built a repeatable validation and benchmarking framework for the speed
-    and accuracy of AI models on the embedded target, improving deployment
-    readiness decisions.
-  - Drove adoption of stronger software engineering practices through code
-    reviews, collaborative design and implementation guidance across the
-    team.
-  - Developed a mono-repository with a modular build system, integrating
-    tooling for scalable codebase extension and module isolation — improving
-    consistency, efficiency and quality across the software development cycle.
+  - Led the transition of AI models from PyTorch (as delivered by the ML team) to production-optimised embedded inference in a regulated medical-device environment, re-engineering models for lowest-possible latency on constrained embedded GPUs while preserving accuracy, enabling real-time surgical guidance on lower-spec hardware and reducing BOM cost.
+  - Built a repeatable validation and benchmarking framework for AI model speed and accuracy on the embedded target, making deployment-readiness decisions data-driven.
+  - Led the migration to a modular mono-repository with a scalable build system and module isolation, lifting CI efficiency and codebase consistency across the software org.
+  - Drove adoption of stronger software-engineering practices through code reviews, collaborative design and day-to-day guidance, establishing the technical trust that led to promotion into AI-video technical leadership.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery

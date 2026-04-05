@@ -1,10 +1,11 @@
-# Default profile — used for the CV PDF bundled on the website.
-# Mirrors the 2025 Awesome-CV render: full career arc + active projects,
-# no archive-only entries, no interests/extracurricular/presentations.
+# Default profile , used for the CV PDF bundled on the website.
+# Positions Giovanni as a Principal AI-Video Architect: full career arc,
+# Italdesign & INRIA projects folded into their parent roles, Udacity
+# hidden (superseded by industry AV work).
 
 pitch: pitches/generic.md
 
-# Experience — explicit whitelist controls order (most-recent first).
+# Experience , explicit whitelist controls order (most-recent first).
 experience:
   - medtronic-sr-principal
   - medtronic-principal
@@ -12,30 +13,30 @@ experience:
   - arrival-autonav
   - italdesign
   - inria
-  - irccyn
+  # irccyn (master-thesis intern, 2013) dropped from default CV for space.
   # spack.yaml is archived: true and stays off the default CV.
 
-# Education — explicit order.
+# Education , explicit order.
+# Udacity SDCN removed from default CV (2017 MOOC, superseded by 8+ years
+# of industry autonomous-driving and AI work at Principal level). It
+# still renders on the website as a project/education entry.
 education:
   - ecn-unige-aria
   - unige-bachelor
-  - udacity-sdcn
 
-# Projects — whitelist, since most content/projects/*.yaml are archived
-# (website-only). Keep only the five currently-rendered CV projects.
-projects:
-  - into
-  - italdesign-autonomous-car
-  - pop-up-next
-  - wheem-i
-  - romeo-comanoid
+# Projects , whitelist. Italdesign projects (into, italdesign-autonomous-
+# car, pop-up-next, wheem-i) and INRIA projects (romeo-comanoid, etc.)
+# are folded into their parent role highlights and therefore NOT listed
+# here. They remain visible on the website. Leave this list empty for
+# now , if you want a dedicated CV projects section later, add ids here.
+projects: []
 
-# Publications — include both known papers.
+# Publications , include both peer-reviewed papers.
 publications:
   - visual-servoing-ral-2017
   - romeo-manipulation-humanoids-2016
 
-# Skills — omitted = include all from content/skills.yaml.
+# Skills , omitted = include all from content/skills.yaml.
 # Add a `skills:` whitelist in tailored profiles to narrow this down.
 
 # Sections that exist as content but are off by default in the CV:
