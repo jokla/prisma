@@ -7,8 +7,9 @@ short: >
   team at Italdesign Giugiaro, where I led projects in machine learning and
   computer vision for autonomous vehicles and mobility solutions. Since 2019
   I've been in London — first building autonomous mobile robots at Arrival,
-  and now as a Senior Principal Software Engineer at Medtronic, developing
-  AI-powered video systems for surgical robotics.
+  and now as a Senior Principal Software Engineer at Medtronic, leading the
+  architecture and delivery of AI-powered video systems for surgical
+  robotics.
 
 # Long bio — adapted from a 2018 DeepMind cover letter, updated for the
 # current career arc. Useful source material for tailored profile pitches.
@@ -18,10 +19,11 @@ long: >
   and industry. My work spans humanoid manipulation at INRIA, autonomous
   vehicles and smart mobility at Italdesign Giugiaro, autonomous mobile
   robots at Arrival, and now real-time AI/video pipelines for robotic and
-  laparoscopic surgery at Medtronic. I especially enjoy the problem of
-  turning research-grade perception models into reliable deployable systems
-  on embedded hardware, and working across the machine-learning, embedded
-  and product-design disciplines it takes to get there.
+  laparoscopic surgery at Medtronic, increasingly across architecture,
+  technical direction and cross-functional delivery. I especially enjoy the
+  problem of turning research-grade perception models into reliable
+  deployable systems on embedded hardware, and working across the machine-
+  learning, embedded and product-design disciplines it takes to get there.
 
 origin: Genoa, Italy
 

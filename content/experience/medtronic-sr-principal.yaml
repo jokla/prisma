@@ -8,19 +8,28 @@ website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
 tags: [computer-vision, deep-learning, medical-robotics, edge-deployment, cpp, python, software-architecture]
 summary: >
   Promoted to Sr. Principal Software Engineer and AI-Video Technical Lead.
-  As technical lead for the surgical-guidance AI/video pipeline, I defined
-  the sprint roadmap, mentored junior engineers and drove the software
-  architecture from design through adoption. A new IPC-based approach I
-  proposed and prototyped became the foundation for the product, meeting
-  latency and software-segregation requirements.
+  Scope expanded from implementation into architecture definition, roadmap
+  ownership, stakeholder alignment and team execution for the surgical
+  guidance AI/video pipeline and new AI capabilities in the product.
+  Drove the software architecture from design through adoption, defined the
+  technical direction for parallel workstreams, and proposed an IPC-based
+  approach that became the foundation for the product while meeting latency
+  and software-segregation requirements.
 highlights:
   - Designed the software architecture for the surgical-guidance AI/video
-    pipeline, meeting latency and software-segregation requirements.
+    pipeline and new AI capabilities, meeting latency and software-
+    segregation requirements.
+  - Owned the technical roadmap and major design decisions across AI,
+    video, logging and platform interfaces, aligning engineering direction
+    with product and quality needs.
   - Proposed and prototyped new IPC protocols that were adopted as the
     foundation for the product.
-  - Led the technical direction of AI and video software; team delivered
-    feature completeness ahead of schedule.
-  - Mentored junior engineers, fostering skill development within the team.
+  - Improved project execution by shaping branching strategy, parallel
+    workstreams and engineering workflows, helping the team deliver feature
+    completeness ahead of schedule.
+  - Mentored junior engineers and helped raise team capability through
+    design reviews, collaborative implementation and day-to-day technical
+    guidance.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery

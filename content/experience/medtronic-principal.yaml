@@ -8,21 +8,25 @@ website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
 tags: [computer-vision, deep-learning, medical-robotics, edge-deployment, cpp, python]
 summary: >
   Joined Medtronic Digital Surgery as Principal Software Engineer,
-  transitioning into the medical-robotics industry and quickly delivering
-  on all business objectives. Key contributions in the first year included
-  AI model optimisation and deployment on constrained edge hardware,
-  building a validation framework for speed and accuracy of AI models
-  on embedded systems, and introducing best-in-class software engineering
-  practices and tooling to the team.
+  transitioning into the medical-robotics industry and quickly expanding
+  from high-impact individual delivery into broader technical ownership.
+  In the first phase, key contributions included AI model optimisation and
+  deployment on constrained edge hardware, building a validation framework
+  for speed and accuracy of AI models on embedded systems, and raising the
+  engineering bar through stronger tooling, architecture choices and code
+  review practices. This period established the platform foundations and
+  technical trust that led to promotion into AI/video technical leadership.
 highlights:
   - Reduced hardware compute costs by enabling AI models to run in real
     time on lower-spec GPUs; boosted inference speed of a key surgical AI
     model by 6.5× while maintaining accuracy (in collaboration with the ML
     team, Q4 2024).
-  - Developed a robust process and framework to validate and benchmark the
-    speed and accuracy of AI models on the embedded system.
-  - Introduced state-of-the-art software practices to the team through
-    code reviews and collaborative coding sessions.
+  - Built a repeatable validation and benchmarking framework for the speed
+    and accuracy of AI models on the embedded target, improving deployment
+    readiness decisions.
+  - Drove adoption of stronger software engineering practices through code
+    reviews, collaborative design and implementation guidance across the
+    team.
   - Developed a mono-repository with a modular build system, integrating
     tooling for scalable codebase extension and module isolation — improving
     consistency, efficiency and quality across the software development cycle.
