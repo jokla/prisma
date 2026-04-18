@@ -29,6 +29,7 @@ const experience = defineCollection({
     end: dateString,
     website: z.string().url().optional(),
     tags: z.array(z.string()).default([]),
+    tagline: z.string().optional(),
     summary: z.string(),
     highlights: z.array(z.string()).default([]),
     archived_highlights: z.array(z.string()).optional(),

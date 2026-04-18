@@ -6,6 +6,7 @@ start: 2025-01
 end: present
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
 tags: [ai-video, computer-vision, deep-learning, medical-robotics, edge-deployment, software-architecture, cpp, python, regulated]
+tagline: Architecting a regulated, multi-AI GPU platform for real-time surgical guidance.
 summary: >
   Promoted to Sr. Principal Software Engineer and AI-Video Technical
   Lead. I own the software architecture and technical roadmap for the
@@ -14,13 +15,15 @@ summary: >
   apps sharing one embedded GPU without interference), segregation
   (clean medical and non-medical boundaries for IEC 62304 safety and
   regulatory compliance), and performance (sub-10 ms end-to-end
-  overlay latency for responsive intra-operative guidance). I act as
-  the technical decision-maker for trade-offs across these constraints
-  and serve as the cross-functional bridge between ML, Systems
-  Engineering, Quality, Regulatory, and UI teams — translating
+  overlay latency for responsive intra-operative guidance).
+
+  I act as the technical decision-maker for trade-offs across these
+  constraints and serve as the cross-functional bridge between ML,
+  Systems Engineering, Quality, Regulatory, and UI teams — translating
   algorithm requirements into platform contracts and ensuring each
-  team's assumptions are reconciled before hardware integration. I
-  designed the CI system for automated AI-model conversion and
+  team's assumptions are reconciled before hardware integration.
+
+  I designed the CI system for automated AI-model conversion and
   verification, drove four platform enablers that accelerate AI
   delivery across the org (unified dev containers, modular build
   system, shared libraries, and Hardware-in-the-Loop integration

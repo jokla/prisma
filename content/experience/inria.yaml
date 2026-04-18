@@ -7,11 +7,13 @@ end: 2017-08
 website: https://www.inria.fr/en/
 team_website: http://www.irisa.fr/lagadic/lagadic-eng.html
 tags: [visual-servoing, humanoid-robots, manipulation, computer-vision, ros, cpp, matlab]
+tagline: Real-time perception and visual servoing for humanoid, mobile, industrial and aerial robots.
 summary: >
   Joined the Lagadic team at INRIA Rennes as an R&D engineer under
   François Chaumette. My goal was to make robots smarter, helping
-  them perceive and understand the world and act autonomously. Worked
-  on real-time detection, pose estimation, tracking and visual
+  them perceive and understand the world and act autonomously.
+
+  Worked on real-time detection, pose estimation, tracking and visual
   servoing for mobile, humanoid, industrial and aerial robots;
   contributed to a rapid-prototyping framework based on ROS,
   MATLAB/Simulink and V-REP for sensor-based control algorithms;

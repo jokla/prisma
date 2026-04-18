@@ -25,8 +25,8 @@ for (const list of projectsByParent.values()) {
 }
 ---
 <BaseLayout title="Work — Giovanni Claudio" description="12+ years across medical robotics, autonomous vehicles and humanoid platforms.">
-  <section class="relative mx-auto max-w-6xl px-6 py-16">
-    <aside class="absolute inset-y-0 left-0 hidden 2xl:block w-56" style="transform: translateX(calc(-100% - 2rem));">
+  <section class="mx-auto w-full max-w-7xl px-6 py-16 2xl:max-w-[92rem] 2xl:grid 2xl:grid-cols-[14rem_minmax(0,1fr)] 2xl:gap-8">
+    <aside class="hidden 2xl:block">
       <div class="work-toc sticky top-28 rounded-[1.25rem] border p-4" style="border-color: var(--color-border); background: color-mix(in srgb, var(--color-bg) 88%, var(--color-bg-elev))">
         <p class="subtitle text-xs uppercase tracking-[0.24em]">On This Page</p>
         <nav class="mt-4 flex flex-col gap-2" aria-label="Work section navigation">
@@ -44,31 +44,33 @@ for (const list of projectsByParent.values()) {
       </div>
     </aside>
 
-    <header class="mb-10">
-      <h1 class="text-4xl font-bold mb-3">Work</h1>
-      <p class="text-lg muted max-w-3xl">
-        A visual timeline of roles, systems and shipped work. Each chapter keeps the CV facts, but pulls in the projects, demos and footage that make the work legible at a glance.
-      </p>
-    </header>
+    <div class="min-w-0 max-w-5xl">
+      <header class="mb-10">
+        <h1 class="text-4xl font-bold mb-3">Work</h1>
+        <p class="text-lg muted max-w-3xl">
+          A look at the roles, systems, and projects that have shaped my work.
+        </p>
+      </header>
 
-    <div class="space-y-6">
-      {active.map((entry) => (
-        <section id={`work-${entry.data.id}`} data-work-anchor={entry.data.id} class="scroll-mt-28">
-          <JobCard entry={entry} relatedProjects={projectsByParent.get(entry.data.id) ?? []} />
-        </section>
-      ))}
+      <div class="space-y-6">
+        {active.map((entry) => (
+          <section id={`work-${entry.data.id}`} data-work-anchor={entry.data.id} class="scroll-mt-28">
+            <JobCard entry={entry} relatedProjects={projectsByParent.get(entry.data.id) ?? []} />
+          </section>
+        ))}
+      </div>
+
+      {archived.length > 0 && (
+        <details class="mt-12">
+          <summary class="subtitle cursor-pointer text-sm select-none">
+            Show earlier roles ({archived.length}) ▸
+          </summary>
+          <div class="mt-6 space-y-6">
+            {archived.map((entry) => <JobCard entry={entry} relatedProjects={projectsByParent.get(entry.data.id) ?? []} />)}
+          </div>
+        </details>
+      )}
     </div>
-
-    {archived.length > 0 && (
-      <details class="mt-12">
-        <summary class="subtitle cursor-pointer text-sm select-none">
-          Show earlier roles ({archived.length}) ▸
-        </summary>
-        <div class="mt-6 space-y-6">
-          {archived.map((entry) => <JobCard entry={entry} relatedProjects={projectsByParent.get(entry.data.id) ?? []} />)}
-        </div>
-      </details>
-    )}
   </section>
 </BaseLayout>
 

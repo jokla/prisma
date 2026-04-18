@@ -6,6 +6,7 @@ start: 2021-03
 end: 2023-06
 website: https://arrival.com/uk/en
 tags: [autonomous-navigation, computer-vision, calibration, cpp, mobile-robots]
+tagline: Led the vision system for a 100+ autonomous mobile robot fleet running Arrival's microfactories.
 summary: >
   Senior role at Arrival after promotion from the Autonomous Navigation
   team. Led the vision system (hardware and software) of the Autonomous

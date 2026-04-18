@@ -6,20 +6,24 @@ start: 2023-06
 end: 2025-01
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
 tags: [computer-vision, deep-learning, medical-robotics, edge-deployment, cpp, python]
+tagline: Brought PyTorch surgical-AI models into real-time embedded production on a Class C medical device.
 summary: >
   Joined Medtronic Digital Surgery as Principal Software Engineer,
   transitioning into the medical-robotics industry and quickly expanding
   from high-impact individual delivery into broader technical ownership.
+
   I served as the technical bridge between the ML research team
   delivering PyTorch models and the constrained embedded Linux/GPU
   production stack, engineering the inference pipeline and toolchain
   that made real-time AI surgical guidance feasible in a Class C
-  regulated device. In parallel I built a validation and benchmarking
-  framework for AI model speed and accuracy, led the mono-repository
-  migration, raised engineering practices across the team, and
-  established SOUP validation processes for third-party AI libraries.
-  This period established the platform foundations and technical trust
-  that led to promotion into AI-video technical leadership.
+  regulated device.
+
+  In parallel I built a validation and benchmarking framework for AI
+  model speed and accuracy, led the mono-repository migration, raised
+  engineering practices across the team, and established SOUP
+  validation processes for third-party AI libraries. This period
+  established the platform foundations and technical trust that led to
+  promotion into AI-video technical leadership.
 highlights:
   - Took ML-delivered PyTorch/ONNX models to embedded production by optimizing inference for lowest-latency execution on constrained GPUs.
   - Built a repeatable on-target validation + benchmarking harness to quantify speed/accuracy trade-offs and produce verification-ready evidence for release decisions.
