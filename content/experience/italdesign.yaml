@@ -13,11 +13,13 @@ summary: >
   InTo, Pop.Up Next, Wheem-i and Roborace, and responsible for the
   sensor set and full autonomous-driving stack (perception, mapping,
   localisation, planning, control) on the Italdesign prototype
-  vehicle.
+  vehicle. Built the software infrastructure from scratch, selected
+  the sensor and compute platform, and set up SIL/HIL validation to
+  deliver the first autonomous shuttle and flying-car demonstrations.
 highlights:
   - Technical lead for ML and computer vision on InTo, an AI coach-crowding prediction service deployed in production at Turin Re Umberto metro station (May 2019).
-  - Owned the sensor set and software architecture of Pop.Up Next, the Airbus and Audi modular flying-car concept, including vision-based drone detection and autonomous latching, demonstrated at Amsterdam Drone Week 2018.
-  - Built the full autonomous-driving stack (perception, SLAM, planning, control) on the Italdesign prototype vehicle equipped with cameras, lidars, radars, GNSS, IMU and ultrasonics.
+  - Owned the software architecture, validation strategy and sensor set of Pop.Up Next, the Airbus and Audi modular flying-car concept, delivering an autonomous shuttle demo in six months and the drone-alignment/latching demo shown at Amsterdam Drone Week 2018.
+  - Built the full autonomous-driving stack (perception, SLAM, planning, control) on the Italdesign prototype vehicle equipped with cameras, lidars, radars, GNSS, IMU and ultrasonics, with SIL in CARLA and HIL on dSPACE SCALEXIO/IPG CarMaker.
   - Trained and deployed CNNs for object detection and semantic segmentation on Wheem-i (Toyota Mobility Unlimited Challenge finalist) and Roborace.
 highlight_links:
   - label: InTo

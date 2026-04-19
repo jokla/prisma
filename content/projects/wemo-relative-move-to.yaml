@@ -1,0 +1,25 @@
+id: wemo-relative-move-to
+name: Relative Move To (RMT)
+subtitle: Vision-based precise docking for WeMo factory robots
+organisation: Arrival
+parent: arrival-senior
+location: London, UK
+start: 2021
+end: 2023
+stack: [C++, ROS, Computer Vision]
+tags: [autonomous-navigation, visual-servoing, fiducial-markers, factory-automation]
+summary: >
+  A vision-based short-range positioning system for WeMo autonomous
+  mobile robots, used after coarse navigation to align precisely with
+  charging stations, assembly cells and other factory interfaces.
+  Combined onboard cameras, fiducial markers and closed-loop visual
+  servoing to achieve repeatable docking accuracy. Extended the same
+  approach to multi-robot cluster formations, allowing poses taught on
+  one robot to be reused across other robots after calibration.
+highlights:
+  - Designed the Relative Move To capability for short-range autonomous docking and alignment using onboard cameras and fiducial targets.
+  - Used a teaching-by-showing approach so desired poses could be learned once and reused across the fleet instead of reteaching every target on every robot.
+  - Defined the goal model and factory integration flow for station- and payload-specific positioning targets, including cluster-mode pallet delivery.
+  - Calibration cut cross-robot pose-transfer error by roughly 8x in translation and more than 15x in orientation, despite lens and sensor variability, camera mounting differences and manufacturing tolerances.
+  - Validated the method with motion-capture-based accuracy campaigns, including multi-robot cluster tests where poses learned on one robot still achieved about 1.8 to 2.8 mm translation accuracy and about 0.04 to 0.1 degree angular accuracy.
+  - Enabled reliable coupling to charging stations and factory interfaces after coarse navigation.

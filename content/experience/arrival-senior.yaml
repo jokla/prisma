@@ -11,16 +11,17 @@ summary: >
   Senior role at Arrival after promotion from the Autonomous Navigation
   team. Led the vision system (hardware and software) of the Autonomous
   Mobile Robot (WeMo) fleet of 100+ robots used in Arrival's
-  microfactories, including vision-based positioning, automated
-  calibration and end-of-line validation tooling.
+  microfactories, including vision-based positioning for precision
+  docking, automated intrinsic and extrinsic calibration, and
+  end-of-line validation tooling rolled out to factory deployments.
 highlights:
   - Led the vision system (hardware and software) for the WeMo Autonomous Mobile Robot fleet of 100+ robots operating Arrival's microfactories.
-  - Designed and implemented a vision-based positioning method achieving millimetre and sub-degree accuracy, enabling precision docking in assembly cells.
+  - Designed and implemented a vision-based relative-positioning method achieving repeatable sub-centimetre and sub-degree docking accuracy in assembly cells.
+  - Extended the method to robot clusters, so target poses learned on one robot could be reused across other robots and multi-robot pallet configurations while preserving required accuracy after calibration.
   - Designed and deployed an automated intrinsic and extrinsic calibration pipeline across the fleet, removing manual calibration from end-of-line and cutting commissioning time per robot.
-  - Built automated tooling for camera sub-assembly, calibration and end-of-line robot validation.
+  - Made the positioning stack robust to lens and sensor variation, camera placement differences and manufacturing tolerances, then validated performance in motion-capture accuracy campaigns.
+  - Built automated tooling for camera sub-assembly, calibration-data management and end-of-line robot validation.
+  - Supported rollout and validation of the vision stack on factory hardware clusters in Bicester and Banbury.
 images:
   - src: ARRIVAL_logo.png
     alt: Arrival logo
-youtube:
-  - id: DXZEHJeoqSo
-    label: Arrival Microfactory

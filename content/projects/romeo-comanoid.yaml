@@ -10,12 +10,12 @@ stack: [C++, Python, ROS, ViSP]
 tags: [humanoid-robots, visual-servoing, manipulation, perception]
 url: https://giovanniclaudio.com/work/
 partners:
-  - Softbank Robotics (Romeo)
-  - Airbus — http://comanoid.cnrs.fr/ (Comanoid)
+  - Softbank Robotics
+  - Airbus
 summary: >
   Work across two projects — Romeo (Softbank Robotics) and Comanoid
   (Airbus) — on perception, navigation, sensor-based control and
-  human–robot interaction for humanoid robots.
+  human-robot interaction for humanoid robots.
 highlights:
   - Delivered demonstrations covering object localisation and grasping, dual-arm manipulation, door-handle detection and opening, camera- and audio-based navigation, people following and obstacle avoidance.
   - Object detection, model-based tracking, template tracking, 3D point-cloud segmentation, augmented reality, text detection in natural images, face detection/recognition, sound localisation and speech recognition.

@@ -11,11 +11,14 @@ tags: [autonomous-driving, perception, slam, planning]
 summary: >
   Designed the sensor set and software architecture of the vehicle and
   developed the full autonomous-driving stack — perception, mapping,
-  localisation, planning and control.
+  localisation, planning and control, for the Pop.Up ground module and
+  shuttle demonstrator.
 highlights:
+  - Selected and integrated the vehicle sensor and compute platform, including cameras, lidars, radars, ultrasonics, GNSS/IMU, Nvidia PX2 and MicroAutoBox.
   - "Perception: 2D and 3D obstacle detection, semantic image segmentation, pedestrian, traffic-sign and car detection."
   - Mapping and localisation with camera, Lidar, IMU, odometry and GNSS.
   - "Planning: trajectory following and decision making."
+  - Established SIL in CARLA and HIL on dSPACE SCALEXIO/IPG CarMaker to exercise the full stack offline before track testing.
 archived_highlights:
   # Previously commented out in the LaTeX source (present in the 2022 PDF)
   - "Control: PID and Model Predictive Control."

@@ -20,9 +20,9 @@ summary: >
   supervised several student internships; and co-authored publications
   at RA-L / ICRA 2017 and Humanoids 2016.
 highlights:
-  - Co-authored peer-reviewed publications at IEEE RA-L / ICRA 2017 and Humanoids 2016 on visual servoing for whole-body humanoid control and dual-arm manipulation.
-  - Built a rapid-prototyping framework on ROS, MATLAB/Simulink and V-REP adopted team-wide for sensor-based control experiments.
   - Implemented real-time detection, pose estimation and visual-servoing algorithms across drones, mobile, industrial and humanoid robots (Romeo, Pepper).
+  - Built a rapid-prototyping framework on ROS, MATLAB/Simulink and V-REP adopted team-wide for sensor-based control experiments.
+  - Co-authored peer-reviewed publications at IEEE RA-L / ICRA 2017 and Humanoids 2016 on visual servoing for whole-body humanoid control and dual-arm manipulation.
   - Supervised student interns through research projects end-to-end.
 highlight_links:
   - label: ICRA'17
