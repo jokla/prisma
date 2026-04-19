@@ -1,0 +1,13 @@
+id: grasping-romeo-visual-servoing-2015
+title: Grasping by Romeo with visual servoing
+authors:
+  - Giovanni Claudio
+  - Fabien Spindler
+  - François Chaumette
+venue: Journées Nationales de la Robotique Humanoïde
+venue_short: JNRH
+type: conference
+year: 2015
+url: https://inria.hal.science/hal-01159882
+note: Nantes, France.
+tags: [humanoid-robots, grasping, visual-servoing, romeo]

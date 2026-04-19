@@ -37,7 +37,7 @@ highlights:
   - "Defined scalable maintainability practices: multi-features management, and release/branching/tagging strategy."
   - "Bridged ML, Systems, Quality, Regulatory, and UI to translate requirements into platform contracts and unblock delivery."
   - "Technical lead for a team of 5 engineers; mentor through architecture guidance, reviews, and pairing."
-  - "Initiated an agentic-AI initiative to cut per-model release overhead in a regulated environment."
+  - "Initiated an agentic-AI initiative to cut release overhead in a regulated environment."
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery

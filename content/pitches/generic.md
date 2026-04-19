@@ -1,1 +1,1 @@
-Senior Principal Software Engineer with 12+ years architecting real-time perception and AI/video systems across medical robotics, autonomous vehicles and humanoid platforms. AI-Video Technical Lead at Medtronic Digital Surgery, owning the software architecture for IEC 62304-regulated AI pipelines on embedded GPUs and leading cross-functional delivery of production surgical-guidance systems.
+Senior Principal Software Engineer with 12+ years architecting real-time perception and AI/video systems across medical robotics, autonomous vehicles and humanoid platforms.

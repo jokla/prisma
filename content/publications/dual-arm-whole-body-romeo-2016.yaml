@@ -1,0 +1,14 @@
+id: dual-arm-whole-body-romeo-2016
+title: Dual arm manipulation and whole body control with the humanoid robot Romeo by visual servoing
+authors:
+  - Giovanni Claudio
+  - Don Joven Agravante
+  - Fabien Spindler
+  - François Chaumette
+venue: Journées Nationales de la Recherche Humanoïde
+venue_short: JNRH
+type: workshop
+year: 2016
+url: https://inria.hal.science/hal-01358124
+note: Toulouse, France.
+tags: [humanoid-robots, dual-arm-manipulation, whole-body-control, visual-servoing, romeo]

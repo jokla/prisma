@@ -31,8 +31,9 @@ education:
 # now , if you want a dedicated CV projects section later, add ids here.
 projects: []
 
-# Publications , include both peer-reviewed papers.
+# Publications , include peer-reviewed papers plus the ICRA workshop paper.
 publications:
+  - matlab-simulink-vrep-2014
   - visual-servoing-ral-2017
   - romeo-manipulation-humanoids-2016
 
