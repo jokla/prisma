@@ -1,0 +1,27 @@
+id: romeo-whole-body-control
+name: Whole-body visual servoing on Romeo
+subtitle: Visual servoing in an optimisation framework for whole-body humanoid control
+organisation: INRIA
+parent: inria
+location: Rennes, France
+start: 2015
+end: 2017
+stack: [C++, ROS, ViSP]
+tags: [humanoid-robots, visual-servoing, whole-body-control, optimization]
+partners:
+  - Airbus
+  - Softbank Robotics
+summary: >
+  Whole-body control of the Romeo humanoid robot formulated as a
+  quadratic programming problem, with visual servoing tasks (grasping
+  and gaze) integrated alongside balance, posture and joint-limit
+  constraints. Part of the Comanoid project with Airbus.
+highlights:
+  - Integrated image-based visual servoing tasks into a QP-based whole-body controller that simultaneously enforced balance, posture and joint-limit constraints.
+  - Demonstrated whole-body grasping and gaze control on the Romeo humanoid robot, coordinating arm, torso and leg motion from a single visual task.
+  - Co-authored "Visual Servoing in an Optimization Framework for the Whole-Body Control of Humanoid Robots" published at IEEE RA-L 2017 and presented at ICRA 2017.
+youtube:
+  - id: 1--VjdDlFg4
+    label: "Whole-body control with Romeo: Grasping by visual servoing"
+  - id: bf2GvyEKQQo
+    label: "Whole-body control with Romeo: Gaze by visual servoing"

@@ -4,7 +4,7 @@ subtitle: Fleet-wide camera calibration and commissioning system
 organisation: Arrival
 parent: arrival-senior
 location: London, UK
-start: 2021
+start: 2022
 end: 2023
 stack: [C++, ROS, Computer Vision]
 tags: [computer-vision, calibration, fleet-management, factory-automation]

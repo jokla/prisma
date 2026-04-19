@@ -172,7 +172,7 @@ skills:
 
 # Exclusive — include all except these:
 projects_exclude:
-  - romeo-comanoid
+  - pepper-visual-navigation
 
 publications:
   - visual-servoing-ral-2017

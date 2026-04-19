@@ -25,7 +25,7 @@ education:
   - unige-bachelor
 
 # Projects , whitelist. Italdesign projects (into, italdesign-autonomous-
-# car, pop-up-next, wheem-i) and INRIA projects (romeo-comanoid, etc.)
+# car, pop-up-next, wheem-i) and INRIA projects (romeo-manipulation, etc.)
 # are folded into their parent role highlights and therefore NOT listed
 # here. They remain visible on the website. Leave this list empty for
 # now , if you want a dedicated CV projects section later, add ids here.
