@@ -9,7 +9,7 @@ interface Props {
   image?: string;
 }
 
-const { title, description = 'Giovanni Claudio — Senior Principal Software Engineer, AI-Video Technical Lead at Medtronic Digital Surgery.', image = '/og-default.png' } = Astro.props;
+const { title, description = 'Giovanni Claudio, Senior Principal Software Engineer and AI-Video Technical Lead at Medtronic Digital Surgery.', image = '/og-default.png' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const contact = getContact();
 
@@ -51,7 +51,7 @@ function isActive(href: string) {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(image, Astro.site).toString()} />
 
-    <link rel="alternate" type="application/rss+xml" title="Giovanni Claudio — Blog" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Giovanni Claudio Blog" href="/rss.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Fonts: DM Sans body, Kanit headings, KoHo accent (Stellar palette) -->

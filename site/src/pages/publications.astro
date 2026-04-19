@@ -10,7 +10,7 @@ const publications = (await getCollection('publications'))
 const presentations = (await getCollection('presentations', ({ data }) => !data.archived))
   .sort((a, b) => dateKey(b.data.date) - dateKey(a.data.date));
 ---
-<BaseLayout title="Publications — Giovanni Claudio">
+<BaseLayout title="Publications | Giovanni Claudio">
   <section class="max-w-3xl mx-auto px-6 py-16">
     <header class="mb-10">
       <h1 class="text-4xl font-bold mb-3">Publications & talks</h1>

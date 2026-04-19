@@ -47,16 +47,13 @@ long:
     hardware, and working across the machine-learning, embedded,
     platform and product-design disciplines it takes to get there.
   - >
-    In my current role as AI-Video Technical Lead at Medtronic, I own
-    the software architecture and technical roadmap for the
-    surgical-guidance AI pipeline, balancing three hard constraints:
-    isolation of AI apps sharing the same embedded GPU, segregation of
-    medical and non-medical software for safety and regulatory
-    compliance, and sub-10 ms overlay latency for responsive
-    intra-operative guidance. I also drive the CI system for automated
-    AI-model verification, a platform of shared libraries and tooling,
-    and a growing agentic-AI initiative to streamline AI-model
-    submission in a regulated environment.
+    In my current role as AI-Video Technical Lead at Medtronic, I apply
+    the same approach I developed across autonomous vehicles, mobile
+    robotics, and humanoid research: making perception robust enough
+    for real hardware under real constraints. At Medtronic, that means
+    architecting the software and CI pipeline for AI-guided surgical
+    systems, where reliability, compliance, and real-time performance
+    all matter at once.
 
 origin: Genoa, Italy
 

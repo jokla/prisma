@@ -12,6 +12,6 @@ archived: true
 license: BSD
 authors: [G. Claudio, F. Spindler]
 summary: >
-  A toolkit accompanying the Romeo research programme — face detection,
-  object grasping, visual servoing demos and supporting classes/utilities
-  for the humanoid robot.
+  A toolkit accompanying the Romeo research programme, including face
+  detection, object grasping, visual servoing demos, and supporting
+  classes and utilities for the humanoid robot.

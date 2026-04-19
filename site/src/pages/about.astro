@@ -1,37 +1,31 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SkillGrid from '../components/SkillGrid.astro';
-import { getBio, getContact, getInterests, getExtracurricular } from '../lib/content';
+import { getBio, getInterests } from '../lib/content';
 import { getCollection } from 'astro:content';
-import { formatRange } from '../lib/dates';
+import { getAsset } from '../lib/assets';
+import { formatDate, formatRange } from '../lib/dates';
 
 const bio = getBio();
-const contact = getContact();
 const interests = getInterests();
-const extracurricular = getExtracurricular();
 const education = (await getCollection('education'))
-  .sort((a, b) => Number(String(b.data.start)) - Number(String(a.data.start)));
+  .sort((a, b) => Number(String(b.data.start)) - Number(String(a.data.start)))
+  .map((entry) => ({
+    entry,
+    logo: entry.data.images?.[0] ? getAsset(entry.data.images[0].src) : undefined,
+  }));
 ---
-<BaseLayout title="About — Giovanni Claudio">
+<BaseLayout title="About | Giovanni Claudio">
   <section class="max-w-3xl mx-auto px-6 py-16">
     <h1 class="text-4xl font-bold mb-8">About</h1>
 
     <div class="prose dark:prose-invert max-w-none mb-12 space-y-5">
       {bio.long.map((para) => <p class="text-lg leading-relaxed">{para}</p>)}
     </div>
-
-    <div class="mb-12">
-      <h2 class="subtitle text-sm uppercase tracking-wider mb-3">Get in touch</h2>
-      <ul class="space-y-1.5 text-sm">
-        <li><strong>Email:</strong> <a href={`mailto:${contact.email}`}>{contact.email}</a></li>
-        <li><strong>Location:</strong> {contact.location}</li>
-        {contact.linkedin && <li><strong>LinkedIn:</strong> <a href={`https://linkedin.com/in/${contact.linkedin}`}>linkedin.com/in/{contact.linkedin}</a></li>}
-        {contact.github && <li><strong>GitHub:</strong> <a href={`https://github.com/${contact.github}`}>github.com/{contact.github}</a></li>}
-      </ul>
-    </div>
   </section>
 
-  <section class="max-w-5xl mx-auto px-6 pb-16">
+  <section class="max-w-3xl mx-auto px-6 pb-16">
     <h2 class="text-2xl font-bold mb-6">Skills</h2>
     <SkillGrid />
   </section>
@@ -39,17 +33,28 @@ const education = (await getCollection('education'))
   <section class="max-w-3xl mx-auto px-6 pb-16">
     <h2 class="text-2xl font-bold mb-6">Education</h2>
     <div class="space-y-6">
-      {education.map((e) => (
+      {education.map(({ entry: e, logo }) => (
         <article class="surface rounded-lg p-6">
-          <h3 class="text-lg font-semibold">{e.data.degree}</h3>
-          <p class="subtitle">{e.data.institution}</p>
-          <p class="text-sm muted mt-1">
-            {formatRange(e.data.start, e.data.end)}{e.data.location && <> · {e.data.location}</>}
-          </p>
+          <div class="flex items-start gap-4">
+            {logo && (
+              <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border bg-white p-2" style="border-color: var(--color-border)">
+                <Image src={logo} alt={e.data.images?.[0]?.alt ?? ''} width={56} height={56} class="max-h-full max-w-full object-contain" />
+              </div>
+            )}
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">{e.data.degree}</h3>
+              <p class="subtitle">
+                {e.data.url ? <a href={e.data.url} target="_blank" rel="noopener">{e.data.institution}</a> : e.data.institution}
+              </p>
+              <p class="text-sm muted mt-1">
+                {formatRange(e.data.start, e.data.end)}{e.data.location && <> · {e.data.location}</>}
+              </p>
+            </div>
+          </div>
           {e.data.thesis && (
             <p class="mt-3 text-sm">
               <strong>Thesis:</strong> {e.data.thesis.title}
-              {e.data.thesis.summary && <> — {e.data.thesis.summary}</>}
+              {e.data.thesis.summary && <>. {e.data.thesis.summary}</>}
             </p>
           )}
         </article>
@@ -66,28 +71,11 @@ const education = (await getCollection('education'))
         <article class="border-l-2 pl-4" style="border-color: var(--color-accent)">
           <h3 class="font-semibold">{h.title}</h3>
           <p class="text-xs muted mt-0.5">
-            {h.date && <>{String(h.date)}</>}{h.location && <> · {h.location}</>}
+            {h.date && <>{formatDate(h.date)}</>}{h.location && <> · {h.location}</>}
           </p>
           <p class="mt-2 text-sm">{h.description}</p>
         </article>
       ))}
     </div>
   </section>
-
-  {extracurricular.length > 0 && (
-    <section class="max-w-3xl mx-auto px-6 pb-20">
-      <h2 class="text-2xl font-bold mb-6">Extracurricular</h2>
-      <div class="space-y-4">
-        {extracurricular.map((e) => (
-          <article>
-            <h3 class="font-semibold">
-              {e.role} · {e.url ? <a href={e.url}>{e.organisation}</a> : e.organisation}
-            </h3>
-            <p class="text-xs muted mt-0.5">{formatRange(e.start, e.end)}{e.location && <> · {e.location}</>}</p>
-            <p class="mt-2 text-sm">{e.description}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  )}
 </BaseLayout>

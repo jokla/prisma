@@ -9,7 +9,7 @@ end: 2011
 stack: [R, MATLAB]
 tags: [machine-learning, svm]
 archived: true
-url: https://www.kaggle.com/c/stayalert
+url: https://www.kaggle.com/competitions/stayalert
 summary: >
   Kaggle competition classifier to detect whether a driver is alert, using
   sensor data acquired while driving.

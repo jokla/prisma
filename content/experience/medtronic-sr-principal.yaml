@@ -10,34 +10,20 @@ tagline: Architecting a regulated, multi-AI GPU platform for real-time surgical 
 summary: >
   Promoted to Sr. Principal Software Engineer and AI-Video Technical
   Lead. I own the software architecture and technical roadmap for the
-  surgical-guidance AI/video pipeline and new AI capabilities in the
-  product, balancing three hard constraints: isolation (multiple AI
-  apps sharing one embedded GPU without interference), segregation
-  (clean medical and non-medical boundaries for IEC 62304 safety and
-  regulatory compliance), and performance (sub-10 ms end-to-end
-  overlay latency for responsive intra-operative guidance).
+  surgical-guidance AI/video pipeline, balancing safe GPU sharing
+  across multiple AI apps, clear medical and non-medical software
+  boundaries for regulatory compliance, and sub-10 ms overlay latency.
 
-  I act as the technical decision-maker for trade-offs across these
-  constraints and serve as the cross-functional bridge between ML,
-  Systems Engineering, Quality, Regulatory, and UI teams — translating
-  algorithm requirements into platform contracts and ensuring each
-  team's assumptions are reconciled before hardware integration.
-
-  I designed the CI system for automated AI-model conversion and
-  verification, drove four platform enablers that accelerate AI
-  delivery across the org (unified dev containers, modular build
-  system, shared libraries, and Hardware-in-the-Loop integration
-  testing), and am leading an agentic-AI initiative to streamline
-  AI-model submission in a regulated environment. I lead a team of 5
-  engineers plus cross-team influence across AI, video, platform and
-  quality.
+  I translate requirements across ML, Systems Engineering, Quality,
+  Regulatory, and UI, designed the CI system for automated AI-model
+  verification, and mentor a team of 5 engineers while driving shared
+  platform tooling across the project.
 highlights:
-  - Architected an IEC 62304 Class C-ready AI-video platform for multi-AI GPU isolation/sharing with sub-10 ms latency, owning the roadmap for new AI capabilities.
-  - "Delivered core runtime capabilities hands-on: AI scheduling/orchestration, inference hardening, time synchronisation, plus logging and benchmarking strategy."
-  - "Defined scalable maintainability practices: multi-features management, and release/branching/tagging strategy."
-  - "Bridged ML, Systems, Quality, Regulatory, and UI to translate requirements into platform contracts and unblock delivery."
-  - "Technical lead for a team of 5 engineers; mentor through architecture guidance, reviews, and pairing."
-  - "Initiated an agentic-AI initiative to cut release overhead in a regulated environment."
+  - Architected an IEC 62304 Class C-ready AI-video platform that runs multiple AI workloads on a shared embedded GPU with sub-10 ms overlay latency.
+  - Designed core runtime capabilities including AI scheduling, inference hardening, time synchronisation, and observability for benchmarking and diagnosis.
+  - Defined release, branching, and multi-model management practices to scale AI delivery under regulated change control.
+  - Act as the technical bridge across ML, Systems, Quality, Regulatory, and UI, turning algorithm requirements into platform contracts and delivery plans.
+  - Technical lead for a team of 5 engineers, combining hands-on architecture work with mentoring, reviews, and pairing.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery

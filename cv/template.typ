@@ -1,5 +1,5 @@
 // cv/template.typ
-// Giovanni Claudio — CV
+// Giovanni Claudio CV
 //
 // Rendered by:  typst compile --input data=<abs-path-to-resolved.json> cv/template.typ
 // Data source:  .build/resolved.json  (written by scripts/resolve-profile.js)
@@ -61,7 +61,7 @@
   lang: (
     en: (
       header_quote: data.pitch,
-      cv_footer:    contact.name + " — Curriculum Vitae",
+      cv_footer:    contact.name + " | Curriculum Vitae",
       letter_footer: "",
     ),
   ),
@@ -108,9 +108,9 @@
   }
 }
 
-// Format start–end date range.
+// Format start-end date range.
 #let entry-date(entry) = {
-  entry.start_formatted + " – " + entry.end_formatted
+  entry.start_formatted + " - " + entry.end_formatted
 }
 
 // Render highlights as a list, or "" if empty.

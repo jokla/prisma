@@ -16,10 +16,10 @@ summary: >
   A joint research programme between Italdesign, Volkswagen Group's
   Data:Lab Munich innovation centre and Roborace to develop and
   validate machine-learning algorithms for high-performance autonomous
-  driving. The work used Roborace's DevBot 2.0 — an all-electric race
-  car that can be driven by a human or by an AI stack — as a testbed
-  to push perception and decision-making to the limits of vehicle
-  dynamics, under Roborace's "Research to Road" philosophy.
+  driving. We used Roborace's DevBot 2.0, an all-electric race car
+  that can be driven by either a human or an AI stack, as a testbed to
+  push perception and decision-making to the limits of vehicle
+  dynamics under Roborace's "Research to Road" philosophy.
 highlights:
   - Trained and deployed convolutional neural networks for object detection and semantic segmentation on the Roborace testbed.
   - Contributed to the perception and obstacle-avoidance stack validated on track with the DevBot 2.0 autonomous race car.
@@ -28,6 +28,6 @@ youtube:
   - id: E7ifykVuy3o
     label: "Roborace, Data:Lab Munich and Italdesign to accelerate Machine Learning together"
   - id: rtQeh6HT_f8
-    label: "The Final Obstacle Avoidance Test — Behind Data:Lab Episode 03"
+    label: "The Final Obstacle Avoidance Test: Behind Data:Lab Episode 03"
   - id: N8sFgg5dmLk
-    label: "Italdesign: Icons of Automotive Design — Data:Lab Partners"
+    label: "Italdesign: Icons of Automotive Design: Data:Lab Partners"

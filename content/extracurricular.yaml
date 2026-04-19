@@ -2,7 +2,6 @@ entries:
   - id: openlab
     role: Officer
     organisation: OpenLab
-    url: http://openlab.dibris.unige.it/index.php
     location: Genoa, Italy
     start: 2009
     end: 2014

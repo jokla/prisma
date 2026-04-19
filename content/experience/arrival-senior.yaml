@@ -8,20 +8,17 @@ website: https://arrival.com/uk/en
 tags: [autonomous-navigation, computer-vision, calibration, cpp, mobile-robots]
 tagline: Led the vision system for a 100+ autonomous mobile robot fleet running Arrival's microfactories.
 summary: >
-  Senior role at Arrival after promotion from the Autonomous Navigation
-  team. Led the vision system (hardware and software) of the Autonomous
-  Mobile Robot (WeMo) fleet of 100+ robots used in Arrival's
-  microfactories, including vision-based positioning for precision
-  docking, automated intrinsic and extrinsic calibration, and
-  end-of-line validation tooling rolled out to factory deployments.
+  Promoted into a senior role to lead the vision system for Arrival's
+  WeMo fleet in the microfactories. I owned vision-based docking,
+  automated calibration, and end-of-line validation tooling used to
+  commission robots at scale and keep positioning performance reliable
+  across hardware variation and factory deployments.
 highlights:
-  - Led the vision system (hardware and software) for the WeMo Autonomous Mobile Robot fleet of 100+ robots operating Arrival's microfactories.
-  - Designed and implemented a vision-based relative-positioning method achieving repeatable sub-centimetre and sub-degree docking accuracy in assembly cells.
-  - Extended the method to robot clusters, so target poses learned on one robot could be reused across other robots and multi-robot pallet configurations while preserving required accuracy after calibration.
-  - Designed and deployed an automated intrinsic and extrinsic calibration pipeline across the fleet, removing manual calibration from end-of-line and cutting commissioning time per robot.
-  - Made the positioning stack robust to lens and sensor variation, camera placement differences and manufacturing tolerances, then validated performance through motion-capture accuracy testing.
-  - Built automated tooling for camera sub-assembly, calibration-data management and end-of-line robot validation.
-  - Supported rollout and validation of the vision stack on WeMo's fleet in the Bicester microfactory.
+  - Led the vision system for the 100+ WeMo fleet used in Arrival's microfactories.
+  - Designed and deployed a vision-based relative-positioning method for repeatable sub-centimetre, sub-degree docking accuracy in assembly cells.
+  - Made target poses transferable across robots and pallet configurations through calibration, reducing setup effort without losing accuracy.
+  - Built an automated intrinsic and extrinsic calibration pipeline, removing manual calibration from end-of-line commissioning.
+  - Developed tooling for camera sub-assembly, calibration-data management, and end-of-line validation used during fleet rollout in Bicester.
 images:
   - src: ARRIVAL_logo.png
     alt: Arrival logo

@@ -8,20 +8,27 @@
   --font-display: 'Kanit', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
   --font-accent: 'KoHo', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
 
-  /* Type scale — matches Stellar (inputs/portfolio/src/styles/base.css) */
-  --text-xs: 0.75rem;     /* 12px */
-  --text-sm: 0.875rem;    /* 14px */
-  --text-base: 1rem;      /* 16px */
-  --text-lg: 1.125rem;    /* 18px */
-  --text-xl: 1.25rem;     /* 20px */
-  --text-2xl: 1.5rem;     /* 24px */
-  --text-3xl: 1.875rem;   /* 30px */
+  /* Type scale matches Stellar (inputs/portfolio/src/styles/base.css) */
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-base: 1rem;
+  /* 16px */
+  --text-lg: 1.125rem;
+  /* 18px */
+  --text-xl: 1.25rem;
+  /* 20px */
+  --text-2xl: 1.5rem;
+  /* 24px */
+  --text-3xl: 1.875rem;
+  /* 30px */
 
   --leading-tight: 1.25;
   --leading-normal: 1.5;
   --leading-relaxed: 1.625;
 
-  /* Palette — muted neutrals with a single indigo accent,
+  /* Palette: muted neutrals with a single indigo accent,
      echoing Stellar's restrained aesthetic. */
   --color-bg: #ffffff;
   --color-bg-elev: #f6f7f9;
@@ -61,24 +68,28 @@ h1 {
   line-height: var(--leading-tight);
   letter-spacing: -0.01em;
 }
+
 h2 {
   font-family: var(--font-display);
   font-weight: 500;
   line-height: var(--leading-tight);
   letter-spacing: -0.01em;
 }
-h3, h4 {
+
+h3,
+h4 {
   font-family: var(--font-display);
   font-weight: 500;
   line-height: var(--leading-tight);
 }
 
-/* KoHo accent — for kickers, subtitles, section labels */
+/* KoHo accent for kickers, subtitles, section labels */
 .subtitle {
   font-family: var(--font-accent);
   font-weight: 600;
   color: var(--color-accent);
 }
+
 .kanit {
   font-family: var(--font-display);
   font-weight: 600;
@@ -87,6 +98,7 @@ h3, h4 {
 a {
   color: var(--color-accent);
 }
+
 a:hover {
   color: var(--color-accent-hover);
 }
@@ -97,6 +109,7 @@ a:hover {
     background-color: var(--color-bg-elev);
     border: 1px solid var(--color-border);
   }
+
   .muted {
     color: var(--color-fg-muted);
   }

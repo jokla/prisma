@@ -1,4 +1,4 @@
-// Asset helper — maps bare filenames from YAML (e.g. "medtronic.png") onto
+// Asset helper maps bare filenames from YAML (e.g. "medtronic.png") onto
 // ESM-imported ImageMetadata objects so Astro's image pipeline can hash and
 // optimise them. Per portfolio-plan.md, do NOT put these under site/public/.
 import type { ImageMetadata } from 'astro';

@@ -6,7 +6,7 @@ import { glob } from 'astro/loaders';
 //   - "YYYY"     (e.g. 2011)
 //   - "present"  (end dates only)
 // YAML loads YYYY as a number, so accept both.
-const dateString = z.union([z.string(), z.number()]).transform((v) => String(v));
+const dateString = z.union([z.string(), z.number()]).transform(String);
 
 const imageRef = z.object({
   src: z.string(),
@@ -45,6 +45,7 @@ const education = defineCollection({
     id: z.string(),
     institution: z.string(),
     degree: z.string(),
+    url: z.string().url().optional(),
     location: z.string().optional(),
     start: dateString,
     end: dateString,
@@ -119,7 +120,7 @@ const presentations = defineCollection({
   }),
 });
 
-// Blog scaffolded — empty for now, posts migrate from Jekyll later.
+// Blog scaffolded and empty for now; posts migrate from Jekyll later.
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: '../content/blog' }),
   schema: z.object({

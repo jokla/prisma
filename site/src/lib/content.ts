@@ -1,7 +1,7 @@
 // Singleton-file loaders for YAML that doesn't fit the collection model
 // (bio, contact, skills, interests, extracurricular).
 //
-// IMPORTANT: getContact() strips the `phone` field — it is CV-only. Per
+// IMPORTANT: getContact() strips the `phone` field because it is CV-only. Per
 // portfolio-plan.md line 221, Astro components must never render it.
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
@@ -43,7 +43,7 @@ export interface Contact {
 }
 
 export function getContact(): Contact {
-  // Deliberately drop `phone` on the way out — CV-only.
+  // Deliberately drop `phone` on the way out; CV-only.
   const raw = loadYaml<Contact & { phone?: string }>('contact.yaml');
   const { phone: _phone, ...rest } = raw;
   return rest;
@@ -80,7 +80,7 @@ export function getSkillGroups(): Array<{ group: string; skills: Skill[] }> {
 
 export interface InterestHighlight {
   title: string;
-  date?: string | number;
+  date?: string | number | Date;
   location?: string;
   url?: string;
   description: string;
