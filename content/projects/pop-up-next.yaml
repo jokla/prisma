@@ -1,27 +1,32 @@
 id: pop-up-next
 name: Pop.Up Next
-subtitle: Modular flying taxi in collaboration with Airbus and Audi
+subtitle: Modular flying taxi and autonomous ground module in collaboration with Airbus and Audi
 organisation: Italdesign
 parent: italdesign
 location: Turin, Italy
 start: 2017
 end: 2019
-stack: [C++, ROS, Computer Vision]
-tags: [autonomous-driving, drones, perception, visual-servoing]
+stack: [C++, ROS, Computer Vision, Deep Learning]
+tags: [autonomous-driving, drones, perception, slam, planning, visual-servoing]
 url: https://www.italdesign.it/project/pop-up-next/
 summary: >
   An electric, modular and autonomous concept that couples a ground
-  module, a cabin and an aerial drone module. Demonstrated at Amsterdam
-  Drone Week 2018 with a 1:4 scale flying prototype. Starting from a
-  blank sheet and a six-month deadline, I defined the ground-module
-  sensor and compute stack, adapted ROS and Autoware to the vehicle,
-  and set up simulation-driven validation before hardware was ready.
+  module, a cabin and an aerial drone module. Starting from a blank
+  sheet and a six-month deadline, I defined the ground-module sensor
+  and compute stack, built the full autonomous-driving software on top
+  of ROS/Autoware, and set up simulation-driven validation before
+  hardware was ready. The same prototype vehicle — equipped with
+  cameras, lidars, radars, GNSS, IMU and ultrasonics — was used for
+  the autonomous shuttle demonstration and the drone-alignment demo
+  at Amsterdam Drone Week 2018.
 highlights:
   - Defined the hardware and software architecture for the autonomous ground module, including cameras, lidars, radars, ultrasonics, GNSS/IMU, Nvidia PX2 and MicroAutoBox.
+  - "Perception: 2D and 3D obstacle detection, semantic image segmentation, and pedestrian, traffic-sign and car detection."
+  - Mapping and localisation with camera, Lidar, IMU, odometry and GNSS+RTK.
+  - "Planning: trajectory following and decision making, with PID and Model Predictive Control for actuation."
   - Introduced SIL with CARLA and HIL with dSPACE SCALEXIO/IPG CarMaker to validate perception, localisation, planning and control before vehicle integration.
-  - Delivered the first autonomous shuttle demo with lidar mapping, lidar and GNSS+RTK localisation, offline path generation, obstacle detection, emergency braking, PID/MPC control and mobile-app destination selection.
-  - Vision-based drone detection and pose estimation from the car module.
-  - Autonomous navigation for centring and latching with the drone module.
+  - Delivered the first autonomous shuttle demo with lidar mapping, offline path generation, obstacle detection, emergency braking and mobile-app destination selection.
+  - Vision-based drone detection and pose estimation from the car module, and autonomous navigation for centring and latching with the drone module, shown at Amsterdam Drone Week 2018.
   - Helped turn Italdesign's first software and robotics project into follow-on work and patents.
 youtube:
   - id: zO114BNxmvc
