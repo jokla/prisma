@@ -201,17 +201,30 @@
 #let skill-level-fill = rgb("#6ea7c5")
 #let skill-level-empty = rgb("#b9c9d4")
 
+#let publication-venue-label(pub) = pub.at("venue_short", default: pub.venue)
+
+#let publication-subtitle(pub) = {
+  (
+    publication-venue-label(pub),
+    pub.at("type", default: ""),
+    str(pub.year),
+    pub.at("note", default: ""),
+  ).filter(part => part != "").join(" | ")
+}
+
 #let publication-entry(pub) = {
-  v(1pt)
   table(
     columns: (1fr),
     inset: 0pt,
     stroke: 0pt,
-    row-gutter: 2pt,
+    row-gutter: 0.5pt,
     align: auto,
-    text(size: 10pt, weight: "bold", linked-label(pub.title, pub.at("url", default: ""))),
-    text(size: 8pt, weight: "medium", fill: publication-accent, smallcaps(pub.venue + " | " + str(pub.year))),
+    box(width: 100%, height: 1.1em, inset: 0pt, clip: true)[
+      #text(size: 9pt, weight: "bold", linked-label(pub.title, pub.at("url", default: "")))
+    ],
+    text(size: 8pt, weight: "medium", fill: publication-accent, smallcaps(publication-subtitle(pub))),
   )
+  v(0.2pt)
 }
 
 #let interest-row(item) = {

@@ -129,7 +129,8 @@ if (profile.pitch) {
 
 const experience = loadList('experience', profile.experience);
 const education = loadList('education', profile.education);
-const publications = loadList('publications', profile.publications);
+const publications = loadList('publications', profile.publications)
+  .sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
 
 let projects;
 if (profile.projects) {
