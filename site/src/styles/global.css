@@ -6,7 +6,7 @@
 @theme {
   --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Kanit', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-accent: 'KoHo', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-accent: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Type scale matches Stellar (inputs/portfolio/src/styles/base.css) */
   --text-xs: 0.75rem;
@@ -83,11 +83,12 @@ h4 {
   line-height: var(--leading-tight);
 }
 
-/* KoHo accent for kickers, subtitles, section labels */
+/* DM Mono accent for kickers, subtitles, section labels */
 .subtitle {
   font-family: var(--font-accent);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-accent);
+  letter-spacing: 0.02em;
 }
 
 .kanit {

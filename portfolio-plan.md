@@ -9,7 +9,7 @@ A personal repo that produces two things from one folder of YAML data:
 
 This is a personal project, not a framework. If it ever makes sense to extract a reusable template, that's a future decision — not a design constraint now.
 
-Current branch state: Phase 1 content migration and Phase 2 CV generation are complete. The Astro site under `site/` and the deploy workflow are still future Phase 3 and Phase 4 work, so sections below that mention them describe the target state rather than the current checked-in tree.
+Current branch state: Phases 1–3 are complete. `content/` is populated, `make cv` produces `outputs/default.pdf`, and the Astro site under `site/` is scaffolded with Home / Work / Publications / Blog / About pages, dark mode, sitemap and RSS. The GitHub Pages deploy workflow (Phase 4) is not yet in place — `.github/workflows/` currently only contains Claude helper workflows.
 
 ---
 
@@ -29,7 +29,7 @@ Current branch state: Phase 1 content migration and Phase 2 CV generation are co
 
 ## Target Repository Structure
 
-The current repo already contains `content/`, `cv/`, `scripts/`, `Makefile`, and the root `package.json` for the resolver. `site/` and `.github/workflows/deploy.yml` shown below are planned additions for Phases 3 and 4.
+The current repo contains `content/`, `cv/`, `scripts/`, `site/`, `Makefile`, and the root `package.json` for the resolver. `.github/workflows/deploy.yml` shown below is the planned Phase 4 addition.
 
 ```
 /
@@ -46,39 +46,42 @@ The current repo already contains `content/`, `cv/`, `scripts/`, `Makefile`, and
 │   │   ├── default.yaml         ← Used for the website CV download
 │   │   └── <application>.yaml   ← Example future tailored profile
 │   ├── assets/                  ← Images referenced by YAML entries
-│   ├── blog/                    ← Markdown posts (Phase 3 migration target)
+│   ├── blog/                    ← Markdown posts (starts empty; blog begins fresh)
 │   ├── bio.yaml
 │   ├── contact.yaml
 │   ├── skills.yaml
 │   ├── interests.yaml           ← Music/hobbies (optional site section)
 │   └── extracurricular.yaml     ← Student clubs etc.
 │
-├── site/                        ← Astro site
+├── site/                        ← Astro 5 + Tailwind 4 static site
 │   ├── src/
-│   │   ├── components/
-│   │   │   ├── Timeline.astro
-│   │   │   ├── JobCard.astro
-│   │   │   └── SkillGrid.astro
-│   │   ├── layouts/
-│   │   │   ├── BaseLayout.astro
-│   │   │   └── BlogPost.astro
+│   │   ├── components/          ← JobCard, WorkProjectCard, YouTubeEmbed,
+│   │   │                          SkillGrid, PublicationEntry, DarkModeToggle
+│   │   ├── content.config.ts    ← Zod-typed content collections
+│   │   ├── layouts/             ← BaseLayout, BlogPost
+│   │   ├── lib/                 ← content.ts (singletons), assets.ts,
+│   │   │                          dates.ts, location.ts
 │   │   ├── pages/
-│   │   │   ├── index.astro
-│   │   │   ├── work.astro
-│   │   │   ├── projects.astro
+│   │   │   ├── index.astro      ← Home
+│   │   │   ├── work.astro       ← Work + related projects per role
 │   │   │   ├── publications.astro
 │   │   │   ├── blog/
-│   │   │   └── about.astro
-│   │   └── styles/
+│   │   │   ├── about.astro
+│   │   │   └── rss.xml.ts
+│   │   └── styles/global.css
+│   ├── public/                  ← robots.txt; cv.pdf is generated, not committed
 │   ├── astro.config.mjs
+│   ├── tsconfig.json
 │   └── package.json
 │
 ├── cv/                          ← Typst CV template
-│   └── template.typ
+│   ├── template.typ
+│   └── fonts/                   ← Vendored OFL fonts (Source Sans Pro / Roboto / FA7)
 │
 ├── scripts/                     ← Build helpers
 │   ├── resolve-profile.js       ← Resolves profile refs into flat JSON for Typst
-│   └── copy-default-cv.js       ← Copies default CV PDF into site/public/
+│   ├── copy-default-cv.js       ← Copies default CV PDF into site/public/
+│   └── fetch-fonts.sh           ← Re-fetches the vendored CV fonts
 │
 ├── Makefile
 ├── package.json
@@ -97,9 +100,12 @@ The current repo already contains `content/`, `cv/`, `scripts/`, `Makefile`, and
 ### `.gitignore`
 
 ```gitignore
+/inputs/**
 .build/
 outputs/
 site/dist/
+site/.astro/
+site/public/cv.pdf
 node_modules/
 ```
 
@@ -250,7 +256,7 @@ profile YAML + content/ → resolve-profile.js → .build/resolved.json → typs
 7. Reads contact info from `content/contact.yaml`.
 8. Writes `.build/resolved.json` for Typst.
 
-The resolver lives at the repo root and has its own `package.json` / `package-lock.json` (currently `js-yaml` only). The Astro site under `site/` will have a separate `package.json` once Phase 3 exists. Two lockfiles and two `npm ci` steps are acceptable because the resolver and the site have no shared dependencies.
+The resolver lives at the repo root and has its own `package.json` / `package-lock.json` (currently `js-yaml` only). The Astro site under `site/` has a separate `package.json` / `package-lock.json`. Two lockfiles and two `npm ci` steps are acceptable because the resolver and the site have no shared dependencies.
 
 ### Typst / brilliant-CV integration
 
@@ -265,14 +271,15 @@ That inline metadata must match the upstream package shape:
 - `layout.entry`
 - `layout.footer`
 
-The current font choice is:
+The current CV font choice:
 
 - body: `Source Sans Pro`
 - header: `Roboto`
+- icons: `Font Awesome 7 Free`
 
-Upstream `brilliant-CV` recommends `Source Sans 3`; `Source Sans Pro` is an acceptable fallback and is the current house choice for this repo after side-by-side comparison.
+All three are **vendored under `cv/fonts/`** (all OFL). The Makefile passes `--font-path cv/fonts`, so the CV has no system-font dependencies. One gotcha worth remembering: when `--font-path` is set, Typst stops searching user-level font dirs (`~/.local/share/fonts/`), so **anything the CV needs must live in `cv/fonts/`** — including Font Awesome. `scripts/fetch-fonts.sh` documents where each file came from and can re-fetch if needed.
 
-The Font Awesome icons used by the package need the **desktop** Font Awesome 7 OTF fonts installed locally. The npm webfonts are not sufficient for Typst in this setup.
+DM Sans / Kanit / DM Mono were briefly tested as a unified stack for CV + site, but DM Sans rendered the CV a page longer than Source Sans Pro at the same point size, so the CV kept its original stack. Upstream `brilliant-CV` recommends `Source Sans 3`; `Source Sans Pro` is an acceptable fallback and the current house choice.
 
 ### Pitch format
 
@@ -316,27 +323,36 @@ make cv PROFILE=content/profiles/<application>.yaml
 
 ## Website (Phase 3)
 
-Planned Astro site built from the full `content/` folder — no filtering, everything renders.
+Astro 5 + Tailwind 4 static site built from the full `content/` folder — no filtering, everything renders. Lives under `site/` with its own `package.json` and `npm install`.
 
 **Pages:**
-- **Home** — bio, current role, links
-- **Work** — interactive experience timeline with expandable detail panels (highlights, images, videos, tags)
-- **Projects** — personal and academic projects with media
-- **Publications** — papers and conference presentations
-- **Blog** — Markdown posts (Astro content collection)
-- **About** — education, skills, awards/certifications
+- **Home** (`/`) — bio, photo, social links, "Currently" card showing the latest active experience.
+- **Work** (`/work/`) — `JobCard` per active experience with related projects grouped under their parent via the `parent:` field, archived roles collapsed behind a `<details>`. Sticky table of contents on wide screens.
+- **Publications** (`/publications/`) — papers sorted newest-first, followed by a Talks section pulled from `content/presentations/` (archived entries filtered out).
+- **Blog** (`/blog/` and `/blog/<slug>/`) — Astro content collection + RSS feed at `/rss.xml`. Starts empty; old Jekyll posts are not being migrated, new posts are written directly into `content/blog/`.
+- **About** (`/about/`) — long bio, skills grid, education cards, interests highlights.
+
+There is deliberately **no `/projects` page** — projects surface under their parent role on `/work/` through `JobCard.relatedProjects`.
 
 **Features:**
-- Dark mode (Tailwind `dark:` + system preference toggle)
-- OpenGraph / Twitter Card meta tags
-- Sitemap (`@astrojs/sitemap`) and RSS (`@astrojs/rss`)
-- Default CV PDF bundled for download
+- Dark mode via a pre-paint inline script in `BaseLayout.astro` (reads `localStorage.theme` or `prefers-color-scheme`), toggled by `DarkModeToggle`.
+- OpenGraph / Twitter Card meta tags, canonical URLs, and sitemap + RSS links in `<head>`.
+- `@astrojs/sitemap` integration and `@astrojs/rss` feed for the blog.
+- Default CV PDF served at `/cv.pdf`, written by `scripts/copy-default-cv.js` during `make build`.
+- Typography: DM Sans body / Kanit display / DM Mono accent, loaded from Google Fonts in `BaseLayout.astro`. The CV uses a different stack (Source Sans Pro + Roboto, vendored under `cv/fonts/`) because DM Sans pushed the PDF from two pages to three at the same point size.
+
+**Content loading:**
+- Collections (`experience`, `education`, `projects`, `publications`, `presentations`, `blog`) are defined with Zod schemas in `site/src/content.config.ts` and loaded via `glob` from `../content/<collection>/*.yaml`. YAML dates parse as either string or number, so a shared `dateString` transform stringifies them.
+- Singleton YAML files go through `site/src/lib/content.ts`: `getBio()`, `getContact()`, `getSkills()`, `getSkillGroups()`, `getInterests()`, `getExtracurricular()`.
+- `getContact()` is the enforcement point for the CV-only `phone` field — it destructures `phone` out before returning. Any future CV-only contact field must extend this filter.
+- `site/src/lib/assets.ts` pre-imports every `content/assets/*` file via `import.meta.glob` so components look images up by bare filename and get an optimised `ImageMetadata` back.
+- `site/src/lib/dates.ts` mirrors the resolver's `formatDate` / `formatRange` and adds `dateKey()` for sorting.
 
 ---
 
 ## Makefile
 
-The `cv` and `clean` targets work today. `dev` and `build` are forward-looking targets that will only work once the Astro site is scaffolded under `site/`.
+All four targets work today. `make build` chains the CV resolver, `scripts/copy-default-cv.js`, and `astro build` — the same sequence Phase 4 CI will run.
 
 ```makefile
 PROFILE ?= content/profiles/default.yaml
@@ -349,8 +365,9 @@ dev:                             ## Start Astro dev server
 cv:                              ## Generate CV PDF from a profile
 	mkdir -p .build outputs
 	node scripts/resolve-profile.js --profile $(PROFILE) --out .build/resolved.json
-    typst compile --root $(CURDIR) --input data=../.build/resolved.json cv/template.typ \
-	  outputs/$(notdir $(basename $(PROFILE))).pdf
+	typst compile --root $(CURDIR) --font-path cv/fonts \
+	  --input data=../.build/resolved.json \
+	  cv/template.typ outputs/$(notdir $(basename $(PROFILE))).pdf
 
 build: cv                        ## Full production build (CV + site)
 	node scripts/copy-default-cv.js
@@ -364,7 +381,7 @@ clean:
 
 ## GitHub Actions
 
-Planned Phase 4 workflow. The repo currently contains only Claude helper workflows; the Pages deploy workflow below is the target shape once the Astro site exists. It delegates to `make build` so CI and local builds run the exact same steps. Any change to the build sequence goes into the Makefile, not the workflow.
+Planned Phase 4 workflow. The repo currently contains only Claude helper workflows; the Pages deploy workflow below is the target shape. It delegates to `make build` so CI and local builds run the exact same steps. Any change to the build sequence goes into the Makefile, not the workflow.
 
 ```yaml
 # .github/workflows/deploy.yml
@@ -407,16 +424,6 @@ jobs:
 
 ---
 
-## Blog Migration (from Jekyll)
-
-1. Copy posts from `_posts/` to `content/blog/`. Rename `YYYY-MM-DD-slug.md` → `slug.md`.
-2. Replace `layout: post` with nothing. Add `pubDate` from the filename date.
-3. Convert `{% highlight lang %}...{% endhighlight %}` → fenced code blocks.
-4. Move images to `content/assets/blog/`, update paths.
-5. `make dev` and verify.
-
----
-
 ## Build Phases
 
 ### Phase 1 — Content migration ✅ DONE
@@ -436,13 +443,18 @@ See the "Content conventions" section above for the schema decisions made during
 
 **Milestone reached:** `make cv` outputs a professional PDF. Tailored CVs work via `make cv PROFILE=...`.
 
-### Phase 3 — Astro website
-Scaffold the Astro project. Build pages: Home, Work (timeline), Projects, Publications, About. Configure content collections for blog. Add SEO basics (meta tags, sitemap). Implement dark mode. Migrate blog posts from Jekyll.
+### Phase 3 — Astro website ✅ DONE
+Astro 5 + Tailwind 4 static site is scaffolded under `site/`. Home, Work, Publications, Blog and About pages are live; blog collection and RSS feed are wired and render whatever Markdown is dropped into `content/blog/` (starts empty; old Jekyll posts are not being migrated). Dark mode, OG/Twitter meta, sitemap and RSS are all in place. Content collections are defined in `site/src/content.config.ts`; singleton YAML files load through `site/src/lib/content.ts`, where `getContact()` strips the CV-only `phone` field. Projects intentionally do not get their own page — they render under their parent experience on `/work/`.
 
-**Milestone:** `make dev` shows a complete portfolio site.
+**Milestone reached:** `make dev` serves a complete portfolio site; `make build` produces `site/dist/` with the freshly-compiled default CV at `/cv.pdf`.
 
 ### Phase 4 — Deploy
-Wire up the GitHub Actions workflow. Copy `CNAME` from `inputs/jokla.github.io/CNAME` to `site/public/CNAME` so the custom domain survives the first deploy. Push to `master` → CV compiled → site built → deployed to `giovanniclaudio.com`.
+Outstanding work:
+
+1. Add `site/public/favicon.svg` and `site/public/og-default.png` — both are referenced from `BaseLayout.astro` but not yet committed.
+2. Copy `inputs/jokla.github.io/CNAME` to `site/public/CNAME` so the custom domain survives the first deploy.
+3. Add `.github/workflows/deploy.yml` per the "GitHub Actions" section and enable GitHub Pages on the repo.
+4. Push to `master` → CV compiled → site built → deployed to `giovanniclaudio.com`.
 
 **Milestone:** live at `giovanniclaudio.com`.
 
