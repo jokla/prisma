@@ -15,13 +15,15 @@ summary: >
 
   Worked on real-time detection, pose estimation, tracking and visual
   servoing for mobile, humanoid, industrial and aerial robots;
-  contributed to a rapid-prototyping framework based on ROS,
-  MATLAB/Simulink and V-REP for sensor-based control algorithms;
+  built a rapid-prototyping framework based on ROS, MATLAB/Simulink
+  and V-REP to validate control algorithms in simulation first and
+  then deploy the same MATLAB/Simulink and C++ controllers to real
+  robots;
   supervised several student internships; and co-authored publications
   at RA-L / ICRA 2017 and Humanoids 2016.
 highlights:
   - Implemented real-time detection, pose estimation and visual-servoing algorithms across drones, mobile, industrial and humanoid robots (Romeo, Pepper).
-  - Built a rapid-prototyping framework on ROS, MATLAB/Simulink and V-REP adopted team-wide for sensor-based control experiments.
+  - Built a rapid-prototyping framework on ROS, MATLAB/Simulink and V-REP that let the team validate control algorithms in simulation before deploying the same MATLAB/Simulink and C++ controllers to real robots.
   - Co-authored peer-reviewed publications at IEEE RA-L / ICRA 2017 and Humanoids 2016 on visual servoing for whole-body humanoid control and dual-arm manipulation.
   - Supervised student interns through research projects end-to-end.
 highlight_links:
