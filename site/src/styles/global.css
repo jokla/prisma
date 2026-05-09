@@ -109,6 +109,15 @@ a:hover {
   .surface {
     background-color: var(--color-bg-elev);
     border: 1px solid var(--color-border);
+    box-shadow: 0 10px 24px -22px rgba(15, 23, 42, 0.12);
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .dark .surface {
+    border-color: color-mix(in srgb, white 14%, var(--color-border));
+    box-shadow:
+      0 20px 40px -28px rgba(0, 0, 0, 0.65),
+      0 0 0 1px color-mix(in srgb, white 8%, var(--color-border));
   }
 
   .muted {
