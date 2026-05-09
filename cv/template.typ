@@ -317,6 +317,32 @@
   )
 }
 
+// ── Skills ────────────────────────────────────────────────────────────────
+
+#cv-section("Skills")
+
+// Build ordered list of unique groups, then render one cv-skill per group.
+#let seen-groups = data.skills.fold((), (acc, s) => {
+  if acc.contains(s.group) { acc } else { acc + (s.group,) }
+})
+
+#for g in seen-groups {
+  let labels = data.skills.filter(s => s.group == g).map(s => s.label)
+  cv-skill(
+    type: g,
+    info: labels.join(", "),
+  )
+}
+
+#let spoken-languages = bio.at("languages", default: ())
+
+#if spoken-languages.len() > 0 {
+  cv-skill(
+    type: "Languages",
+    info: join-with-h-bar(spoken-languages.map(lang => language-skill-entry(lang))),
+  )
+}
+
 // ── Education ─────────────────────────────────────────────────────────────
 
 #cv-section("Education")
@@ -357,32 +383,6 @@
   for pub in data.publications {
     publication-entry(pub)
   }
-}
-
-// ── Skills ────────────────────────────────────────────────────────────────
-
-#cv-section("Skills")
-
-// Build ordered list of unique groups, then render one cv-skill per group.
-#let seen-groups = data.skills.fold((), (acc, s) => {
-  if acc.contains(s.group) { acc } else { acc + (s.group,) }
-})
-
-#for g in seen-groups {
-  let labels = data.skills.filter(s => s.group == g).map(s => s.label)
-  cv-skill(
-    type: g,
-    info: labels.join(", "),
-  )
-}
-
-#let spoken-languages = bio.at("languages", default: ())
-
-#if spoken-languages.len() > 0 {
-  cv-skill(
-    type: "Languages",
-    info: join-with-h-bar(spoken-languages.map(lang => language-skill-entry(lang))),
-  )
 }
 
 // ── Other Interests ──────────────────────────────────────────────────────
