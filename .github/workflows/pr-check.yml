@@ -37,9 +37,12 @@ jobs:
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           CONTACT_PHONE: ${{ secrets.CONTACT_PHONE }}
 
+      - name: Rename CV for download
+        run: cp outputs/default.pdf "outputs/giovanni-claudio-cv-$(date +%Y-%m).pdf"
+
       - name: Upload CV artifact
         uses: actions/upload-artifact@v4
         with:
           name: cv-preview
-          path: outputs/default.pdf
+          path: outputs/giovanni-claudio-cv-*.pdf
           retention-days: 14
