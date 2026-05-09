@@ -118,3 +118,40 @@ make dev                                             # Astro dev server
 make build                                           # CV + site → site/dist/
 make clean                                           # Remove .build/, outputs/, site/dist/
 ```
+
+## Sensitive contact fields (phone & email)
+
+`phone` and `email` are **not** stored in `content/contact.yaml`. They are injected at build time via environment variables so the repo can remain public.
+
+### In CI (GitHub Actions)
+
+Add these in **Settings → Secrets and variables → Actions → New repository secret**:
+
+| Secret name     | Value               |
+|-----------------|---------------------|
+| `CONTACT_EMAIL` | your email address  |
+| `CONTACT_PHONE` | your phone number   |
+
+The deploy and PR-check workflows pass them automatically to `make build` / `make cv`.
+
+### Locally (tailored CVs that include phone/email)
+
+```bash
+CONTACT_EMAIL=you@example.com CONTACT_PHONE="+44 ..." make cv PROFILE=content/profiles/tailored.yaml
+```
+
+Or export them in your shell profile (`~/.zshrc` / `~/.bashrc`) to avoid repeating:
+
+```bash
+export CONTACT_EMAIL=you@example.com
+export CONTACT_PHONE="+44 ..."
+```
+
+> The default profile (`content/profiles/default.yaml`) hides both fields via `contact_hide: [email, phone]`, so they are never needed for the standard website build.
+
+## CI / GitHub Pages
+
+| Workflow | Trigger | What it does |
+|---|---|---|
+| `deploy.yml` | Push to `master` (or manual trigger) | Full build + deploy to GitHub Pages |
+| `pr-check.yml` | PR targeting `master` | Builds CV PDF, uploads as downloadable artifact |

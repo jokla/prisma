@@ -136,6 +136,9 @@ function resolveContact(profile) {
   const hiddenFields = new Set(profile.contact_hide || []);
   const rawContact = loadYaml(join(CONTENT, 'contact.yaml'));
 
+  if (process.env.CONTACT_EMAIL) rawContact.email = process.env.CONTACT_EMAIL;
+  if (process.env.CONTACT_PHONE) rawContact.phone = process.env.CONTACT_PHONE;
+
   return Object.fromEntries(
     Object.entries(rawContact).filter(([key]) => !hiddenFields.has(key)),
   );
