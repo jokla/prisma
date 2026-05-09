@@ -18,6 +18,17 @@ const youtubeRef = z.object({
   label: z.string().optional(),
 });
 
+const highlightMapping = z
+  .record(z.string(), z.string())
+  .refine((value) => Object.keys(value).length === 1, 'Highlight objects must contain exactly one label/detail pair.');
+
+const highlightItem = z.union([z.string(), highlightMapping]).transform((value) => {
+  if (typeof value === 'string') return value;
+
+  const [[label, detail]] = Object.entries(value);
+  return `${label}: ${detail}`;
+});
+
 const experience = defineCollection({
   loader: glob({ pattern: '*.yaml', base: '../content/experience' }),
   schema: z.object({
@@ -31,8 +42,8 @@ const experience = defineCollection({
     tags: z.array(z.string()).default([]),
     tagline: z.string().optional(),
     summary: z.string(),
-    highlights: z.array(z.string()).default([]),
-    archived_highlights: z.array(z.string()).optional(),
+    highlights: z.array(highlightItem).default([]),
+    archived_highlights: z.array(highlightItem).optional(),
     images: z.array(imageRef).optional(),
     youtube: z.array(youtubeRef).optional(),
     archived: z.boolean().optional(),
@@ -78,8 +89,8 @@ const projects = defineCollection({
     url: z.string().optional(),
     partners: z.array(z.string()).optional(),
     summary: z.string().optional(),
-    highlights: z.array(z.string()).optional(),
-    archived_highlights: z.array(z.string()).optional(),
+    highlights: z.array(highlightItem).optional(),
+    archived_highlights: z.array(highlightItem).optional(),
     images: z.array(imageRef).optional(),
     youtube: z.array(youtubeRef).optional(),
     archived: z.boolean().optional(),

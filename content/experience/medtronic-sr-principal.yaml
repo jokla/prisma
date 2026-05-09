@@ -6,23 +6,22 @@ start: 2025-01
 end: present
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
 tags: [ai-video, computer-vision, deep-learning, medical-robotics, edge-deployment, software-architecture, cpp, python, regulated]
-tagline: Architecting a regulated, multi-AI GPU platform for real-time surgical guidance.
+tagline: Owned the AI-video platform for medical surgical-guidance device, from GPU scheduling to release strategy.
 summary: >
   Promoted to Sr. Principal Software Engineer and AI-Video Technical
-  Lead. I own the software architecture and technical roadmap for the
-  surgical-guidance AI/video pipeline, balancing safe GPU sharing
-  across multiple AI apps, clear medical and non-medical software
-  boundaries for regulatory compliance, and sub-10 ms overlay latency.
+  Lead to own the architecture and roadmap for Medtronic's surgical
+  AI-video platform.
 
-  I translate requirements across ML, Systems Engineering, Quality,
-  Regulatory, and UI, designed the CI system for automated AI-model
-  verification, and mentor a team of 5 engineers while driving shared
-  platform tooling across the project.
+  Led the move from prototype to release-ready system by designing the
+  GPU scheduler, inference runtime, safety-overlay path, and
+  recording/logging pipeline; driving FDA-submission work for AI-video
+  features; and leading a team of 5 across ML, systems, quality,
+  regulatory, and UI.
 highlights:
-  - Architected an IEC 62304 Class C-ready AI-video platform that runs multiple AI workloads on a shared embedded GPU with sub-10 ms overlay latency.
-  - Designed core runtime capabilities including AI scheduling, inference hardening, time synchronisation, and observability for benchmarking and diagnosis.
-  - Defined release, branching, and multi-model management practices to scale AI delivery under regulated change control.
+  - Architected production-ready AI-video platform that runs multiple concurrent surgical-AI workloads on a shared embedded GPU.
+  - Designed core runtime capabilities including AI scheduling, inference hardening, video and AI data recording, overlay generation, time synchronisation, and benchmarking.
   - Act as the technical bridge across ML, Systems, Quality, Regulatory, and UI, turning algorithm requirements into platform contracts and delivery plans.
+  - Defined variant-aware building, versioning, branching, testing practices to scale AI delivery under regulated change control.
   - Technical lead for a team of 5 engineers, combining hands-on architecture work with mentoring, reviews, and pairing.
 images:
   - src: medtronic.png

@@ -53,6 +53,29 @@ function formatDate(d) {
   return month ? `${MONTHS[Number.parseInt(month, 10) - 1]} ${year}` : year;
 }
 
+function normalizeHighlightItem(item, fieldName) {
+  if (typeof item === 'string') return item;
+
+  if (item && typeof item === 'object' && !Array.isArray(item)) {
+    const entries = Object.entries(item);
+    if (entries.length === 1 && typeof entries[0][1] === 'string') {
+      const [label, detail] = entries[0];
+      return `${label}: ${detail}`;
+    }
+  }
+
+  throw new TypeError(`Expected ${fieldName} to be a string or a single-entry mapping.`);
+}
+
+function normalizeHighlights(items, fieldName) {
+  if (items == null) return items;
+  if (!Array.isArray(items)) {
+    throw new TypeError(`Expected ${fieldName} to be an array.`);
+  }
+
+  return items.map((item, index) => normalizeHighlightItem(item, `${fieldName}[${index}]`));
+}
+
 // Rewrite image src fields to paths relative to cv/template.typ for Typst.
 function resolveImages(images) {
   if (!images) return images;
@@ -67,6 +90,10 @@ function enrich(entry) {
   const out = { ...entry };
   if ('start' in out) out.start_formatted = formatDate(out.start);
   if ('end' in out) out.end_formatted = formatDate(out.end);
+  if ('highlights' in out) out.highlights = normalizeHighlights(out.highlights, `${out.id ?? 'entry'}.highlights`);
+  if ('archived_highlights' in out) {
+    out.archived_highlights = normalizeHighlights(out.archived_highlights, `${out.id ?? 'entry'}.archived_highlights`);
+  }
   if (out.images) out.images = resolveImages(out.images);
   return out;
 }
