@@ -6,6 +6,7 @@ import { requireAsset } from '../lib/assets';
 const bio = getBio();
 const contact = getContact();
 const photo = requireAsset(bio.photo.src);
+const cvFilename = `giovanni-claudio-cv-${new Date().toISOString().slice(0, 7)}.pdf`;
 ---
 <section class="max-w-5xl mx-auto px-6 pt-16 pb-12">
   <div class="grid md:grid-cols-[1fr_auto] gap-10 items-center">
@@ -16,6 +17,7 @@ const photo = requireAsset(bio.photo.src);
       <div class="flex flex-wrap gap-3">
         <a
           href="/cv.pdf"
+          download={cvFilename}
           class="no-underline inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-semibold text-white"
           style="background-color: var(--color-accent)"
         >
