@@ -43,8 +43,9 @@ The current repo contains `content/`, `cv/`, `scripts/`, `site/`, `Makefile`, an
 │   │   ├── generic.md           ← Default pitch for website & general CV
 │   │   └── <application>.md     ← Example future tailored pitch
 │   ├── profiles/
-│   │   ├── default.yaml         ← Used for the website CV download
-│   │   └── <application>.yaml   ← Example future tailored profile
+│   │   ├── default.yaml         ← Public website CV (hides email/phone)
+│   │   ├── private.yaml         ← Direct-application CV (full contact)
+│   │   └── <application>.yaml   ← Additional tailored profiles (not committed)
 │   ├── assets/                  ← Images referenced by YAML entries
 │   ├── blog/                    ← Markdown posts (starts empty; blog begins fresh)
 │   ├── bio.yaml
@@ -204,7 +205,7 @@ Both live in the same YAML file. Each consumer picks the one it needs; the other
 
 A soft-delete flag on any entry (experience, project, presentation, or an individual item inside `interests.yaml`). Meaning: "preserved in `content/` for historical reference, but off by default in both outputs." The default profile omits archived entries; the website renders them only in an explicit "archive" section (if the page chooses to opt them in).
 
-Currently used on: the 2008 Spack IT role, 6 old academic/student projects, 2 INRIA-era OSS bridges, and one 2014 workshop talk.
+Currently used on: the 2008 Spack IT role, and 6 old projects (cms-thesis, finding-lane-lines, romeo-tk, stay-alert-ford, traffic-sign-classification, visp-naoqi). The two earlier INRIA OSS bridge projects (matlab-ros-bridge, vrep-ros-bridge) were removed outright rather than archived.
 
 ### `archived_highlights`
 

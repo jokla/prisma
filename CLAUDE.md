@@ -41,7 +41,7 @@ make clean                                                  # rm -rf .build/ out
 
 `.build/`, `outputs/`, `site/dist/`, `site/.astro/`, and `site/public/cv.pdf` are gitignored build artefacts; never commit them.
 
-The only committed profile is `content/profiles/default.yaml`.
+Two profiles are committed: `content/profiles/default.yaml` (public/website CV — hides email and phone) and `content/profiles/private.yaml` (for direct applications — full contact details).
 
 Typography: the CV and site intentionally use different type stacks.
 
