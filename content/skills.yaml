@@ -12,9 +12,10 @@ skills:
   - { id: edge-inference,  label: "Edge inference",         group: "AI & ML" }
   - { id: model-opt,       label: "Model optimisation",     group: "AI & ML" }
   - { id: ci-for-ml,       label: "CI/CD for ML",           group: "AI & ML" }
+  - { id: agentic-workflows, label: "Agentic AI",    group: "AI & ML" }
 
   # Programming
-  - { id: cpp,             label: C++23,                    group: Programming }
+  - { id: cpp,             label: C++20/23,                    group: Programming }
   - { id: python,          label: Python,                   group: Programming }
   - { id: cmake,           label: CMake,                    group: Programming }
 
@@ -27,6 +28,7 @@ skills:
 
   # Architecture
   - { id: software-arch,   label: "Software architecture",  group: Architecture }
+  - { id: c4-modeling,     label: "C4 modeling",            group: Architecture }
   - { id: greenfield-arch, label: "Greenfield systems",     group: Architecture }
   - { id: tech-roadmap,    label: "Tech roadmapping",       group: Architecture }
 
@@ -43,9 +45,10 @@ skills:
   - { id: tech-leadership, label: "Technical leadership",   group: Leadership }
   - { id: cross-team,      label: "Cross-team collaboration", group: Leadership }
   - { id: mentoring,       label: Mentoring,                group: Leadership }
+  - { id: agile,           label: Agile/Scrum,              group: Leadership }
 
   # Robotics
-  - { id: self-driving,    label: Self-driving,             group: Robotics }
+  - { id: av,              label: Autonomous vehicles,      group: Robotics }
   - { id: mobile-robots,   label: "Mobile robots",          group: Robotics }
   - { id: manipulators,    label: Manipulators,             group: Robotics }
   - { id: humanoid-robots, label: "Humanoid robots",        group: Robotics }
@@ -69,6 +72,6 @@ skills:
   - { id: linux,           label: Linux,                    group: "Platforms & Infra" }
   - { id: docker,          label: Docker,                   group: "Platforms & Infra" }
   - { id: kubernetes,      label: Kubernetes,               group: "Platforms & Infra" }
-  - { id: embedded-gpu,    label: "Embedded GPU",           group: "Platforms & Infra" }
+  - { id: orin,            label: NVIDIA Orin,             group: "Platforms & Infra" }
   - { id: aws-s3,          label: AWS,                      group: "Platforms & Infra" }
-  - { id: monorepo,        label: Monorepo,                 group: "Platforms & Infra" }
+  - { id: github-actions,  label: "GitHub Actions",         group: "Platforms & Infra" }

@@ -17,11 +17,11 @@ summary: >
   the sensor and compute platform, and set up SIL/HIL validation to
   deliver the first autonomous shuttle and flying-car demonstrations.
 highlights:
-  - Pop.Up Next (Audi & Airbus): built drone detection, pose estimation, and autonomous latching for the 1:4 flying prototype shown at Amsterdam Drone Week 2018.
-  - Prototype vehicle: designed the sensor stack and built perception, multi-sensor SLAM, planning, and control, plus logging/replay and SIL/HIL in CARLA and dSPACE.
+  - Pop.Up (with Audi & Airbus): built drone localization, and autonomous latching. Demo at Amsterdam Drone Week 2018.
+  - Autonomous Driving: built sensor stack, perception, mapping, planning, control, logging/replay, and SIL/HIL.
   - InTo: led ML/CV for crowd-density and passenger-flow prediction using onboard and station cameras; deployed at Turin's Re Umberto metro station in 2019.
   - Wheem-i: built obstacle/free-space perception and shared-control driver assistance for a semi-autonomous mobility device; finalist in Toyota's $4M Mobility Unlimited Challenge.
-  - Roborace: trained and deployed CNNs for object detection and semantic segmentation on an autonomous racing car.
+  - Roborace: trained and deployed CNNs for object detection and semantic segmentation on Roborace's autonomous racing car.
 highlight_links:
   - label: InTo
     url: https://www.italdesign.it/project/into/

@@ -4,7 +4,6 @@ role: Senior Robotics Software Engineer
 location: London, UK
 start: 2021-03
 end: 2023-06
-website: https://arrival.com/uk/en
 tags: [autonomous-navigation, computer-vision, calibration, cpp, mobile-robots]
 tagline: Led the vision system for a 100+ autonomous mobile robot fleet running Arrival's microfactories.
 summary: >
@@ -14,9 +13,9 @@ summary: >
   commission robots at scale and keep positioning performance reliable
   across hardware variation and factory deployments.
 highlights:
-  - Owned the hardware and software vision system across the 100+ WeMo autonomous mobile robots running Arrival's Bicester microfactory.
-  - Designed and shipped vision-based relative positioning achieving sub-centimetre, sub-degree docking accuracy, repeatable across robots in single and cluster configurations.
-  - Built the automated calibration and end-of-line validation tooling, eliminating manual commissioning steps and unblocking the AMR fleet rollout.
+  - Owned the hardware and software vision system across the 100+ autonomous mobile robots running Bicester microfactory.
+  - Built vision-based positioning achieving sub-centimetre, sub-degree accuracy across single and cluster robot configurations.
+  - Implemented automated tools for camera sub-assembly, intrinsics and extrinsics calibration, and end-of-line robot validation.
 images:
   - src: ARRIVAL_logo.png
     alt: Arrival logo

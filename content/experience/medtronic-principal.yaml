@@ -17,10 +17,9 @@ summary: >
   and build/CI improvements that laid the groundwork for the later
   AI-video platform.
 highlights:
-  - Productionized PyTorch/ONNX models for low-latency execution on embedded NVIDIA GPUs in a Class C medical device.
+  - Optimized PyTorch/ONNX models for low-latency execution on embedded NVIDIA GPUs maintaining target accuracy.
   - Built on-target validation and benchmarking workflows to measure latency/accuracy trade-offs and generate evidence for release and verification reviews.
   - Led the move to a modular monorepo with scalable build/CI pipelines, improving module ownership, integration consistency, and release execution.
-  - Raised the engineering bar through code reviews, architecture discussions, and hands-on delivery, building the trust that led to AI-video technical leadership.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery

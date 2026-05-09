@@ -22,12 +22,12 @@ summary: >
   supervised several student internships; and co-authored publications
   at RA-L / ICRA 2017 and Humanoids 2016.
 highlights:
-  - Four years of real-time perception, navigation and visual-servoing research  across drones, mobile, industrial and humanoid robots (Romeo, Pepper) in François Chaumette's Lagadic team.
+  - Four years of perception, navigation and visual-servoing research  across drones, mobile, industrial and humanoid robots.
   - Built a ROS + MATLAB/Simulink + V-REP framework: validate algorithms in simulation, deploy the identical code to real robots.
-  - Co-author, IEEE RA-L 2017 + ICRA 2017 (whole-body humanoid visual servoing) and Humanoids 2016 (vision-based dual-arm manipulation).
+  - Implemented visual servoing on Romeo and Pepper for grasping, dual-arm manipulation, and obstacle-aware people following.
   - Supervised research interns end-to-end on perception and control projects.
 highlight_links:
-  - label: RA-L 2017 + ICRA 2017
+  - label: RA-L + ICRA 2017
     url: https://inria.hal.science/hal-01421734
   - label: Humanoids 2016
     url: http://rainbow-doc.irisa.fr/pdf/2016_humanoids_claudio.pdf
