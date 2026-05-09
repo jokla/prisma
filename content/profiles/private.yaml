@@ -1,0 +1,32 @@
+# Private profile for direct company applications.
+# Same content as the public default CV, but keeps direct contact details.
+
+pitch: pitches/generic.md
+
+# Experience , explicit whitelist controls order (most-recent first).
+experience:
+  - medtronic-sr-principal
+  - medtronic-principal
+  - arrival-senior
+  - arrival-autonav
+  - italdesign
+  - inria
+
+# Education , explicit order.
+education:
+  - ecn-unige-aria
+  - unige-bachelor
+
+# Projects , whitelist.
+projects: []
+
+# Publications.
+publications:
+  - matlab-simulink-vrep-2014
+  - visual-servoing-ral-2017
+  - romeo-manipulation-humanoids-2016
+
+interests: true
+
+# Visually emphasised entries in the PDF.
+highlight: [medtronic-sr-principal]

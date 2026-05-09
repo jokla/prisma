@@ -132,10 +132,19 @@ function loadInterests(enabled) {
   };
 }
 
+function resolveContact(profile) {
+  const hiddenFields = new Set(profile.contact_hide || []);
+  const rawContact = loadYaml(join(CONTENT, 'contact.yaml'));
+
+  return Object.fromEntries(
+    Object.entries(rawContact).filter(([key]) => !hiddenFields.has(key)),
+  );
+}
+
 // ── Load core data ────────────────────────────────────────────────────────
 
 const profile = loadYaml(profilePath);
-const contact = loadYaml(join(CONTENT, 'contact.yaml'));
+const contact = resolveContact(profile);
 const bio = loadYaml(join(CONTENT, 'bio.yaml'));
 
 // Resolve photo to a path relative to cv/template.typ.

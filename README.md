@@ -53,6 +53,12 @@ To build a tailored CV, add another profile file under `content/profiles/` and r
 make cv PROFILE=content/profiles/<your-profile>.yaml
 ```
 
+The default website CV is public and hides direct email/phone details. To build the private version for direct company applications, run:
+
+```bash
+make cv PROFILE=content/profiles/private.yaml
+```
+
 ## How It Works
 
 ### CV pipeline
@@ -70,6 +76,8 @@ Important implementation details:
 - Typst resolves `sys.inputs.at("data")` relative to `cv/template.typ`, so the Makefile uses `--root $(CURDIR) --input data=../.build/resolved.json`.
 - `--font-path cv/fonts` is also required — Typst loses access to user-level fonts once `--font-path` is set, so every font the CV needs must live in that directory.
 - The resolver rewrites image paths to be relative to `cv/template.typ`.
+- Profiles can hide direct contact fields from the CV via `contact_hide:`. The default website CV is the public version (email/phone hidden); `content/profiles/private.yaml` keeps the full contact line for direct applications.
+- `cv/template.typ` contains a few local rendering overrides on top of `brilliant-cv`: a custom black header contact row with explicit field order and separator handling, and a local sticky full-entry renderer to avoid orphaning a role title at the bottom of a page.
 
 ### Site pipeline
 

@@ -21,7 +21,7 @@ highlights:
   - Autonomous Driving: built sensor stack, perception, mapping, planning, control, logging/replay, and SIL/HIL.
   - InTo: led ML/CV for crowd-density and passenger-flow prediction using onboard and station cameras; deployed at Turin's Re Umberto metro station in 2019.
   - Wheem-i: built obstacle/free-space perception and shared-control driver assistance for a semi-autonomous mobility device; finalist in Toyota's $4M Mobility Unlimited Challenge.
-  - Roborace: trained and deployed CNNs for object detection and semantic segmentation on Roborace's autonomous racing car.
+  - Roborace: trained and deployed CNNs for object detection and semantic segmentation on the autonomous racing car.
 highlight_links:
   - label: InTo
     url: https://www.italdesign.it/project/into/

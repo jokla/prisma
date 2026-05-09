@@ -34,7 +34,6 @@ export function getBio(): Bio {
 
 export interface Contact {
   name: string;
-  email: string;
   location: string;
   linkedin?: string;
   github?: string;
@@ -43,9 +42,9 @@ export interface Contact {
 }
 
 export function getContact(): Contact {
-  // Deliberately drop `phone` on the way out; CV-only.
-  const raw = loadYaml<Contact & { phone?: string }>('contact.yaml');
-  const { phone: _phone, ...rest } = raw;
+  // Deliberately drop direct contact fields on the way out; CV-only.
+  const raw = loadYaml<Contact & { email?: string; phone?: string }>('contact.yaml');
+  const { email: _email, phone: _phone, ...rest } = raw;
   return rest;
 }
 
