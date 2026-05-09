@@ -11,29 +11,49 @@ short: >
   the cross-team work it takes to get there. Originally from Genoa,
   Italy.
 
-# Long bio, used on the website About page.
-long: >
-  I'm a Senior Principal Software Engineer with 12+ years of experience
-  architecting perception, computer-vision and AI/video systems across
-  medical robotics, autonomous vehicles and humanoid platforms. My work
-  spans humanoid manipulation and visual servoing at INRIA, autonomous
-  driving and smart mobility at Italdesign Giugiaro, autonomous mobile
-  robots at Arrival, and now real-time AI/video pipelines for robotic
-  and laparoscopic surgery at Medtronic. I especially enjoy the problem
-  of turning research-grade perception models into reliable, deployable
-  systems on constrained embedded hardware, and working across the
-  machine-learning, embedded, platform and product-design disciplines
-  it takes to get there. In my current role as AI-Video Technical Lead
-  at Medtronic, I own the software architecture and technical roadmap
-  for the surgical-guidance AI pipeline, balancing three hard
-  constraints: isolation of AI apps sharing the same embedded GPU,
-  segregation of medical and non-medical software for safety and
-  regulatory compliance, and sub-10 ms overlay latency for responsive
-  intra-operative guidance. I also drive the CI system for automated
-  AI-model verification, a platform of shared libraries and tooling,
-  and a growing agentic-AI initiative to streamline AI-model submission
-  in a regulated environment. I lead a team of 5 engineers and
-  influence work across AI, video, platform and quality functions.
+# Short, playful bio for the website Home page. List of paragraphs.
+home:
+  - >
+    Senior Principal Software Engineer at Medtronic, working on a
+    high-performance video and AI pipeline that provides real-time
+    guidance during surgical procedures, for both robotic-assisted and
+    conventional laparoscopic surgery.
+  - >
+    Humanoid robots at INRIA, autonomous cars at Italdesign, delivery
+    bots at Arrival, and now the operating room at Medtronic. 12+ years
+    of teaching machines to see, one embedded GPU at a time. Different
+    domains, same hard problem: making perception reliable where it
+    actually has to work.
+  - >
+    Born in Genoa, the land of pesto, focaccia, and Genoa CFC, a
+    football club I keep supporting against better judgement. My
+    surname is Claudio (yes, also a first name, no, I can't explain
+    it). When AI finally replaces us software engineers, I've got two
+    backup plans ready: gelato sommelier or cat photographer.
+
+# Long bio, used on the website About page. List of paragraphs.
+long:
+  - >
+    I'm a Senior Principal Software Engineer with 12+ years of experience
+    architecting perception, computer-vision and AI/video systems across
+    medical robotics, autonomous vehicles and humanoid platforms. My work
+    spans humanoid manipulation and visual servoing at INRIA, autonomous
+    driving and smart mobility at Italdesign Giugiaro, autonomous mobile
+    robots at Arrival, and now real-time AI/video pipelines for robotic
+    and laparoscopic surgery at Medtronic.
+  - >
+    I especially enjoy the problem of turning research-grade perception
+    models into reliable, deployable systems on constrained embedded
+    hardware, and working across the machine-learning, embedded,
+    platform and product-design disciplines it takes to get there.
+  - >
+    In my current role as AI-Video Technical Lead at Medtronic, I apply
+    the same approach I developed across autonomous vehicles, mobile
+    robotics, and humanoid research: making perception robust enough
+    for real hardware under real constraints. At Medtronic, that means
+    architecting the software and CI pipeline for AI-guided surgical
+    systems, where reliability, compliance, and real-time performance
+    all matter at once.
 
 origin: Genoa, Italy
 

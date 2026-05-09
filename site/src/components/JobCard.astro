@@ -1,0 +1,132 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { formatRange } from '../lib/dates';
+import { getAsset } from '../lib/assets';
+import { getLocationFlag } from '../lib/location';
+import WorkProjectCard from './WorkProjectCard.astro';
+import YouTubeEmbed from './YouTubeEmbed.astro';
+
+interface Props {
+  entry: CollectionEntry<'experience'>;
+  relatedProjects?: CollectionEntry<'projects'>[];
+}
+const { entry, relatedProjects = [] } = Astro.props;
+const d = entry.data;
+const range = formatRange(d.start, d.end);
+const logo = d.images?.[0] ? getAsset(d.images[0].src) : undefined;
+const locationFlag = getLocationFlag(d.location);
+const roleVideos = d.youtube ?? [];
+const showcaseCount = relatedProjects.length + roleVideos.length;
+const summaryParagraphs = d.summary
+  ? d.summary.split(/\n+/).map((p) => p.trim()).filter(Boolean)
+  : [];
+---
+<article class="surface rounded-[1.5rem] p-6 md:p-8">
+  <header class="flex flex-col gap-6 lg:flex-row lg:items-start">
+    {logo && (
+      <div class="job-logo flex h-24 w-24 shrink-0 items-center justify-center rounded-[1.25rem] border-2 bg-white p-3 shadow-sm">
+        <Image src={logo} alt={d.images?.[0].alt ?? ''} width={96} height={96} class="max-h-full max-w-full object-contain" />
+      </div>
+    )}
+    <div class="min-w-0 flex-1">
+      <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div class="min-w-0">
+          <h3 class="text-2xl font-bold leading-tight">{d.role}</h3>
+          <p class="mt-2 text-lg">
+            {d.website ? <a href={d.website} target="_blank" rel="noopener">{d.company}</a> : d.company}
+          </p>
+        </div>
+
+        <div class="flex shrink-0 flex-wrap gap-1.5 text-xs">
+          <span class="rounded-full border px-2.5 py-1" style="border-color: var(--color-border); background: var(--color-bg)">
+            {range}
+          </span>
+          <span class="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1" style="border-color: var(--color-border); background: var(--color-bg)">
+            {locationFlag && <span aria-hidden="true">{locationFlag}</span>}
+            <span>{d.location}</span>
+          </span>
+        </div>
+      </div>
+
+      {d.tagline && (
+        <p class="mt-4 max-w-3xl text-base leading-relaxed" style="color: var(--color-fg)">{d.tagline}</p>
+      )}
+    </div>
+  </header>
+
+  {d.highlights.length > 0 && (
+    <section class="mt-6">
+      <p class="subtitle mb-4 text-xs uppercase tracking-[0.24em]">Impact</p>
+      <ul class="job-highlights mr-4 md:mr-6 grid gap-x-8 gap-y-2.5 text-[0.95rem] leading-relaxed md:grid-cols-2">
+        {d.highlights.map((item) => (
+          <li class="relative pl-5">
+            <span class="job-bullet" aria-hidden="true"></span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {summaryParagraphs.length > 0 && (
+    <details class="mt-6 group">
+      <summary class="subtitle cursor-pointer text-sm select-none">
+        Role notes ▸
+      </summary>
+      <div class="mt-4 max-w-4xl space-y-3 text-sm leading-7">
+        {summaryParagraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </details>
+  )}
+
+  {showcaseCount > 0 && (
+    <section class="mt-8 border-t pt-6" style="border-color: var(--color-border)">
+      <p class="subtitle mb-5 text-xs uppercase tracking-[0.24em]">Show, Don't Tell</p>
+
+      {roleVideos.length > 0 && (
+        <div class="mb-4 grid gap-4 md:grid-cols-2">
+          {roleVideos.map((video) => (
+            <YouTubeEmbed id={video.id} label={video.label ?? d.company} kicker="Role Footage" />
+          ))}
+        </div>
+      )}
+
+      {relatedProjects.length > 0 && (
+        <div class="grid gap-4 xl:grid-cols-2">
+          {relatedProjects.map((project) => <WorkProjectCard entry={project} accordionGroup="work-projects" />)}
+        </div>
+      )}
+    </section>
+  )}
+
+  {d.tags.length > 0 && (
+    <div class="mt-6 flex flex-wrap gap-1.5">
+      {d.tags.map((tag) => (
+        <span class="rounded-full px-2.5 py-1 text-xs" style="background: var(--color-bg); color: var(--color-fg-muted); border: 1px solid var(--color-border)">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+</article>
+
+<style>
+  .job-logo {
+    border-color: color-mix(in srgb, var(--color-accent) 10%, var(--color-border));
+  }
+  :global(.dark) .job-logo {
+    border-color: color-mix(in srgb, var(--color-accent) 70%, var(--color-border));
+  }
+
+  .job-highlights .job-bullet {
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 18%, transparent);
+  }
+</style>

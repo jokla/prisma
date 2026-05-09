@@ -1,0 +1,82 @@
+---
+interface Props {
+  id: string;
+  label?: string;
+  kicker?: string;
+  roundedClass?: string;
+  showOverlayText?: boolean;
+  showOverlayKicker?: boolean;
+}
+
+const {
+  id,
+  label,
+  kicker = 'Video',
+  roundedClass = 'rounded-[1.25rem]',
+  showOverlayText = true,
+  showOverlayKicker = true,
+} = Astro.props;
+
+const title = label ?? 'Play video';
+const embedUrl = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+const thumbnailUrl = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+---
+<div class={`youtube-embed group relative aspect-video overflow-hidden border ${roundedClass}`} style="border-color: var(--color-border)">
+  <button
+    type="button"
+    class="youtube-embed-trigger relative h-full w-full cursor-pointer text-left"
+    data-youtube-embed={embedUrl}
+    data-youtube-title={title}
+    aria-label={title}
+  >
+    <img src={thumbnailUrl} alt={title} class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+    {showOverlayText && (
+      <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+        {showOverlayKicker && <p class="text-xs uppercase tracking-[0.22em] text-white/70">{kicker}</p>}
+        {label && <p class="mt-1 max-w-md text-sm font-semibold">{label}</p>}
+      </div>
+    )}
+    <span class="absolute inset-0 flex items-center justify-center">
+      <span class="flex h-14 w-14 items-center justify-center rounded-full border bg-black/45 text-white backdrop-blur-sm" style="border-color: rgba(255, 255, 255, 0.35)">
+        <svg viewBox="0 0 24 24" class="ml-1 h-6 w-6 fill-current" aria-hidden="true">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </span>
+    </span>
+  </button>
+</div>
+
+<script>
+  const selectors = '.youtube-embed-trigger[data-youtube-embed]';
+
+  function mountYouTubeIframe(button) {
+    if (!(button instanceof HTMLButtonElement)) return;
+    const wrapper = button.closest('.youtube-embed');
+    const src = button.dataset.youtubeEmbed;
+    const title = button.dataset.youtubeTitle ?? 'Embedded video';
+    if (!wrapper || !src) return;
+
+    const iframe = document.createElement('iframe');
+    iframe.className = 'h-full w-full';
+    iframe.src = src;
+    iframe.title = title;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+
+    wrapper.replaceChildren(iframe);
+  }
+
+  if (!window.__youtubeEmbedBound) {
+    window.__youtubeEmbedBound = true;
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const button = target.closest(selectors);
+      if (!button) return;
+      mountYouTubeIframe(button);
+    });
+  }
+</script>

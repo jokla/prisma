@@ -1,0 +1,38 @@
+id: romeo-manipulation
+name: Vision-based manipulation with Romeo
+subtitle: Perception, grasping and door opening on the Romeo humanoid
+organisation: INRIA
+parent: inria
+location: Rennes, France
+start: 2013
+end: 2017
+stack: [C++, Python, ROS, ViSP]
+tags: [humanoid-robots, visual-servoing, manipulation, perception]
+partners:
+  - Softbank Robotics
+summary: >
+  Perception and manipulation demonstrations on the Romeo humanoid robot
+  (Softbank Robotics) combining object detection, model-based and template
+  tracking, 3D point-cloud segmentation and visual servoing to grasp
+  objects, open doors and interact with people.
+highlights:
+  - Implemented object localisation and single-arm grasping by visual servoing using 2D and RGB-D cameras.
+  - Extended the approach to coordinated dual-arm manipulation, including a ball-in-maze solving demonstration.
+  - Developed a door-handle detection and opening task using an RGB-D camera.
+  - Built a face detection, recognition and face-servoing pipeline for human-robot interaction.
+  - Combined object detection, model-based tracking, template tracking, 3D point-cloud segmentation, augmented reality and text detection in natural images across demonstrations.
+  - Authored "Vision-based Manipulation with the Humanoid Robot Romeo" presented at IEEE Humanoids 2016.
+youtube:
+  - id: TgpLfgFSca8
+    label: Romeo humanoid robot grasping demonstration v2
+  - id: 1--VjdDlFg4
+    label: "Whole-body control with Romeo: Grasping by visual servoing"
+  - id: -wIzJ2Ckifg
+    label: "Romeo dual arm manipulation: ball-in-maze game"
+  - id: ajZpUOC5ERM
+    label: Romeo face servoing
+  - id: qotsmwXmTUY
+    label: A door opening task using a RGB-D camera with the humanoid robot Romeo
+images:
+  - src: giovanni.claudio.romeo.jpg
+    alt: Romeo humanoid robot

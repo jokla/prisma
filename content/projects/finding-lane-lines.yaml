@@ -9,7 +9,7 @@ end: 2017
 stack: [Python, OpenCV]
 tags: [computer-vision, autonomous-driving]
 archived: true
-url: http://jokla.me/robotics/lane-detection/
+url: https://giovanniclaudio.com/robotics/lane-detection/
 summary: >
   Udacity SDCND Project 1: detect highway lane lines from a video stream
   using image-analysis techniques.

@@ -1,0 +1,14 @@
+id: matlab-simulink-vrep-2014
+title: Interfacing Matlab/Simulink with V-REP for an Easy Development of Sensor-Based Control Algorithms for Robotic Platforms
+authors:
+  - Riccardo Spica
+  - Giovanni Claudio
+  - Fabien Spindler
+  - Paolo Robuffo Giordano
+venue: IEEE International Conference on Robotics and Automation Workshop on MATLAB/Simulink for Robotics Education and Research
+venue_short: ICRA Workshop
+type: workshop
+year: 2014
+url: https://inria.hal.science/hal-01332960
+note: Hong Kong, China.
+tags: [simulink, ros, v-rep, robotics, visual-servoing]

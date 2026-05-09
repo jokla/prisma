@@ -7,25 +7,29 @@ end: 2017-08
 website: https://www.inria.fr/en/
 team_website: http://www.irisa.fr/lagadic/lagadic-eng.html
 tags: [visual-servoing, humanoid-robots, manipulation, computer-vision, ros, cpp, matlab]
+tagline: Real-time perception and visual servoing for humanoid, mobile, industrial and aerial robots.
 summary: >
   Joined the Lagadic team at INRIA Rennes as an R&D engineer under
   François Chaumette. My goal was to make robots smarter, helping
-  them perceive and understand the world and act autonomously. Worked
-  on real-time detection, pose estimation, tracking and visual
+  them perceive and understand the world and act autonomously.
+
+  Worked on real-time detection, pose estimation, tracking and visual
   servoing for mobile, humanoid, industrial and aerial robots;
-  contributed to a rapid-prototyping framework based on ROS,
-  MATLAB/Simulink and V-REP for sensor-based control algorithms;
+  built a rapid-prototyping framework based on ROS, MATLAB/Simulink
+  and V-REP to validate control algorithms in simulation first and
+  then deploy the same MATLAB/Simulink and C++ controllers to real
+  robots;
   supervised several student internships; and co-authored publications
   at RA-L / ICRA 2017 and Humanoids 2016.
 highlights:
-  - Co-authored peer-reviewed publications at IEEE RA-L / ICRA 2017 and Humanoids 2016 on visual servoing for whole-body humanoid control and dual-arm manipulation.
-  - Built a rapid-prototyping framework on ROS, MATLAB/Simulink and V-REP adopted team-wide for sensor-based control experiments.
-  - Implemented real-time detection, pose estimation and visual-servoing algorithms across drones, mobile, industrial and humanoid robots (Romeo, Pepper).
-  - Supervised student interns through research projects end-to-end.
+  - Four years of perception, navigation and visual-servoing research  across drones, mobile, industrial and humanoid robots.
+  - Built a ROS + MATLAB/Simulink + V-REP framework: validate algorithms in simulation, deploy the identical code to real robots.
+  - Implemented visual servoing on Romeo and Pepper for grasping, dual-arm manipulation, and obstacle-aware people following.
+  - Supervised research interns end-to-end on perception and control projects.
 highlight_links:
-  - label: ICRA'17
+  - label: RA-L + ICRA 2017
     url: https://inria.hal.science/hal-01421734
-  - label: Humanoids'16
+  - label: Humanoids 2016
     url: http://rainbow-doc.irisa.fr/pdf/2016_humanoids_claudio.pdf
 archived_highlights:
   - Created vision-based navigation demonstrations with the humanoid robot Pepper.

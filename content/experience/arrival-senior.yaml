@@ -4,22 +4,18 @@ role: Senior Robotics Software Engineer
 location: London, UK
 start: 2021-03
 end: 2023-06
-website: https://arrival.com/uk/en
 tags: [autonomous-navigation, computer-vision, calibration, cpp, mobile-robots]
+tagline: Led the vision system for a 100+ autonomous mobile robot fleet running Arrival's microfactories.
 summary: >
-  Senior role at Arrival after promotion from the Autonomous Navigation
-  team. Led the vision system (hardware and software) of the Autonomous
-  Mobile Robot (WeMo) fleet of 100+ robots used in Arrival's
-  microfactories, including vision-based positioning, automated
-  calibration and end-of-line validation tooling.
+  Promoted into a senior role to lead the vision system for Arrival's
+  WeMo fleet in the microfactories. I owned vision-based docking,
+  automated calibration, and end-of-line validation tooling used to
+  commission robots at scale and keep positioning performance reliable
+  across hardware variation and factory deployments.
 highlights:
-  - Led the vision system (hardware and software) for the WeMo Autonomous Mobile Robot fleet of 100+ robots operating Arrival's microfactories.
-  - Designed and implemented a vision-based positioning method achieving millimetre and sub-degree accuracy, enabling precision docking in assembly cells.
-  - Designed and deployed an automated intrinsic and extrinsic calibration pipeline across the fleet, removing manual calibration from end-of-line and cutting commissioning time per robot.
-  - Built automated tooling for camera sub-assembly, calibration and end-of-line robot validation.
+  - Owned the hardware and software vision system across the 100+ autonomous mobile robots running Bicester microfactory.
+  - Built vision-based positioning achieving sub-centimetre, sub-degree accuracy across single and cluster robot configurations.
+  - Implemented automated tools for camera sub-assembly, intrinsics and extrinsics calibration, and end-of-line robot validation.
 images:
   - src: ARRIVAL_logo.png
     alt: Arrival logo
-youtube:
-  - id: DXZEHJeoqSo
-    label: Arrival Microfactory

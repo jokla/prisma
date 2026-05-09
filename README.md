@@ -3,37 +3,45 @@
 Personal repo for generating two outputs from one YAML content source:
 
 1. A tailored Typst CV PDF.
-2. An Astro portfolio site to be added in Phase 3.
+2. An Astro portfolio site.
 
-Phase 1 content migration is done. Phase 2 CV generation is working. The Astro site is not scaffolded yet.
+Phases 1–3 are done: content migration, CV generation, and the Astro site. Phase 4 (GitHub Pages deploy) is the remaining step.
 
 ## Current Status
 
 - `content/` is the source of truth for experience, education, projects, publications, presentations, skills, contact details, and pitches.
 - `scripts/resolve-profile.js` resolves a profile YAML into `.build/resolved.json`.
 - `cv/template.typ` renders that JSON using `@preview/brilliant-cv:3.3.0`.
-- `make cv` builds `outputs/default.pdf`.
-- `make build` and `make dev` are forward-looking Phase 3 targets; they are not usable yet because the Astro site is not scaffolded under `site/`.
+- `site/` is an Astro 5 + Tailwind 4 static site with Home, Work, Publications, Blog and About pages, dark mode, OG/Twitter meta, sitemap and RSS.
+- `make cv` builds `outputs/default.pdf`; `make dev` starts the site dev server; `make build` runs the CV, copies the PDF into `site/public/cv.pdf`, and builds the site to `site/dist/`.
 
 ## Requirements
 
 - Node.js 20
 - Typst 0.14 or newer
-- Local fonts:
-  - `Roboto`
-  - `Source Sans Pro` for body text
-  - Font Awesome 7 desktop OTF fonts for icons
 
-`brilliant-CV` upstream recommends `Source Sans 3`; this repo currently keeps `Source Sans Pro` after local comparison.
+No system fonts needed. The CV fonts are vendored in `cv/fonts/` (Source Sans Pro, Roboto, Font Awesome 7 Free — all OFL-licensed) and the Makefile passes `--font-path cv/fonts` to Typst. The site uses a different stack (DM Sans / Kanit / DM Mono) loaded from Google Fonts at runtime. If you need to refresh the CV set, run `scripts/fetch-fonts.sh`.
 
 ## Quick Start
 
 ```bash
+# Resolver deps
 npm install
+
+# Site deps
+cd site && npm install && cd ..
+
+# Build the CV
 make cv
+
+# Run the site locally
+make dev
+
+# Full production build (CV + site → site/dist/)
+make build
 ```
 
-Result:
+Result of `make cv`:
 
 ```bash
 outputs/default.pdf
@@ -45,7 +53,15 @@ To build a tailored CV, add another profile file under `content/profiles/` and r
 make cv PROFILE=content/profiles/<your-profile>.yaml
 ```
 
+The default website CV is public and hides direct email/phone details. To build the private version for direct company applications, run:
+
+```bash
+make cv PROFILE=content/profiles/private.yaml
+```
+
 ## How It Works
+
+### CV pipeline
 
 ```text
 content/ + content/profiles/*.yaml
@@ -55,41 +71,50 @@ content/ + content/profiles/*.yaml
   -> outputs/*.pdf
 ```
 
-Important implementation detail: Typst resolves `sys.inputs.at("data")` relative to `cv/template.typ`, so the Makefile uses:
+Important implementation details:
 
-```bash
-typst compile --root $(CURDIR) --input data=../.build/resolved.json cv/template.typ outputs/default.pdf
-```
+- Typst resolves `sys.inputs.at("data")` relative to `cv/template.typ`, so the Makefile uses `--root $(CURDIR) --input data=../.build/resolved.json`.
+- `--font-path cv/fonts` is also required — Typst loses access to user-level fonts once `--font-path` is set, so every font the CV needs must live in that directory.
+- The resolver rewrites image paths to be relative to `cv/template.typ`.
+- Profiles can hide direct contact fields from the CV via `contact_hide:`. The default website CV is the public version (email/phone hidden); `content/profiles/private.yaml` keeps the full contact line for direct applications.
+- `cv/template.typ` contains a few local rendering overrides on top of `brilliant-cv`: a custom black header contact row with explicit field order and separator handling, and a local sticky full-entry renderer to avoid orphaning a role title at the bottom of a page.
 
-The resolver also rewrites image paths to be relative to `cv/template.typ`.
+### Site pipeline
+
+The Astro site under `site/` reads `content/` directly:
+
+- Collections (`experience`, `education`, `projects`, `publications`, `presentations`, `blog`) are defined in `site/src/content.config.ts` with Zod schemas.
+- Singleton files (`bio.yaml`, `contact.yaml`, `skills.yaml`, `interests.yaml`, `extracurricular.yaml`) are loaded through typed helpers in `site/src/lib/content.ts`.
+- Assets under `content/assets/` are pre-imported by `site/src/lib/assets.ts` and served through Astro's image pipeline (not from `site/public/`).
+- `make build` chains the CV resolver, `scripts/copy-default-cv.js` (copies `outputs/default.pdf` → `site/public/cv.pdf`), and `astro build`.
 
 ## Repository Layout
 
 ```text
-content/      Personal data in YAML and Markdown
-cv/           Typst template
-scripts/      Profile resolver and build helpers
+content/      Personal data in YAML and Markdown (source of truth)
+cv/           Typst template (brilliant-CV based)
+cv/fonts/     Vendored OFL fonts used by the CV
+site/         Astro 5 + Tailwind 4 static site
+scripts/      Profile resolver, CV copy helper, font fetcher
 inputs/       Read-only reference material
-outputs/      Generated PDFs
-.build/       Intermediate resolved JSON
+outputs/      Generated PDFs (gitignored)
+.build/       Intermediate resolved JSON (gitignored)
 ```
 
 ## Reference Material
 
-- `inputs/Awesome-CV/`: prior LaTeX CV used as source/reference during migration
-- `inputs/brilliant-CV/`: upstream Typst package repo used to verify metadata shape, font configuration, and troubleshooting guidance
-- `inputs/jokla.github.io/`: prior Jekyll portfolio site
+- `inputs/Awesome-CV/` — prior LaTeX CV used as source/reference during migration
+- `inputs/brilliant-CV/` — upstream Typst package repo used to verify metadata shape, font configuration, and troubleshooting guidance
+- `inputs/jokla.github.io/` — prior Jekyll portfolio site, kept as historical reference. Old posts are not being migrated; the new blog starts fresh.
 
 These folders are reference inputs only. Do not edit them as part of normal project work.
 
 ## Commands
 
-Current working commands:
-
 ```bash
-make cv
-make cv PROFILE=content/profiles/default.yaml
-make clean
+make cv                                              # Default CV
+make cv PROFILE=content/profiles/default.yaml        # Explicit profile
+make dev                                             # Astro dev server
+make build                                           # CV + site → site/dist/
+make clean                                           # Remove .build/, outputs/, site/dist/
 ```
-
-`make build` and `make dev` are reserved for Phase 3, once the Astro site exists under `site/`.

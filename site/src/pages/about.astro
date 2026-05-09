@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SkillGrid from '../components/SkillGrid.astro';
+import { getBio, getInterests } from '../lib/content';
+import { getCollection } from 'astro:content';
+import { getAsset } from '../lib/assets';
+import { formatDate, formatRange } from '../lib/dates';
+
+const bio = getBio();
+const interests = getInterests();
+const education = (await getCollection('education'))
+  .sort((a, b) => Number(String(b.data.start)) - Number(String(a.data.start)))
+  .map((entry) => ({
+    entry,
+    logo: entry.data.images?.[0] ? getAsset(entry.data.images[0].src) : undefined,
+  }));
+---
+<BaseLayout title="About | Giovanni Claudio">
+  <section class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-bold mb-8">About</h1>
+
+    <div class="prose dark:prose-invert max-w-none mb-12 space-y-5">
+      {bio.long.map((para) => <p class="text-lg leading-relaxed">{para}</p>)}
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 pb-16">
+    <h2 class="text-2xl font-bold mb-6">Skills</h2>
+    <SkillGrid />
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 pb-16">
+    <h2 class="text-2xl font-bold mb-6">Education</h2>
+    <div class="space-y-6">
+      {education.map(({ entry: e, logo }) => (
+        <article class="surface rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            {logo && (
+              <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border bg-white p-2" style="border-color: var(--color-border)">
+                <Image src={logo} alt={e.data.images?.[0]?.alt ?? ''} width={56} height={56} class="max-h-full max-w-full object-contain" />
+              </div>
+            )}
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">{e.data.degree}</h3>
+              <p class="subtitle">
+                {e.data.url ? <a href={e.data.url} target="_blank" rel="noopener">{e.data.institution}</a> : e.data.institution}
+              </p>
+              <p class="text-sm muted mt-1">
+                {formatRange(e.data.start, e.data.end)}{e.data.location && <> · {e.data.location}</>}
+              </p>
+            </div>
+          </div>
+          {e.data.thesis && (
+            <p class="mt-3 text-sm">
+              <strong>Thesis:</strong> {e.data.thesis.title}
+              {e.data.thesis.summary && <>. {e.data.thesis.summary}</>}
+            </p>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 pb-16">
+    <h2 class="text-2xl font-bold mb-2">{interests.heading}</h2>
+    <p class="muted mb-6">{interests.tagline}</p>
+    <p class="mb-6">{interests.summary}</p>
+    <div class="space-y-5">
+      {interests.highlights.filter((h) => !h.archived).map((h) => (
+        <article class="border-l-2 pl-4" style="border-color: var(--color-accent)">
+          <h3 class="font-semibold">{h.title}</h3>
+          <p class="text-xs muted mt-0.5">
+            {h.date && <>{formatDate(h.date)}</>}{h.location && <> · {h.location}</>}
+          </p>
+          <p class="mt-2 text-sm">{h.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

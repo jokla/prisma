@@ -6,25 +6,20 @@ start: 2023-06
 end: 2025-01
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
 tags: [computer-vision, deep-learning, medical-robotics, edge-deployment, cpp, python]
+tagline: Shipped real-time PyTorch surgical-AI models on embedded GPUs for a Class C medical device.
 summary: >
-  Joined Medtronic Digital Surgery as Principal Software Engineer,
-  transitioning into the medical-robotics industry and quickly expanding
-  from high-impact individual delivery into broader technical ownership.
-  I served as the technical bridge between the ML research team
-  delivering PyTorch models and the constrained embedded Linux/GPU
-  production stack, engineering the inference pipeline and toolchain
-  that made real-time AI surgical guidance feasible in a Class C
-  regulated device. In parallel I built a validation and benchmarking
-  framework for AI model speed and accuracy, led the mono-repository
-  migration, raised engineering practices across the team, and
-  established SOUP validation processes for third-party AI libraries.
-  This period established the platform foundations and technical trust
-  that led to promotion into AI-video technical leadership.
+  Joined Medtronic Digital Surgery as Principal Software Engineer to
+  turn research models into regulated product software.
+
+  Built the inference pipeline and tooling that brought real-time
+  PyTorch/ONNX surgical AI onto embedded GPUs, established on-target
+  validation and benchmarking for model verification, and led monorepo
+  and build/CI improvements that laid the groundwork for the later
+  AI-video platform.
 highlights:
-  - Took ML-delivered PyTorch/ONNX models to embedded production by optimizing inference for lowest-latency execution on constrained GPUs.
-  - Built a repeatable on-target validation + benchmarking harness to quantify speed/accuracy trade-offs and produce verification-ready evidence for release decisions.
-  - Led a migration to a modular monorepo and scalable build/CI approach, improving module isolation, consistency, and delivery throughput across the org.
-  - Strengthened engineering rigor via hands-on code reviews and collaborative design, elevating quality/compliance discipline and building the technical trust that enabled progression into AI-video technical leadership.
+  - Optimized PyTorch/ONNX models for low-latency execution on embedded NVIDIA GPUs maintaining target accuracy.
+  - Built on-target validation and benchmarking workflows to measure latency/accuracy trade-offs and generate evidence for release and verification reviews.
+  - Led the move to a modular monorepo with scalable build/CI pipelines, improving module ownership, integration consistency, and release execution.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery

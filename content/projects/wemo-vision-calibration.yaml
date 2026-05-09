@@ -1,0 +1,20 @@
+id: wemo-vision-calibration
+name: WeMo vision calibration
+subtitle: Fleet-wide camera calibration and commissioning system
+organisation: Arrival
+parent: arrival-senior
+location: London, UK
+start: 2022
+end: 2023
+stack: [C++, ROS, Computer Vision]
+tags: [computer-vision, calibration, fleet-management, factory-automation]
+summary: >
+  A production calibration and validation workflow for the WeMo robot
+  fleet, covering camera assembly and configuration, single-shot
+  intrinsic calibration, extrinsic calibration and end-of-line accuracy
+  checks needed for reliable vision-based positioning.
+highlights:
+  - Designed the camera assembly, configuration and calibration workflow used during WeMo production and commissioning.
+  - Built automated intrinsic and extrinsic calibration pipelines plus tooling to manage per-robot calibration artefacts.
+  - Defined validation procedures for relative positioning, targeting better than 5 mm positional error and 0.5 degree angular error.
+  - Reduced manual calibration effort and improved repeatability across fleet deployments.

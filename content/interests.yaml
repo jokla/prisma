@@ -12,7 +12,6 @@ cv_honors:
   - title: AIMS Summer School
     issuer: "Courses attended: Cabaret class, Vocal Technique, Musical class"
     location: Eastbourne, UK
-    url: https://aims-international.herokuapp.com/
   - title: 1st Place
     issuer: "Singing competition \"Solo per una voce\". Jury headed by TOSCA. Prize: AIMS Summer School (2012)"
 
@@ -25,7 +24,7 @@ highlights:
       Shared the stage with guitarist Tim Van Der Kuil (who also plays for
       Adele).
 
-  - title: 1st place — "Solo per una voce" singing competition
+  - title: 1st place in "Solo per una voce" singing competition
     date: 2012-05
     location: Genoa, Italy
     description: >
@@ -36,7 +35,6 @@ highlights:
   - title: AIMS Summer School
     date: 2012
     location: Eastbourne, UK
-    url: https://aims-international.herokuapp.com/
     description: >
       Studied Cabaret, Vocal Technique and Musical. Performed "I wanna
       be bad" at Eastbourne College, playing Fabrizio and singing

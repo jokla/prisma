@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Kanit', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-accent: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale matches Stellar (inputs/portfolio/src/styles/base.css) */
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-base: 1rem;
+  /* 16px */
+  --text-lg: 1.125rem;
+  /* 18px */
+  --text-xl: 1.25rem;
+  /* 20px */
+  --text-2xl: 1.5rem;
+  /* 24px */
+  --text-3xl: 1.875rem;
+  /* 30px */
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Palette: muted neutrals with a single indigo accent,
+     echoing Stellar's restrained aesthetic. */
+  --color-bg: #ffffff;
+  --color-bg-elev: #f6f7f9;
+  --color-fg: #17181c;
+  --color-fg-muted: #4b5162;
+  --color-border: #e4e6eb;
+  --color-accent: #4f46e5;
+  --color-accent-hover: #4338ca;
+}
+
+.dark {
+  --color-bg: #0b0c0f;
+  --color-bg-elev: #14161b;
+  --color-fg: #f1f2f5;
+  --color-fg-muted: #9aa1b1;
+  --color-border: #242731;
+  --color-accent: #818cf8;
+  --color-accent-hover: #a5b4fc;
+}
+
+html {
+  /* Bump root so every rem-based size scales up globally. */
+  font-size: 18px;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  line-height: var(--leading-relaxed);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
+}
+
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+}
+
+/* DM Mono accent for kickers, subtitles, section labels */
+.subtitle {
+  font-family: var(--font-accent);
+  font-weight: 500;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+}
+
+.kanit {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Utility shorthands bound to the theme vars. */
+@layer components {
+  .surface {
+    background-color: var(--color-bg-elev);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 10px 24px -22px rgba(15, 23, 42, 0.12);
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .dark .surface {
+    border-color: color-mix(in srgb, white 14%, var(--color-border));
+    box-shadow:
+      0 20px 40px -28px rgba(0, 0, 0, 0.65),
+      0 0 0 1px color-mix(in srgb, white 8%, var(--color-border));
+  }
+
+  .muted {
+    color: var(--color-fg-muted);
+  }
+}

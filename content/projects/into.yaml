@@ -12,12 +12,19 @@ url: https://www.italdesign.it/project/into/
 summary: >
   A service that improves travel on the metro by analysing on-board and
   station camera feeds to predict coach crowding and passenger flow.
+  The system estimated train presence, coach occupancy and alighting
+  flow in real time, then guided passengers on the platform towards
+  less crowded carriages with green, yellow and orange visual signals.
 highlights:
-  - Convolutional Neural Networks for crowd estimation and people counting.
-  - Machine-learning model to predict the passengers exiting each train.
+  - Led the ML and computer-vision work for a real-time passenger-information system combining onboard and station cameras.
+  - Used CNN classification for train presence, coach occupancy estimation and alighting-flow estimation.
+  - Used detection and tracking for door open/close events, people detection and people counting.
+  - Built a random-forest model to predict how many passengers would exit each train.
   - Deployed successfully at the Re Umberto station in Turin from May 2019.
 youtube:
   - id: or9G7CKPJd0
     label: InTo demo
   - id: 51_0t4Hjbzc
+    label: InTO - The lighted subway
   - id: 0tZe150tFyY
+    label: InTO - Press Conference

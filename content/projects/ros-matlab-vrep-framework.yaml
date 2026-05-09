@@ -1,0 +1,28 @@
+id: ros-matlab-vrep-framework
+name: ROS, MATLAB/Simulink & V-REP Prototyping Framework
+subtitle: Rapid prototyping pipeline for robot control algorithms from simulation to real robots
+organisation: INRIA
+parent: inria
+location: Rennes, France
+start: 2014
+end: 2015
+stack: [ROS, MATLAB, Simulink, C++, V-REP]
+tags: [robotics, simulation, controls, prototyping]
+authors: [R. Spica, G. Claudio]
+summary: >
+  A rapid-prototyping framework based on ROS, MATLAB/Simulink and
+  V-REP for developing and validating robot control algorithms.
+  It allowed the team to test MATLAB/Simulink and C++ controllers first
+  in simulation and then transfer them onto real robotic platforms with
+  the same communication and control workflow.
+highlights:
+  - Built a shared framework connecting ROS, MATLAB/Simulink and V-REP for fast prototyping of sensor-based robot control algorithms.
+  - Enabled the same MATLAB/Simulink and C++ control algorithms to be exercised in simulation first and then deployed onto real robots.
+  - Used across platforms including Romeo, Pioneer P3-DX, Adept Viper s650 and MikroKopter.
+youtube:
+  - id: SZxp6BJgBUg
+    label: ROS, MATLAB/Simulink and V-REP prototyping framework overview
+  - id: vfdq9UK5SkU
+    label: V-REP ROS Bridge demonstration
+  - id: n3UmgCXw5lY
+    label: MATLAB ROS Bridge demonstration

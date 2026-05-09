@@ -1,0 +1,19 @@
+---
+import { getSkillGroups } from '../lib/content';
+
+const groups = getSkillGroups();
+---
+<div class="grid gap-6 md:grid-cols-2">
+  {groups.map(({ group, skills }) => (
+    <div>
+      <h3 class="subtitle text-sm uppercase tracking-wider mb-3">{group}</h3>
+      <div class="flex flex-wrap gap-2">
+        {skills.map((s) => (
+          <span class="text-sm px-2.5 py-1 rounded-md border" style="border-color: var(--color-border); background: var(--color-bg-elev)">
+            {s.label}
+          </span>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>

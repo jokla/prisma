@@ -1,0 +1,33 @@
+id: italdesign-roborace
+name: Roborace
+subtitle: Machine learning for autonomous racing with Roborace and Data:Lab Munich
+organisation: Italdesign
+parent: italdesign
+location: Turin, Italy
+start: 2019
+end: 2019
+stack: [Python, C++, Deep Learning, ROS]
+tags: [autonomous-driving, deep-learning, perception, obstacle-avoidance, racing]
+url: https://www.italdesign.it/roborace-italdesign-and-datalab-munich-to-accelerate-machine-learning-together/
+partners:
+  - Roborace
+  - "Data:Lab Munich (Volkswagen Group)"
+summary: >
+  A joint research programme between Italdesign, Volkswagen Group's
+  Data:Lab Munich innovation centre and Roborace to develop and
+  validate machine-learning algorithms for high-performance autonomous
+  driving. We used Roborace's DevBot 2.0, an all-electric race car
+  that can be driven by either a human or an AI stack, as a testbed to
+  push perception and decision-making to the limits of vehicle
+  dynamics under Roborace's "Research to Road" philosophy.
+highlights:
+  - Trained and deployed convolutional neural networks for object detection and semantic segmentation on the Roborace testbed.
+  - Contributed to the perception and obstacle-avoidance stack validated on track with the DevBot 2.0 autonomous race car.
+  - Worked alongside Data:Lab Munich data scientists on machine-learning algorithms optimised for high-speed, dynamic racing conditions.
+youtube:
+  - id: E7ifykVuy3o
+    label: "Roborace, Data:Lab Munich and Italdesign to accelerate Machine Learning together"
+  - id: rtQeh6HT_f8
+    label: "The Final Obstacle Avoidance Test: Behind Data:Lab Episode 03"
+  - id: N8sFgg5dmLk
+    label: "Italdesign: Icons of Automotive Design: Data:Lab Partners"

@@ -1,9 +1,12 @@
-# Default profile , used for the CV PDF bundled on the website.
+# Default public profile, used for the CV PDF bundled on the website.
 # Positions Giovanni as a Principal AI-Video Architect: full career arc,
 # Italdesign & INRIA projects folded into their parent roles, Udacity
 # hidden (superseded by industry AV work).
 
 pitch: pitches/generic.md
+
+# Public internet-facing CV: hide direct contact fields.
+contact_hide: [email, phone]
 
 # Experience , explicit whitelist controls order (most-recent first).
 experience:
@@ -25,14 +28,15 @@ education:
   - unige-bachelor
 
 # Projects , whitelist. Italdesign projects (into, italdesign-autonomous-
-# car, pop-up-next, wheem-i) and INRIA projects (romeo-comanoid, etc.)
+# car, pop-up-next, wheem-i) and INRIA projects (romeo-manipulation, etc.)
 # are folded into their parent role highlights and therefore NOT listed
 # here. They remain visible on the website. Leave this list empty for
 # now , if you want a dedicated CV projects section later, add ids here.
 projects: []
 
-# Publications , include both peer-reviewed papers.
+# Publications , include peer-reviewed papers plus the ICRA workshop paper.
 publications:
+  - matlab-simulink-vrep-2014
   - visual-servoing-ral-2017
   - romeo-manipulation-humanoids-2016
 

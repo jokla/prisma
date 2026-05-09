@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import { getBio, getContact } from '../lib/content';
+import { requireAsset } from '../lib/assets';
+
+const bio = getBio();
+const contact = getContact();
+const photo = requireAsset(bio.photo.src);
+---
+<section class="max-w-5xl mx-auto px-6 pt-16 pb-12">
+  <div class="grid md:grid-cols-[1fr_auto] gap-10 items-center">
+    <div>
+      <p class="subtitle text-sm uppercase tracking-widest mb-3">Hi, I'm</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-5">{contact.name}</h1>
+      <p class="text-lg leading-relaxed muted mb-6 max-w-2xl">{bio.short}</p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="/cv.pdf"
+          class="no-underline inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-semibold text-white"
+          style="background-color: var(--color-accent)"
+        >
+          Download CV
+        </a>
+        <a
+          href="/work/"
+          class="no-underline inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-semibold border"
+          style="border-color: var(--color-border); color: var(--color-fg)"
+        >
+          See my work →
+        </a>
+      </div>
+    </div>
+    <div class="md:justify-self-end">
+      <Image
+        src={photo}
+        alt={bio.photo.alt}
+        width={260}
+        height={260}
+        class="rounded-full object-cover border-4 shadow-lg"
+        style="border-color: var(--color-border)"
+      />
+    </div>
+  </div>
+</section>

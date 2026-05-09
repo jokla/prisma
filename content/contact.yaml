@@ -1,6 +1,6 @@
 name: Giovanni Claudio
 email: jokla89@gmail.com
-phone: "+44 7759 998988"   # CV-only — Astro components must not render this
+phone: "+44 7759 998988"   # CV-only; Astro components must not render this
 location: London, UK
 linkedin: giovanniclaudio
 github: jokla

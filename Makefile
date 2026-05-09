@@ -8,7 +8,8 @@ dev:                             ## Start Astro dev server
 cv:                              ## Generate CV PDF from a profile
 	mkdir -p .build outputs
 	node scripts/resolve-profile.js --profile $(PROFILE) --out .build/resolved.json
-	typst compile --root $(CURDIR) --input data=../.build/resolved.json \
+	typst compile --root $(CURDIR) --font-path cv/fonts \
+	  --input data=../.build/resolved.json \
 	  cv/template.typ outputs/$(notdir $(basename $(PROFILE))).pdf
 
 build: cv                        ## Full production build (CV + site)

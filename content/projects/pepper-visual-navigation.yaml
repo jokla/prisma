@@ -1,0 +1,28 @@
+id: pepper-visual-navigation
+name: Vision-based navigation with Pepper
+subtitle: Visual servoing, people following and obstacle avoidance on Pepper
+organisation: INRIA
+parent: inria
+location: Rennes, France
+start: 2015
+end: 2017
+stack: [C++, Python, ROS, ViSP]
+tags: [humanoid-robots, visual-servoing, navigation, obstacle-avoidance]
+partners:
+  - Softbank Robotics
+summary: >
+  Vision-based navigation demonstrations with the Pepper humanoid robot
+  (Softbank Robotics), combining image-based visual servoing, people
+  following and obstacle avoidance with onboard 2D and RGB-D cameras.
+highlights:
+  - Developed image-based visual servoing for Pepper using ROS and OpenTLD to track and follow generic targets in real time.
+  - Built a people-following behaviour driving Pepper's base from onboard vision.
+  - Combined visual servoing with obstacle avoidance for safe indoor navigation among people.
+  - Delivered a box-grasping demonstration on Pepper built on top of the same perception and visual-servoing stack.
+youtube:
+  - id: o22hN7YmVd4
+    label: Pepper grasping a box
+  - id: 4B_aEEaosyw
+    label: Pepper Image-Based Visual Servoing using ROS OpenTLD
+  - id: QDmDY5koKIE
+    label: The robot Pepper follows a person using vision

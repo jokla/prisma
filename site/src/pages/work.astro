@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JobCard from '../components/JobCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { dateKey } from '../lib/dates';
+
+const all = await getCollection('experience');
+const projects = await getCollection('projects', ({ data }) => !data.archived);
+const active = all
+  .filter((e) => !e.data.archived)
+  .sort((a, b) => dateKey(b.data.start) - dateKey(a.data.start));
+const archived = all
+  .filter((e) => e.data.archived)
+  .sort((a, b) => dateKey(b.data.start) - dateKey(a.data.start));
+
+const projectsByParent = new Map<string, CollectionEntry<'projects'>[]>();
+for (const project of projects) {
+  if (!project.data.parent) continue;
+  if (!projectsByParent.has(project.data.parent)) projectsByParent.set(project.data.parent, []);
+  projectsByParent.get(project.data.parent)!.push(project);
+}
+
+for (const list of projectsByParent.values()) {
+  list.sort((a, b) => dateKey(b.data.start) - dateKey(a.data.start));
+}
+---
+<BaseLayout title="Work | Giovanni Claudio" description="12+ years across medical robotics, autonomous vehicles and humanoid platforms.">
+  <section class="mx-auto w-full max-w-7xl px-6 py-16 2xl:max-w-[92rem] 2xl:grid 2xl:grid-cols-[14rem_minmax(0,1fr)] 2xl:gap-8">
+    <aside class="hidden 2xl:block">
+      <div class="work-toc sticky top-28 rounded-[1.25rem] border p-4" style="border-color: var(--color-border); background: color-mix(in srgb, var(--color-bg) 88%, var(--color-bg-elev))">
+        <p class="subtitle text-xs uppercase tracking-[0.24em]">On This Page</p>
+        <nav class="mt-4 flex flex-col gap-2" aria-label="Work section navigation">
+          {active.map((entry) => (
+            <a
+              href={`#work-${entry.data.id}`}
+              class="work-toc-link rounded-[1rem] px-3 py-2 no-underline transition-colors"
+              data-work-nav={entry.data.id}
+            >
+              <span class="block text-sm font-semibold" style="color: var(--color-fg)">{entry.data.role}</span>
+              <span class="mt-0.5 block text-xs muted">{entry.data.company}</span>
+            </a>
+          ))}
+        </nav>
+      </div>
+    </aside>
+
+    <div class="min-w-0 max-w-5xl">
+      <header class="mb-10">
+        <h1 class="text-4xl font-bold mb-3">Work</h1>
+        <p class="text-lg muted max-w-3xl">
+          A look at the roles, systems, and projects that have shaped my work.
+        </p>
+      </header>
+
+      <div class="space-y-6">
+        {active.map((entry) => (
+          <section id={`work-${entry.data.id}`} data-work-anchor={entry.data.id} class="scroll-mt-28">
+            <JobCard entry={entry} relatedProjects={projectsByParent.get(entry.data.id) ?? []} />
+          </section>
+        ))}
+      </div>
+
+      {archived.length > 0 && (
+        <details class="mt-12">
+          <summary class="subtitle cursor-pointer text-sm select-none">
+            Show earlier roles ({archived.length}) ▸
+          </summary>
+          <div class="mt-6 space-y-6">
+            {archived.map((entry) => <JobCard entry={entry} relatedProjects={projectsByParent.get(entry.data.id) ?? []} />)}
+          </div>
+        </details>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (() => {
+    const sections = [...document.querySelectorAll('[data-work-anchor]')];
+    const links = [...document.querySelectorAll('[data-work-nav]')];
+    if (sections.length === 0 || links.length === 0) return;
+
+    const setActive = (id) => {
+      for (const link of links) {
+        if (!(link instanceof HTMLElement)) continue;
+        const active = link.dataset.workNav === id;
+        link.dataset.active = active ? 'true' : 'false';
+        if (active) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!(visible?.target instanceof HTMLElement)) return;
+        setActive(visible.target.dataset.workAnchor);
+      },
+      {
+        rootMargin: '-18% 0px -55% 0px',
+        threshold: [0.15, 0.35, 0.6],
+      },
+    );
+
+    for (const section of sections) {
+      observer.observe(section);
+    }
+
+    const first = sections[0];
+    if (first instanceof HTMLElement) {
+      setActive(first.dataset.workAnchor);
+    }
+  })();
+</script>
+
+<style>
+  .work-toc-link[data-active='true'] {
+    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-bg));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 28%, var(--color-border));
+  }
+
+  .work-toc-link:hover {
+    background: color-mix(in srgb, var(--color-accent) 8%, var(--color-bg));
+  }
+</style>
