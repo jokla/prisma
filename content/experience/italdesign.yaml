@@ -17,10 +17,11 @@ summary: >
   the sensor and compute platform, and set up SIL/HIL validation to
   deliver the first autonomous shuttle and flying-car demonstrations.
 highlights:
-  - Technical lead for ML and computer vision on InTo, an AI coach-crowding prediction service deployed in production at Turin Re Umberto metro station (May 2019).
-  - Owned the software architecture, validation strategy and sensor set of Pop.Up Next, the Airbus and Audi modular flying-car concept, delivering an autonomous shuttle demo in six months and the drone-alignment/latching demo shown at Amsterdam Drone Week 2018.
-  - Built the full autonomy stack (perception, SLAM, planning, control) from scratch on the Italdesign prototype, including logging, replay, and SIL/HIL validation pipelines in CARLA and dSPACE.
-  - Trained and deployed CNNs for object detection and semantic segmentation on Wheem-i (Toyota Mobility Unlimited Challenge finalist) and Roborace.
+  - Pop.Up Next (Audi & Airbus modular flying car): owned the software architecture, sensor set and validation strategy. Built vision-based drone detection and pose estimation from the car module, plus the autonomous centring and latching with the drone module — demonstrated as a 1:4 scale flying model at Amsterdam Drone Week 2018.
+  - Italdesign prototype vehicle: designed the sensor set (camera, lidar, radar, GNSS, IMU, ultrasonic) and built the full autonomy stack — perception, multi-sensor SLAM, planning, control — with logging, replay and SIL/HIL pipelines in CARLA and dSPACE.
+  - InTo: ML/CV technical lead for a crowd-density and passenger-flow prediction service combining CNNs across on-board and station cameras — deployed in production at Turin's Re Umberto metro station (May 2019).
+  - Wheem-i: built the perception system (obstacle and free-space detection) and human-machine shared control with driver-assistance for a semi-autonomous device for wheelchair users. Finalist in the $4M Toyota Mobility Unlimited Challenge (Toyota Mobility Foundation).
+  - Roborace: trained and deployed CNNs for perception (object detection, semantic segmentation) on the autonomous-racing car."
 highlight_links:
   - label: InTo
     url: https://www.italdesign.it/project/into/

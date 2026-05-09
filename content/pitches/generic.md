@@ -1,1 +1,1 @@
-Senior Principal Software Engineer with 12+ years architecting real-time perception and AI/video systems across medical robotics, autonomous vehicles and humanoid platforms.
+Senior Principal Software Engineer turning research-grade AI/video into certified, real-time products on embedded GPUs across surgical robotics, autonomous vehicles, AMR fleets and humanoid platforms. Hands-on end-to-end — algorithm research, simulation, on-target validation, platform architecture and cross-team technical leadership.
