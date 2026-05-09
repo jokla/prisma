@@ -330,7 +330,7 @@
   let labels = data.skills.filter(s => s.group == g).map(s => s.label)
   cv-skill(
     type: g,
-    info: labels.join(", "),
+    info: join-with-h-bar(labels),
   )
 }
 

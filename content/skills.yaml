@@ -22,7 +22,6 @@ skills:
   - { id: image-processing, label: "Image/video processing", group: "Computer Vision" }
   - { id: segmentation,    label: "Point-cloud segmentation", group: "Computer Vision" }
   - { id: multi-cam-calib, label: Calibration,            group: "Computer Vision" }
-  - { id: visual-servoing, label: "Visual servoing",      group: "Computer Vision" }
   - { id: augmented-reality, label: AR,                   group: "Computer Vision" }
 
   # Robotics
