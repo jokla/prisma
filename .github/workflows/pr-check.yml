@@ -1,0 +1,40 @@
+name: PR Check — CV Preview
+
+on:
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  cv-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Build CV PDF
+        run: make cv
+
+      - name: Upload CV artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-preview
+          path: outputs/default.pdf
+          retention-days: 14

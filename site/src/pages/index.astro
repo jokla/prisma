@@ -8,6 +8,7 @@ import { getCollection } from 'astro:content';
 import { dateKey } from '../lib/dates';
 
 const bio = getBio();
+const cvFilename = `giovanni-claudio-cv-${new Date().toISOString().slice(0, 7)}.pdf`;
 const contact = getContact();
 const photo = requireAsset(bio.photo.src);
 
@@ -96,6 +97,7 @@ const currentRole = current
         <div class="flex flex-wrap gap-3 pt-3">
           <a
             href="/cv.pdf"
+            download={cvFilename}
             class="no-underline inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-semibold"
             style="background-color: var(--color-accent); color: var(--color-bg)"
           >
