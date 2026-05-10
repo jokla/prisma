@@ -5,7 +5,7 @@ location: Turin, Italy
 start: 2017-09
 end: 2019-09
 website: https://www.italdesign.it/
-tags: [technical-leadership, autonomous-driving-stack, ros, cpp, sensor-integration, sil-hil, perception]
+tags: [autonomous-driving-stack, ros, cpp, ml, deep-learning, sensor-integration, sil-hil, perception]
 tagline: Technical lead for ML and computer vision across autonomous driving, urban mobility and flying-car projects.
 summary: >
   Joined Italdesign's new Autonomous Driving team as robotics expert.
