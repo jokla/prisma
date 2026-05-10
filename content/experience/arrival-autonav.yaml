@@ -4,7 +4,7 @@ role: Robotics Engineer, Autonomous Navigation
 location: London, UK
 start: 2019-09
 end: 2021-03
-tags: [autonomous-navigation, simulation, cpp, dds, ros, mobile-robots]
+tags: [autonomous-navigation, fleet-simulation, ros, cpp, dds, integration-testing]
 tagline: Built navigation and simulation software for Arrival's autonomous mobile robot fleet.
 summary: >
   First role at Arrival, on the Autonomous Navigation team, building

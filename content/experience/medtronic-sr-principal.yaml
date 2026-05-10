@@ -5,7 +5,7 @@ location: London, UK
 start: 2025-01
 end: present
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
-tags: [ai-video, computer-vision, deep-learning, medical-robotics, edge-deployment, software-architecture, cpp, python, regulated]
+tags: [platform-architecture, technical-leadership, cpp, tensorrt, cuda, gpu-scheduling, fda-submissions]
 tagline: Owned the AI-video platform for medical surgical-guidance device, from GPU scheduling to release strategy.
 summary: >
   Promoted to Sr. Principal Software Engineer and AI-Video Technical

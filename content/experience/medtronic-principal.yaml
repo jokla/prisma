@@ -5,7 +5,7 @@ location: London, UK
 start: 2023-06
 end: 2025-01
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
-tags: [computer-vision, deep-learning, medical-robotics, edge-deployment, cpp, python]
+tags: [cpp, python, model-optimization, pytorch, onnx, tensorrt, model-verification, nvidia-jetson, ci-cd]
 tagline: Shipped real-time PyTorch surgical-AI models on embedded GPUs for a Class C medical device.
 summary: >
   Joined Medtronic Digital Surgery as Principal Software Engineer to
