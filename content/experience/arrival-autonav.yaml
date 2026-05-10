@@ -4,7 +4,7 @@ role: Robotics Engineer, Autonomous Navigation
 location: London, UK
 start: 2019-09
 end: 2021-03
-tags: [autonomous-navigation, fleet-simulation, ros, cpp, dds, integration-testing]
+tags: [autonomous-navigation, kubernetes, ros, cpp, dds, integration-testing, gazebo, unreal-engine]
 tagline: Developed navigation algorithms and simulation tooling for Arrival's autonomous mobile robot fleet.
 summary: >
   First role at Arrival, on the Autonomous Navigation team, building
@@ -14,9 +14,9 @@ summary: >
   docking, and the test infrastructure used to validate the fleet
   before promotion into the senior vision role after 18 months.
 highlights:
-  - Built navigation and simulation software for the WeMo AMR fleet that assembles vehicles in Arrival's microfactories.
-  - Defined the motion, docking and state-reporting interfaces consumed by the factory orchestrator.
-  - Stood up fleet bring-up and test infrastructure spanning simulation, hardware integration and sensor setup.
+  - Integrated lidar-based navigation stack for the WeMo AMR fleet, and state reporting to the factory orchestrator.
+  - Implemented a visual servoing algorithm for automatic docking to charge and factory stations.
+  - Built the fleet simulation environment used to validate navigation and docking behavior before hardware deployment.
 images:
   - src: ARRIVAL_logo.png
     alt: Arrival logo

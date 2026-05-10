@@ -16,7 +16,7 @@ experience:
   - arrival-autonav
   - italdesign
   - inria
-  # irccyn (master-thesis intern, 2013) dropped from default CV for space.
+  - irccyn
   # spack.yaml is archived: true and stays off the default CV.
 
 # Education , explicit order.

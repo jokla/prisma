@@ -30,9 +30,10 @@ summary: >
   that bridged ViSP with the NaoQi SDK and packaged the Romeo research
   toolkit for the community.
 highlights:
-  - Four years of perception, navigation and visual-servoing research  across drones, mobile, industrial and humanoid robots.
+  - Four years of perception, navigation and visual-servoing research across drones, mobile, industrial and humanoid robots.
   - Built a ROS + MATLAB/Simulink + V-REP framework to validate algorithms in simulation and deploy identical code to real robots.
   - Implemented visual servoing on Romeo and Pepper for grasping, dual-arm manipulation, and obstacle-aware people following.
+  - Researched object detection, model-based and template tracking, 3D point-cloud segmentation, augmented reality, face and text recognition, and audio localization.
   - Supervised research interns end-to-end on perception and control projects.
 highlight_links:
   - label: RA-L + ICRA 2017

@@ -6,7 +6,7 @@ start: 2025-01
 end: present
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
 tags: [platform-architecture, technical-leadership, cpp, tensorrt, cuda, gpu-scheduling, fda-submissions]
-tagline: Lead architecture and delivery of a regulated AI-video platform on embedded GPUs, enabling multiple AI applications to share a single GPU while meeting strict medical isolation and latency requirements.
+tagline: Leading architecture and delivery of a regulated AI-video platform on embedded GPUs, enabling multiple AI applications to share a single GPU while meeting strict medical isolation and latency requirements.
 summary: >
   Stepped into the AI-Video Technical Lead role to own the architecture
   and delivery of Medtronic's regulated surgical AI-video platform, a
@@ -16,11 +16,11 @@ summary: >
   The platform is built around three goals: isolation (multiple AI
   applications sharing a single embedded GPU without interference),
   segregation (clean medical/non-medical software boundaries for IEC
-  62304 Class C compliance), and performance (sub-10 ms inference latency
+  62304 compliance), and performance (sub-10 ms inference latency
   on every surgical frame). Achieving this required a modular
   multi-process design with one responsibility per service, a
   pub/sub and shared-memory IPC layer for zero-copy video
-  transport, and an AI Manager that controls inference end-to-end,
+  transport, and an AI manager that controls inference end-to-end,
   preventing parallel overloads, enforcing valid AI combinations, and
   recovering from failure modes.
 
@@ -34,9 +34,9 @@ summary: >
   architecture through regulatory sign-off.
 highlights:
   - Defined and owned the software architecture for a regulated AI-video platform, enabling multiple AI applications to share a single GPU with strict medical/non-medical isolation and sub-frame overlay latency for real-time surgical guidance.
-  - Defined a C++ runtime stack (AI manager, scheduler, TensorRT inference, video/AI recording) with shared libraries for IPC, logging, benchmarking and monitoring.
-  - Led cross-functional AI-video delivery across ML, Systems, Quality, Regulatory and UI teams, from architecture to regulatory sign-off.
-  - Co-located architecture and documentation with code, publishing variant-aware regulatory artifacts via CI to eliminate drift before FDA submissions.
+  - Built a C++ stack (AI manager, scheduler, TensorRT inference, video/AI recording) with reusable libraries for message-passing middleware, visualization, logging, telemetry and monitoring.
+  - Led cross-functional AI-video delivery across 8 teams: ML, Systems, DevOps, Cloud, Quality, Regulatory and UI.
+  - Co-located architecture and documentation with code, automating variant-aware regulatory artifact generation in CI for traceable, submission-ready FDA deliverables.
   - Introduced an agentic-AI workspace adopted daily for development, documentation, compliance auditing, FMEA review and regulatory preparation.
   - Mentored 5+ engineers through code pairing and technical reviews, increasing delivery pace and design quality.
 images:

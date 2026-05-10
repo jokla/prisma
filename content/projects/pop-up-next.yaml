@@ -20,7 +20,7 @@ summary: >
   autonomous shuttle demonstration and the drone-alignment demo at
   Amsterdam Drone Week 2018.
 highlights:
-  - Defined the hardware and software architecture for the autonomous ground module, including cameras, lidars, radars, ultrasonics, GNSS/IMU, Nvidia PX2 and MicroAutoBox.
+  - Defined the hardware and software architecture for the autonomous ground module, including cameras, lidars, radars, ultrasonics, GNSS/IMU, NVIDIA PX2 and MicroAutoBox.
   - Perception work spanning 2D and 3D obstacle detection, semantic segmentation, and pedestrian, traffic-sign, and vehicle detection.
   - Mapping and localisation with camera, Lidar, IMU, odometry and GNSS+RTK.
   - Planning and decision making, with PID and Model Predictive Control for actuation.

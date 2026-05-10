@@ -9,7 +9,8 @@ interface Props {
   image?: string;
 }
 
-const { title, description = 'Giovanni Claudio, Senior Principal Software Engineer and AI-Video Technical Lead at Medtronic Digital Surgery.', image = '/og-default.png' } = Astro.props;
+const { title, description = 'Giovanni Claudio, Senior Principal Software Engineer and AI-Video Technical Lead at Medtronic Digital Surgery.', image } = Astro.props;
+const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const contact = getContact();
 
@@ -43,13 +44,13 @@ function isActive(href: string) {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(image, Astro.site).toString()} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, Astro.site).toString()} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <link rel="alternate" type="application/rss+xml" title="Giovanni Claudio Blog" href="/rss.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />

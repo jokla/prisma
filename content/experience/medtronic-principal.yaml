@@ -6,7 +6,7 @@ start: 2023-06
 end: 2025-01
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
 tags: [cpp, python, model-optimization, pytorch, onnx, tensorrt, model-verification, nvidia-jetson, ci-cd]
-tagline: Shipped real-time PyTorch surgical-AI inference on embedded GPUs, from research model to regulated product.
+tagline: Built the AI inference pipeline delivering real-time surgical guidance on embedded GPUs in the operating room.
 summary: >
   Joined Medtronic Digital Surgery as Principal Software Engineer to
   turn research models into regulated product software.
@@ -19,8 +19,8 @@ summary: >
 highlights:
   - Achieved sub-10 ms inference on Jetson Orin with >99% accuracy using model compression and quantization-aware training.
   - Built an automated AI model conversion and verification pipeline converting PyTorch models to TensorRT, validating on- and off-target datasets spanning thousands of hours of annotated video.
-  - Standardized dev and CI toolchain with x86/ARM containers and modular builds, eliminating environment drift.
-  - Enabled feature-gated releases across product variants from shared code, accelerating time-to-market.
+  - Containerized the dev and CI toolchain across x86/ARM targets, guaranteeing reproducible builds and test environments.
+  - Designed modular build system enabling feature-gated releases across product variants from shared code.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery

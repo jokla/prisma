@@ -13,9 +13,10 @@ summary: >
   commission robots at scale and keep positioning performance reliable
   across hardware variation and factory deployments.
 highlights:
-  - Owned the hardware and software vision system across the 100+ autonomous mobile robots running Bicester microfactory.
-  - Developed vision-based positioning achieving sub-centimeter accuracy across single and clustered robot configurations.
-  - Implemented automated tools for camera sub-assembly, intrinsics/extrinsics calibration, and end-of-line robot validation.
+  - Owned the hardware and software vision system for the 100+ robot WeMo fleet at Arrival's Bicester microfactory.
+  - Designed Relative Move To: visual servoing with fiducial markers achieving sub-5 mm, sub-0.3° position accuracy.
+  - Reduced cross-robot pose-transfer error ~8x (translation) and >15x (orientation) via a teaching-by-showing calibration workflow.
+  - Built automated single-shot intrinsic/extrinsic calibration and end-of-line validation pipelines for fleet commissioning.
 images:
   - src: ARRIVAL_logo.png
     alt: Arrival logo

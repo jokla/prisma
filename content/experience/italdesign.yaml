@@ -19,7 +19,7 @@ summary: >
 highlights:
   - Pop.Up (with Audi & Airbus): built drone localization, and autonomous latching. Demo at Amsterdam Drone Week 2018.
   - Autonomous Driving: built sensor stack, perception, mapping, planning, control, logging/replay, and SIL/HIL testing.
-  - InTo: led ML/CV for crowd-density and passenger-flow prediction using onboard and station cameras; deployed at a Turin metro station in 2019.
+  - InTo: led ML/CV dev for passenger-flow prediction using onboard and station cameras; deployed at a Turin metro station.
   - Wheem-i: built obstacle/free-space perception and shared-control driver assistance for a semi-autonomous mobility device; finalist in Toyota's $4M Mobility Unlimited Challenge.
   - Roborace: trained and deployed CNNs for object detection and semantic segmentation on autonomous racing car.
 highlight_links:
