@@ -18,14 +18,12 @@ summary: >
   features; and leading a team of 5 across ML, Systems, Quality,
   Regulatory, and UI teams.
 highlights:
-  - Architected a regulated AI-video platform with three core goals: isolate multiple AI apps sharing one GPU, enforce clear medical/non-medical boundaries, and low overlay latency for real-time surgical guidance.
-  - Designed core runtime capabilities including AI scheduling and monitoring, inference hardening, video and AI data recording, CPU/GPU image processing and overlay generation.
-  - Drove alignment across ML, Systems, Quality, Regulatory, and UI teams to define the delivery roadmap.
-  - Built a unified engineering platform with shared x86/ARM dev containers, modular builds, and common IPC, logging, benchmarking, monitoring, and scheduling libraries, reducing environment drift and keeping product variants in sync.
-  - Automated end-to-end AI model verification across the platform pipeline before deployment, preventing regressions and making multi-team AI delivery feasible on shared infrastructure.
-  - Made documentation a first-class engineering asset by moving architecture and design docs into the codebase and CI-publishing variant-aware submission artefacts from one source of truth.
-  - Introduced an agentic-AI engineering workspace used daily for platform development, documentation, compliance auditing, FMEA review, and regulatory preparation.
-  - Technical lead for a team of 5 engineers, combining hands-on architecture work with mentoring, reviews, and pairing.
+  - Defined and owned the software architecture for a regulated AI-video platform, enabling multiple AI applications to share a single GPU with strict medical/non-medical isolation and sub-frame overlay latency for real-time surgical guidance.
+  - Architected and implemented the core C++ runtime stack: AI manager and scheduler, TensorRT inference, video/AI recording and shared libraries for IPC, logging, benchmarking, and monitoring.
+  - Drove cross-functional alignment across ML, Systems, Quality, Regulatory, and UI teams, defining a unified delivery roadmap that unblocked parallel workstreams.
+  - Embedded architecture and design documentation into the codebase with CI-published, variant-aware submission artefacts, creating a single source of truth for regulatory deliverables.
+  - Introduced an agentic-AI engineering workspace adopted daily across the team for platform development, documentation, compliance auditing, FMEA review, and regulatory preparation.
+  - Led a team of 5 engineers through hands-on technical leadership, mentoring, and pairing, raising team capability and execution quality.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery

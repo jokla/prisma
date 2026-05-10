@@ -17,9 +17,9 @@ summary: >
   and build/CI improvements that laid the groundwork for the later
   AI-video platform.
 highlights:
-  - Optimized PyTorch/ONNX models for low-latency execution on embedded NVIDIA GPUs maintaining target accuracy.
-  - Built on-target validation and benchmarking workflows to measure latency/accuracy trade-offs and generate evidence for release and verification reviews.
-  - Led the move to a modular monorepo with scalable build/CI pipelines, improving module ownership, integration consistency, and release execution.
+  - Optimized PyTorch/ONNX models to achieve sub-10 ms inference on Jetson Orin while preserving over 99% of baseline accuracy, using model compression, quantization-aware training, and sparsity techniques.
+  - Delivered an automated AI model conversion and verification pipeline that converted PyTorch models to TensorRT, validated them on and off target against thousands of hours of annotated video, and gated releases on latency and accuracy performance.
+  - Built a platform with shared x86/ARM dev containers and modular builds, giving engineers and CI the same toolchain, reducing onboarding and environment drift, and enabling feature-gated releases while keeping shared code aligned across product variants.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery
