@@ -14,8 +14,8 @@ summary: >
   across hardware variation and factory deployments.
 highlights:
   - Owned the hardware and software vision system across the 100+ autonomous mobile robots running Bicester microfactory.
-  - Built vision-based positioning achieving sub-centimetre, sub-degree accuracy across single and cluster robot configurations.
-  - Implemented automated tools for camera sub-assembly, intrinsics and extrinsics calibration, and end-of-line robot validation.
+  - Developed vision-based positioning achieving sub-centimeter accuracy across single and clustered robot configurations.
+  - Implemented automated tools for camera sub-assembly, intrinsics/extrinsics calibration, and end-of-line robot validation.
 images:
   - src: ARRIVAL_logo.png
     alt: Arrival logo

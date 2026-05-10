@@ -7,23 +7,31 @@ end: 2017-08
 website: https://www.inria.fr/en/
 team_website: http://www.irisa.fr/lagadic/lagadic-eng.html
 tags: [visual-servoing, research-engineering, ros, cpp, matlab-simulink, simulation, humanoid-robots]
-tagline: Real-time perception and visual servoing for humanoid, mobile, industrial and aerial robots.
+tagline: Four years of perception and visual-servoing research across humanoid, mobile, industrial and aerial robots.
 summary: >
-  Joined the Lagadic team at INRIA Rennes as an R&D engineer under
-  François Chaumette. My goal was to make robots smarter, helping
-  them perceive and understand the world and act autonomously.
+  Joined the Lagadic team at INRIA Rennes, one of the leading groups
+  in visual servoing research, as an R&D engineer under François
+  Chaumette. Worked across the full perception-to-control stack for
+  humanoid, mobile, industrial and aerial robots over four years.
 
-  Worked on real-time detection, pose estimation, tracking and visual
-  servoing for mobile, humanoid, industrial and aerial robots;
-  built a rapid-prototyping framework based on ROS, MATLAB/Simulink
-  and V-REP to validate control algorithms in simulation first and
-  then deploy the same MATLAB/Simulink and C++ controllers to real
-  robots;
-  supervised several student internships; and co-authored publications
-  at RA-L / ICRA 2017 and Humanoids 2016.
+  Developed perception and visual-servoing capabilities for the Romeo
+  and Pepper humanoid robots, covering single- and dual-arm grasping,
+  door opening, whole-body control, people following and obstacle
+  avoidance. As part of the Comanoid project with Airbus, integrated
+  visual-servoing tasks into a QP-based whole-body controller enforcing
+  balance, posture and joint-limit constraints, leading to a RA-L
+  / ICRA 2017 publication. Built a ROS + MATLAB/Simulink + V-REP
+  rapid-prototyping framework adopted across the team for validating
+  algorithms in simulation before deploying the same controllers to
+  real robots.
+
+  Co-authored papers at RA-L / ICRA 2017 and Humanoids 2016, supervised
+  research interns, and open-sourced VispNaoqi and RomeoTk, libraries
+  that bridged ViSP with the NaoQi SDK and packaged the Romeo research
+  toolkit for the community.
 highlights:
   - Four years of perception, navigation and visual-servoing research  across drones, mobile, industrial and humanoid robots.
-  - Built a ROS + MATLAB/Simulink + V-REP framework: validate algorithms in simulation, deploy the identical code to real robots.
+  - Built a ROS + MATLAB/Simulink + V-REP framework to validate algorithms in simulation and deploy identical code to real robots.
   - Implemented visual servoing on Romeo and Pepper for grasping, dual-arm manipulation, and obstacle-aware people following.
   - Supervised research interns end-to-end on perception and control projects.
 highlight_links:

@@ -6,7 +6,7 @@ start: 2023-06
 end: 2025-01
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
 tags: [cpp, python, model-optimization, pytorch, onnx, tensorrt, model-verification, nvidia-jetson, ci-cd]
-tagline: Shipped real-time PyTorch surgical-AI models on embedded GPUs for a Class C medical device.
+tagline: Shipped real-time PyTorch surgical-AI inference on embedded GPUs, from research model to regulated product.
 summary: >
   Joined Medtronic Digital Surgery as Principal Software Engineer to
   turn research models into regulated product software.
@@ -17,9 +17,10 @@ summary: >
   and build/CI improvements that laid the groundwork for the later
   AI-video platform.
 highlights:
-  - Optimized PyTorch/ONNX models to achieve sub-10 ms inference on Jetson Orin while preserving over 99% of baseline accuracy, using model compression, quantization-aware training, and sparsity techniques.
-  - Delivered an automated AI model conversion and verification pipeline that converted PyTorch models to TensorRT, validated them on and off target against thousands of hours of annotated video, and gated releases on latency and accuracy performance.
-  - Built a platform with shared x86/ARM dev containers and modular builds, giving engineers and CI the same toolchain, reducing onboarding and environment drift, and enabling feature-gated releases while keeping shared code aligned across product variants.
+  - Achieved sub-10 ms inference on Jetson Orin with >99% accuracy using model compression and quantization-aware training.
+  - Built an automated AI model conversion and verification pipeline converting PyTorch models to TensorRT, validating on- and off-target datasets spanning thousands of hours of annotated video.
+  - Standardized dev and CI toolchain with x86/ARM containers and modular builds, eliminating environment drift.
+  - Enabled feature-gated releases across product variants from shared code, accelerating time-to-market.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery
