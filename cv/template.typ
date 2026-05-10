@@ -345,7 +345,7 @@
       gutter: 6pt,
       align: (x, y) => if x == 1 { right } else { auto },
       table(
-          columns: (if display-logo and logo != "" { 4% } else { 0% }, 1fr),
+          columns: (if display-logo and logo != "" {6.5% } else { 0% }, 1fr),
           inset: 0pt,
           stroke: 0pt,
           align: horizon,

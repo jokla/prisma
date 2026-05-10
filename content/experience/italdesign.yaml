@@ -5,8 +5,8 @@ location: Turin, Italy
 start: 2017-09
 end: 2019-09
 website: https://www.italdesign.it/
-tags: [autonomous-driving, perception, deep-learning, slam, cpp, ros]
-tagline: Technical lead for ML and computer vision across autonomous driving, urban mobility and flying-car projects.
+tags: [autonomous-driving-stack, ros, cpp, ml, deep-learning, sensor-integration, sil-hil, perception]
+tagline: ML and computer vision technical lead across autonomous driving, urban mobility and flying-car projects.
 summary: >
   Joined Italdesign's new Autonomous Driving team as robotics expert.
   Technical lead for machine-learning and computer-vision work across
@@ -18,10 +18,10 @@ summary: >
   deliver the first autonomous shuttle and flying-car demonstrations.
 highlights:
   - Pop.Up (with Audi & Airbus): built drone localization, and autonomous latching. Demo at Amsterdam Drone Week 2018.
-  - Autonomous Driving: built sensor stack, perception, mapping, planning, control, logging/replay, and SIL/HIL.
-  - InTo: led ML/CV for crowd-density and passenger-flow prediction using onboard and station cameras; deployed at Turin's Re Umberto metro station in 2019.
+  - Autonomous Driving: built sensor stack, perception, mapping, planning, control, logging/replay, and SIL/HIL testing.
+  - InTo: led ML/CV dev for passenger-flow prediction using onboard and station cameras; deployed at a Turin metro station.
   - Wheem-i: built obstacle/free-space perception and shared-control driver assistance for a semi-autonomous mobility device; finalist in Toyota's $4M Mobility Unlimited Challenge.
-  - Roborace: trained and deployed CNNs for object detection and semantic segmentation on the autonomous racing car.
+  - Roborace: trained and deployed CNNs for object detection and semantic segmentation on autonomous racing car.
 highlight_links:
   - label: InTo
     url: https://www.italdesign.it/project/into/

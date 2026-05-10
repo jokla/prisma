@@ -6,13 +6,13 @@ start: 2013-02
 end: 2013-09
 website: https://www.ls2n.fr/?lang=en
 advisor: Philippe Martinet
-tags: [computer-vision, high-speed-robotics, visual-servoing, cpp]
-tagline: Master's thesis on 2 kHz vision-based pose estimation for a high-speed parallel robot.
+tags: [pose-estimation, high-speed-robotics, cpp, machine-vision, coaxpress]
+tagline: Master's thesis intern, 2 kHz vision-based pose estimation for a high-speed parallel robot.
 summary: >
   Master's thesis internship on vision-based pose and velocity estimation
   for a high-speed parallel robot, as part of the French ANR project ARROW.
   The goal was to design accurate and fast robots with large operational
-  workspaces, using a vision system to close the control loop at 1–2 kHz.
+  workspaces, using a vision system to close the control loop at 1-2 kHz.
 highlights:
   - Developed a C++ algorithm for pose and velocity estimation of a high-speed parallel robot using vision.
   - Designed a visual system with high-performance CoaXPress cameras (acquisition frame rate of 2 kHz).
