@@ -20,9 +20,9 @@ summary: >
 highlights:
   - Architected a regulated AI-video platform with three core goals: isolate multiple AI apps sharing one GPU, enforce clear medical/non-medical boundaries, and low overlay latency for real-time surgical guidance.
   - Designed core runtime capabilities including AI scheduling, inference hardening, video and AI data recording, overlay generation, time synchronisation, and benchmarking.
-  - Act as the technical bridge across ML, Systems, Quality, Regulatory, and UI, turning requirements into a delivery roadmap.
-  - Built the platform to scale future AI features through shared x86/ARM dev containers, a modular build system, common libraries, and automated end-to-end model verification before deployment.
-  - Designed hardware-in-the-loop testing, CI-published documentation, and variant-aware build/versioning practices to make releases, regression testing, and submission artifacts repeatable under change control.
+  - Served as the liaison between ML, Systems, Quality, Regulatory, and UI teams, translating requirements into a clear delivery roadmap.
+  - Built a modular platform using shared x86/ARM containers and common libraries; added automated AI model verification for scalable AI features.
+  - Created hardware-in-the-loop and CI-published docs frameworks; established variant-aware build/versioning for repeatable releases and regression testing.
   - Technical lead for a team of 5 engineers, combining hands-on architecture work with mentoring, reviews, and pairing.
 images:
   - src: medtronic.png
