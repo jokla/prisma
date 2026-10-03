@@ -21,7 +21,7 @@ const title = label ?? 'Play video';
 const embedUrl = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
 const thumbnailUrl = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 ---
-<div class={`youtube-embed group relative aspect-video overflow-hidden border ${roundedClass}`} style="border-color: var(--color-border)">
+<div class={`youtube-embed group relative aspect-video overflow-hidden media-frame ${roundedClass}`}>
   <button
     type="button"
     class="youtube-embed-trigger relative h-full w-full cursor-pointer text-left"

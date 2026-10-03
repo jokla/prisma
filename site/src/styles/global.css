@@ -108,7 +108,7 @@ a:hover {
 @layer components {
   .surface {
     background-color: var(--color-bg-elev);
-    border: 1px solid var(--color-border);
+    border: 1px solid color-mix(in srgb, black 12%, var(--color-border));
     box-shadow: 0 10px 24px -22px rgba(15, 23, 42, 0.12);
     transition: border-color 180ms ease, box-shadow 180ms ease;
   }
@@ -118,6 +118,15 @@ a:hover {
     box-shadow:
       0 20px 40px -28px rgba(0, 0, 0, 0.65),
       0 0 0 1px color-mix(in srgb, white 8%, var(--color-border));
+  }
+
+  /* Border around images and video embeds. */
+  .media-frame {
+    border: 2px solid color-mix(in srgb, black 10%, var(--color-border));
+  }
+
+  .dark .media-frame {
+    border-color: color-mix(in srgb, white 18%, var(--color-border));
   }
 
   .muted {
