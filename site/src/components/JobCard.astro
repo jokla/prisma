@@ -11,8 +11,10 @@ import YouTubeEmbed from './YouTubeEmbed.astro';
 interface Props {
   entry: CollectionEntry<'experience'>;
   relatedProjects?: CollectionEntry<'projects'>[];
+  /** Header and Impact only, for the Home preview. */
+  compact?: boolean;
 }
-const { entry, relatedProjects = [] } = Astro.props;
+const { entry, relatedProjects = [], compact = false } = Astro.props;
 const d = entry.data;
 const range = formatRange(d.start, d.end);
 const logo = d.images?.[0] ? getAsset(d.images[0].src) : undefined;
@@ -76,7 +78,7 @@ const summaryParagraphs = d.summary
     </section>
   )}
 
-  {summaryParagraphs.length > 0 && (
+  {!compact && summaryParagraphs.length > 0 && (
     <details class="mt-6 group">
       <summary class="subtitle cursor-pointer text-sm select-none">
         Role notes ▸
@@ -87,7 +89,7 @@ const summaryParagraphs = d.summary
     </details>
   )}
 
-  {showcaseCount > 0 && (
+  {!compact && showcaseCount > 0 && (
     <section class="mt-8 border-t pt-6" style="border-color: var(--color-border)">
       <p class="subtitle mb-5 text-xs uppercase tracking-[0.24em]">Show, Don't Tell</p>
 
@@ -102,11 +104,11 @@ const summaryParagraphs = d.summary
       {showcaseImages.length > 0 && (
         <div class="mb-4 grid gap-4 md:grid-cols-2">
           {showcaseImages.map((img) => (
-            <figure class="overflow-hidden rounded-[1.25rem] border bg-white" style="border-color: var(--color-border)">
+            <figure class="media-frame overflow-hidden rounded-[1.25rem] bg-white">
               <Image src={img.asset} alt={img.alt} width={900} class="aspect-video w-full object-contain" />
               {(img.caption || img.credit) && (
-                <figcaption class="border-t px-4 py-2 text-xs" style="border-color: var(--color-border); color: var(--color-fg-muted)">
-                  {img.caption}{img.credit && <span> · Image: {img.credit}</span>}
+                <figcaption class="border-t px-4 py-2 text-xs" style="border-color: var(--color-border); background: var(--color-bg-elev); color: var(--color-fg)">
+                  {img.caption}{img.credit && <span style="color: var(--color-fg-muted)"> · Image: {img.credit}</span>}
                 </figcaption>
               )}
             </figure>
@@ -122,7 +124,7 @@ const summaryParagraphs = d.summary
     </section>
   )}
 
-  {d.tags.length > 0 && (
+  {!compact && d.tags.length > 0 && (
     <div class="mt-6 flex flex-wrap gap-1.5">
       {d.tags.map((tag) => (
         <span class="rounded-full px-2.5 py-1 text-xs" style="background: var(--color-bg); color: var(--color-fg-muted); border: 1px solid var(--color-border)">
