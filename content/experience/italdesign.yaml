@@ -8,7 +8,7 @@ website: https://www.italdesign.it/
 tags: [autonomous-driving-stack, ros, cpp, ml, deep-learning, sensor-integration, sil-hil, perception]
 tagline: ML and computer vision technical lead across autonomous driving, urban mobility and flying-car projects.
 summary: >
-  Joined Italdesign's new Autonomous Driving team as robotics expert.
+  Joined Italdesign's new Autonomous Driving team as a robotics expert.
   Technical lead for machine-learning and computer-vision work across
   InTo, Pop.Up Next, Wheem-i and Roborace, and responsible for the
   sensor set and full autonomous-driving stack (perception, mapping,
@@ -17,11 +17,11 @@ summary: >
   the sensor and compute platform, and set up SIL/HIL validation to
   deliver the first autonomous shuttle and flying-car demonstrations.
 highlights:
-  - Pop.Up (with Audi & Airbus): built drone localization, and autonomous latching. Demo at Amsterdam Drone Week 2018.
-  - Autonomous Driving: built sensor stack, perception, mapping, planning, control, logging/replay, and SIL/HIL testing.
+  - Pop.Up (with Audi & Airbus): built drone localization and autonomous latching. Demo at Amsterdam Drone Week 2018.
+  - Autonomous Driving: built the sensor stack, perception, mapping, planning, control, logging/replay, and SIL/HIL testing.
   - InTo: led ML/CV dev for passenger-flow prediction using onboard and station cameras; deployed at a Turin metro station.
   - Wheem-i: built obstacle/free-space perception and shared-control driver assistance for a semi-autonomous mobility device; finalist in Toyota's $4M Mobility Unlimited Challenge.
-  - Roborace: trained and deployed CNNs for object detection and semantic segmentation on autonomous racing car.
+  - Roborace: trained and deployed CNNs for object detection and semantic segmentation on an autonomous racing car.
 highlight_links:
   - label: InTo
     url: https://www.italdesign.it/project/into/

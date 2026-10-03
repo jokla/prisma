@@ -10,7 +10,7 @@ stack: [C++, ROS, ViSP]
 tags: [humanoid-robots, visual-servoing, whole-body-control, optimization]
 partners:
   - Airbus
-  - Softbank Robotics
+  - SoftBank Robotics
 summary: >
   Whole-body control of the Romeo humanoid robot formulated as a
   quadratic programming problem, with visual servoing tasks (grasping
@@ -19,7 +19,7 @@ summary: >
 highlights:
   - Integrated image-based visual servoing tasks into a QP-based whole-body controller that simultaneously enforced balance, posture and joint-limit constraints.
   - Demonstrated whole-body grasping and gaze control on the Romeo humanoid robot, coordinating arm, torso and leg motion from a single visual task.
-  - Co-authored "Visual Servoing in an Optimization Framework for the Whole-Body Control of Humanoid Robots" published at IEEE RA-L 2017 and presented at ICRA 2017.
+  - Co-authored "Visual Servoing in an Optimization Framework for the Whole-Body Control of Humanoid Robots" published in IEEE RA-L 2017 and presented at ICRA 2017.
 youtube:
   - id: 1--VjdDlFg4
     label: "Whole-body control with Romeo: Grasping by visual servoing"

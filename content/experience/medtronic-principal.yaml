@@ -18,9 +18,9 @@ summary: >
   AI-video platform.
 highlights:
   - Achieved sub-10 ms inference on Jetson Orin with >99% accuracy using model compression and quantization-aware training.
-  - Built an automated AI model conversion and verification pipeline converting PyTorch models to TensorRT, validating on- and off-target datasets spanning thousands of hours of annotated video.
+  - Built an automated AI model conversion and verification pipeline converting PyTorch models to TensorRT, with on- and off-target validation on datasets spanning thousands of hours of annotated video.
   - Containerized the dev and CI toolchain across x86/ARM targets, guaranteeing reproducible builds and test environments.
-  - Designed modular build system enabling feature-gated releases across product variants from shared code.
+  - Designed a modular build system enabling feature-gated releases across product variants from shared code.
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery

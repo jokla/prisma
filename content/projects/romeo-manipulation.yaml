@@ -9,10 +9,10 @@ end: 2017
 stack: [C++, Python, ROS, ViSP]
 tags: [humanoid-robots, visual-servoing, manipulation, perception]
 partners:
-  - Softbank Robotics
+  - SoftBank Robotics
 summary: >
   Perception and manipulation demonstrations on the Romeo humanoid robot
-  (Softbank Robotics) combining object detection, model-based and template
+  (SoftBank Robotics) combining object detection, model-based and template
   tracking, 3D point-cloud segmentation and visual servoing to grasp
   objects, open doors and interact with people.
 highlights:

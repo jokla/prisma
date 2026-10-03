@@ -15,4 +15,4 @@ summary: >
   sensor data acquired while driving.
 highlights:
   - Support Vector Machine with a Gaussian kernel, with training-set reordering and sampling.
-  - Score 0.80 on a 0.43 (worst) to 0.86 (best) range.
+  - Scored 0.80 on a range from 0.43 (worst) to 0.86 (best).

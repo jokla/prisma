@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { formatRange } from '../lib/dates';
 import { getAsset } from '../lib/assets';
 import { getLocationFlag } from '../lib/location';
+import { linkifyText } from '../lib/links';
 import WorkProjectCard from './WorkProjectCard.astro';
 import YouTubeEmbed from './YouTubeEmbed.astro';
 
@@ -17,7 +18,11 @@ const range = formatRange(d.start, d.end);
 const logo = d.images?.[0] ? getAsset(d.images[0].src) : undefined;
 const locationFlag = getLocationFlag(d.location);
 const roleVideos = d.youtube ?? [];
-const showcaseCount = relatedProjects.length + roleVideos.length;
+const showcaseImages = (d.showcase_images ?? []).flatMap((img) => {
+  const asset = getAsset(img.src);
+  return asset ? [{ ...img, asset }] : [];
+});
+const showcaseCount = relatedProjects.length + roleVideos.length + showcaseImages.length;
 const summaryParagraphs = d.summary
   ? d.summary.split(/\n+/).map((p) => p.trim()).filter(Boolean)
   : [];
@@ -62,7 +67,9 @@ const summaryParagraphs = d.summary
         {d.highlights.map((item) => (
           <li class="relative pl-5">
             <span class="job-bullet" aria-hidden="true"></span>
-            {item}
+            {linkifyText(item, d.highlight_links).map((seg) =>
+              seg.url ? <a href={seg.url} target="_blank" rel="noopener">{seg.text}</a> : seg.text
+            )}
           </li>
         ))}
       </ul>
@@ -88,6 +95,21 @@ const summaryParagraphs = d.summary
         <div class="mb-4 grid gap-4 md:grid-cols-2">
           {roleVideos.map((video) => (
             <YouTubeEmbed id={video.id} label={video.label ?? d.company} kicker="Role Footage" />
+          ))}
+        </div>
+      )}
+
+      {showcaseImages.length > 0 && (
+        <div class="mb-4 grid gap-4 md:grid-cols-2">
+          {showcaseImages.map((img) => (
+            <figure class="overflow-hidden rounded-[1.25rem] border bg-white" style="border-color: var(--color-border)">
+              <Image src={img.asset} alt={img.alt} width={900} class="aspect-video w-full object-contain" />
+              {(img.caption || img.credit) && (
+                <figcaption class="border-t px-4 py-2 text-xs" style="border-color: var(--color-border); color: var(--color-fg-muted)">
+                  {img.caption}{img.credit && <span> · Image: {img.credit}</span>}
+                </figcaption>
+              )}
+            </figure>
           ))}
         </div>
       )}

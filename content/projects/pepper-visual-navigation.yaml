@@ -9,10 +9,10 @@ end: 2017
 stack: [C++, Python, ROS, ViSP]
 tags: [humanoid-robots, visual-servoing, navigation, obstacle-avoidance]
 partners:
-  - Softbank Robotics
+  - SoftBank Robotics
 summary: >
   Vision-based navigation demonstrations with the Pepper humanoid robot
-  (Softbank Robotics), combining image-based visual servoing, people
+  (SoftBank Robotics), combining image-based visual servoing, people
   following and obstacle avoidance with onboard 2D and RGB-D cameras.
 highlights:
   - Developed image-based visual servoing for Pepper using ROS and OpenTLD to track and follow generic targets in real time.
