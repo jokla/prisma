@@ -13,6 +13,16 @@ const imageRef = z.object({
   alt: z.string(),
 });
 
+const showcaseImageRef = imageRef.extend({
+  caption: z.string().optional(),
+  credit: z.string().optional(),
+});
+
+const linkRef = z.object({
+  label: z.string(),
+  url: z.string().url(),
+});
+
 const youtubeRef = z.object({
   id: z.string(),
   label: z.string().optional(),
@@ -44,7 +54,9 @@ const experience = defineCollection({
     summary: z.string(),
     highlights: z.array(highlightItem).default([]),
     archived_highlights: z.array(highlightItem).optional(),
+    highlight_links: z.array(linkRef).optional(),
     images: z.array(imageRef).optional(),
+    showcase_images: z.array(showcaseImageRef).optional(),
     youtube: z.array(youtubeRef).optional(),
     archived: z.boolean().optional(),
   }),

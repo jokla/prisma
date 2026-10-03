@@ -1,44 +1,71 @@
 id: medtronic-sr-principal
 company: Medtronic, Digital Surgery
-role: Sr. Principal Software Engineer, AI-Video Technical Lead
+role: Sr. Principal Software Engineer, Software Architect & AI-Video Tech Lead
 location: London, UK
 start: 2025-01
 end: present
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
-tags: [platform-architecture, technical-leadership, cpp, tensorrt, cuda, gpu-scheduling, fda-submissions]
-tagline: Leading architecture and delivery of a regulated AI-video platform on embedded GPUs, enabling multiple AI applications to share a single GPU while meeting strict medical isolation and latency requirements.
+tags: [touch-surgery-aide, platform-architecture, technical-leadership, cpp, tensorrt, cuda, gpu-scheduling, fda-submissions]
+tagline: Leading the software behind Touch Surgery™ Aide, Medtronic's real-time AI compute platform for the operating room, where several AI applications run side by side during surgery.
 summary: >
-  Stepped into the AI-Video Technical Lead role to own the architecture
-  and delivery of Medtronic's regulated surgical AI-video platform, a
-  system that delivers real-time AI guidance during robotic and
-  laparoscopic surgery, from prototype to release.
+  I lead the software platform behind Touch Surgery™ Aide, Medtronic's
+  real-time AI compute platform for the operating room. Earlier Touch
+  Surgery™ products mostly analysed surgical video after the
+  operation; Aide runs AI while the procedure is happening. Its first
+  application, Instrument Exit Point, works with the Hugo™
+  robotic-assisted surgery system: when an instrument leaves the
+  camera's view, it marks the spot where it was last seen. It has FDA
+  510(k) clearance.
 
-  The platform is built around three goals: isolation (multiple AI
-  applications sharing a single embedded GPU without interference),
-  segregation (clean medical/non-medical software boundaries for IEC
-  62304 compliance), and performance (sub-10 ms inference latency
-  on every surgical frame). Achieving this required a modular
-  multi-process design with one responsibility per service, a
-  pub/sub and shared-memory IPC layer for zero-copy video
-  transport, and an AI manager that controls inference end-to-end,
-  preventing parallel overloads, enforcing valid AI combinations, and
-  recovering from failure modes.
+  I took the platform from prototype to release as AI-Video Technical
+  Lead. I'm also one of the software architects on the project,
+  helping shape the decisions that cut across teams and components:
+  software architecture, versioning, generated documentation,
+  automated integration tests, observability (logging and data
+  recording), C++ best practices and CI.
 
-  Beyond the runtime, the role spans the full delivery stack: unified
-  dev containers for engineers and CI, a modular build system enabling
-  feature-gated releases across product variants, shared platform
-  libraries, hardware-in-the-loop integration testing, and
-  documentation practices that feed directly into FDA submission
-  artefacts. As technical anchor across ML, Systems, Quality,
-  Regulatory, and UI teams, this role owns technical decisions from
-  architecture through regulatory sign-off.
+  The design comes down to three goals. Isolation: several AI
+  applications run side by side without getting in each other's way.
+  Segregation: regulated medical functions stay cleanly separated from
+  everything else, in line with IEC 62304 (the medical-device software
+  standard). Performance: AI guidance appears live on the surgical
+  video, with latency kept as low as possible so it keeps pace with
+  the surgeon's movements. Getting there meant a modular
+  design where each component has one job, efficient video transport
+  between them, and a layer that coordinates the AI applications,
+  keeps the system within its limits and handles failures gracefully.
+
+  The job goes well beyond the runtime: dev containers shared by
+  engineers and CI, a modular build system for feature-gated releases
+  across product variants, shared platform libraries,
+  hardware-in-the-loop testing, and documentation that feeds straight
+  into FDA submissions. Day to day, I'm the technical anchor across ML,
+  Systems, Quality, Regulatory and UI, from the first architecture
+  sketch to regulatory sign-off.
 highlights:
-  - Defined and owned the software architecture for a regulated AI-video platform, enabling multiple AI applications to share a single GPU with strict medical/non-medical isolation and sub-frame overlay latency for real-time surgical guidance.
-  - Built a C++ stack (AI manager, scheduler, TensorRT inference, video/AI recording) with reusable libraries for message-passing middleware, visualization, logging, telemetry and monitoring.
-  - Led cross-functional AI-video delivery across 8 teams: ML, Systems, DevOps, Cloud, Quality, Regulatory and UI.
-  - Co-located architecture and documentation with code, automating variant-aware regulatory artifact generation in CI for traceable, submission-ready FDA deliverables.
-  - Introduced an agentic-AI workspace adopted daily for development, documentation, compliance auditing, FMEA review and regulatory preparation.
-  - Mentored 5+ engineers through code pairing and technical reviews, increasing delivery pace and design quality.
+  - Led the software behind Touch Surgery™ Aide, Medtronic's real-time AI compute platform for the operating room.
+  - Achieved FDA 510(k) clearance for Instrument Exit Point, Aide's first AI app, marking where Hugo™ instruments exit the view.
+  - Architected GPU sharing for multiple AI apps with strict medical/non-medical isolation and sub-frame overlay latency.
+  - Shaped project-wide practices in architecture, versioning, doc generation, integration testing, observability, C++ and CI.
+  - Acted as the AI-video point of contact between the ML, Systems, DevOps, Cloud, Quality, Regulatory and UI teams.
+  - Built the C++ runtime (AI manager, scheduler, TensorRT inference, recording) plus IPC, visualization and telemetry libraries.
+  - Introduced an agentic-AI workspace used daily for development, documentation, compliance audits and FMEA review.
+  - Mentored 5+ engineers through pairing and design reviews, raising delivery pace and design quality.
+highlight_links:
+  - label: Touch Surgery™ Aide
+    url: https://news.medtronic.com/2026-07-21-A-new-era-for-surgery-with-real-time-AI-Medtronic-to-unveil-Touch-Surgery-TM-Aide,-the-next-generation-compute-platform-for-the-operating-room-at-Society-of-Robotic-Surgery-2026
 images:
   - src: medtronic.png
     alt: Medtronic Digital Surgery
+showcase_images:
+  - src: touch-surgery-aide-ecosystem.jpg
+    alt: Touch Surgery Aide compute unit with the Touch Surgery app, web dashboard and controller
+    caption: Touch Surgery™ Aide and the Touch Surgery™ ecosystem
+    credit: Medtronic
+  - src: hugo-console-touch-surgery-aide.jpg
+    alt: Hugo RAS surgeon console next to a cart carrying the Touch Surgery Aide and its adjunct monitor
+    caption: Hugo™ RAS console with Touch Surgery™ Aide
+    credit: Medtronic
+youtube:
+  - id: caXJNWfq1bs
+    label: The Touch Surgery™ ecosystem (Medtronic Digital Surgery)
