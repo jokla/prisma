@@ -6,9 +6,9 @@ start: 2025-01
 end: present
 website: https://www.medtronic.com/covidien/en-gb/products/digital-surgery.html
 tags: [touch-surgery-aide, platform-architecture, technical-leadership, cpp, tensorrt, cuda, gpu-scheduling, fda-submissions]
-tagline: Leading the software behind Touch Surgery™ Aide, Medtronic's real-time AI compute platform for the operating room, where several AI applications run side by side during surgery.
+tagline: Leading the AI-video software behind Touch Surgery™ Aide, Medtronic's real-time AI compute platform for the operating room, where several AI applications run side by side during surgery.
 summary: >
-  I lead the software platform behind Touch Surgery™ Aide, Medtronic's
+  I lead the AI-video software behind Touch Surgery™ Aide, Medtronic's
   real-time AI compute platform for the operating room. Earlier Touch
   Surgery™ products mostly analysed surgical video after the
   operation; Aide runs AI while the procedure is happening. Its first
@@ -43,7 +43,7 @@ summary: >
   Systems, Quality, Regulatory and UI, from the first architecture
   sketch to regulatory sign-off.
 highlights:
-  - Led the software behind Touch Surgery™ Aide, Medtronic's real-time AI compute platform for the operating room.
+  - Led the AI-video software behind Touch Surgery™ Aide, Medtronic's real-time AI compute platform for the operating room.
   - Achieved FDA 510(k) clearance for Instrument Exit Point, Aide's first AI app, marking where Hugo™ instruments exit the view.
   - Architected GPU sharing for multiple AI apps with strict medical/non-medical isolation and sub-frame overlay latency.
   - Shaped project-wide practices in architecture, versioning, doc generation, integration testing, observability, C++ and CI.
