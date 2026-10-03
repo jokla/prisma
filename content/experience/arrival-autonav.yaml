@@ -11,11 +11,11 @@ summary: >
   navigation and simulation software for the autonomous mobile robots
   (AMRs) in Arrival's microfactories. Worked
   on multi-robot ROS architecture, robot abilities for movement and
-  docking, and the test infrastructure used to validate the fleet
-  before promotion into the senior vision role after 18 months.
+  docking, and the test infrastructure used to validate the fleet.
+  Promoted to the senior vision role after 18 months.
 highlights:
-  - Integrated lidar-based navigation stack for the WeMo AMR fleet, and state reporting to the factory orchestrator.
-  - Implemented a visual servoing algorithm for automatic docking to charge and factory stations.
+  - Integrated a lidar-based navigation stack for the WeMo AMR fleet, plus state reporting to the factory orchestrator.
+  - Implemented a visual servoing algorithm for automatic docking to charging and factory stations.
   - Built the fleet simulation environment used to validate navigation and docking behavior before hardware deployment.
 images:
   - src: ARRIVAL_logo.png

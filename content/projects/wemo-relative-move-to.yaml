@@ -21,5 +21,5 @@ highlights:
   - Used a teaching-by-showing approach so desired poses could be learned once and reused across the fleet instead of reteaching every target on every robot.
   - Defined the goal model and factory integration flow for station- and payload-specific positioning targets, including cluster-mode pallet delivery.
   - Calibration cut cross-robot pose-transfer error by roughly 8x in translation and more than 15x in orientation, despite lens and sensor variability, camera mounting differences and manufacturing tolerances.
-  - Validated the method with motion-capture-based accuracy campaigns, including multi-robot cluster tests where poses learned on one robot still achieved about 1.8 to 2.8 mm translation accuracy and about 0.04 to 0.1 degree angular accuracy.
+  - Validated the method with motion-capture-based accuracy campaigns, including multi-robot cluster tests where poses learned on one robot still achieved about 1.8 to 2.8 mm translation accuracy and about 0.04 to 0.1 degrees angular accuracy.
   - Enabled reliable coupling to charging stations and factory interfaces after coarse navigation.

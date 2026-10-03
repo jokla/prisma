@@ -19,7 +19,7 @@ summary: >
   door opening, whole-body control, people following and obstacle
   avoidance. As part of the Comanoid project with Airbus, integrated
   visual-servoing tasks into a QP-based whole-body controller enforcing
-  balance, posture and joint-limit constraints, leading to a RA-L
+  balance, posture and joint-limit constraints, leading to an RA-L
   / ICRA 2017 publication. Built a ROS + MATLAB/Simulink + V-REP
   rapid-prototyping framework adopted across the team for validating
   algorithms in simulation before deploying the same controllers to

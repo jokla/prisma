@@ -15,9 +15,9 @@ courses:
   - Embedded Systems
   - Robot Programming
   - Optimization Techniques
-  - Optimal kinematic design of robots
-  - Advanced modelling of robots
-  - Identification and control of robots
+  - Optimal Kinematic Design of Robots
+  - Advanced Modelling of Robots
+  - Identification and Control of Robots
 images:
   - src: ecn_logo_cv.svg
     alt: École Centrale de Nantes
